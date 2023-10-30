@@ -10,6 +10,30 @@ hr {
   height: 8px;
 }
 
+p.etiqueta{
+  font-size: 25px;
+  text-align: justify;
+}
+
+p.titulo{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.contenido{
+  background-color: var(--secundario);
+  border-radius: 10px;
+}
+
+p.contenido {
+  font-size: 16px;
+  text-align: justify;
+}
+
+.imagen {
+  max-width: 35px;
+}
+
 .titulo-productos {
   border-radius: 10px;
   background-color: #E3D8CA;
@@ -19,3 +43,5 @@ hr {
   border-radius: 10px;
   background-color: #BADECE;
 }
+
+
