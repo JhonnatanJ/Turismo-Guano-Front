@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { SectionsModule } from './sections/sections.module';
+import { ContactsModule } from './contacts/contacts.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -11,7 +12,8 @@ import { SectionsModule } from './sections/sections.module';
   imports: [
     BrowserModule,
     SharedModule,
-    SectionsModule
+    SectionsModule,
+    ContactsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
