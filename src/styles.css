@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Junge";
+  src: url("./assets/fonts/Junge/Junge-Regular.ttf");
+}
+
+body {
+  font-family: "Junge", sans-serif;
+}
+
+*{
+  --primario: #f9f7f7;
+  --secundario: rgba(229, 229, 229, 0.788);
+  --informacion: #a9cff0;
+  --on-hover: #0065bd70;
+  --bordeinput: rgba(190, 190, 190, 0.789);
+  --textoligth: white;
+  --textodark: rgba(141, 141, 141, 0.864);
+  --texto-error: rgb(219, 84, 84);
+}
