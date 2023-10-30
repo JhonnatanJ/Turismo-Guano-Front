@@ -1,0 +1,13 @@
+.carousel {
+  background-color: var(--secundario);
+}
+
+.carousel-item {
+  height: 25rem;
+  width: 100%;
+}
+
+.carousel-item img {
+  width: 50%;
+  height: auto;
+}

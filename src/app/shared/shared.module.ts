@@ -6,6 +6,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
 import { CardComponent } from './components/card/card.component';
 import { CardDestinoComponent } from './components/card-destino/card-destino.component';
+import { CarruselProductosComponent } from './components/temp/carrusel-productos/carrusel-productos.component';
+import { CarruselDestinosComponent } from './components/temp/carrusel-destinos/carrusel-destinos.component';
+import { CardProductoComponent } from './components/card-producto/card-producto.component';
 
 
 
@@ -16,7 +19,10 @@ import { CardDestinoComponent } from './components/card-destino/card-destino.com
     FooterComponent,
     CarruselComponent,
     CardComponent,
-    CardDestinoComponent
+    CardDestinoComponent,
+    CarruselProductosComponent,
+    CarruselDestinosComponent,
+    CardProductoComponent
   ],
   imports: [
     CommonModule
@@ -27,7 +33,11 @@ import { CardDestinoComponent } from './components/card-destino/card-destino.com
     CardComponent,
     FooterComponent,
 
-    CardDestinoComponent
+
+    CardDestinoComponent,
+    CardProductoComponent,
+    CarruselProductosComponent,
+    CarruselDestinosComponent
   ]
 })
 export class SharedModule { }

@@ -23,6 +23,10 @@ hr {
   background-color: #BADECE;
 }
 
+.titulo-producto {
+  border-radius: 10px;
+  background-color: #E3D8CA;
+}
 .info:hover {
   background-color: #BADECE;
   border-radius: 10px;

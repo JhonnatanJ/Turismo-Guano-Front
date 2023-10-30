@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { ListCardDestinoComponent } from './components/list-card-destino/list-card-destino.component';
 import { GridCardDestinoComponent } from './components/grid-card-destino/grid-card-destino.component';
+import { GridCardProductosComponent } from './components/grid-card-productos/grid-card-productos.component';
+import { ListCardProductosComponent } from './components/list-card-productos/list-card-productos.component';
 
 
 
@@ -21,7 +23,9 @@ import { GridCardDestinoComponent } from './components/grid-card-destino/grid-ca
     ListCardComponent,
     HomeComponent,
     ListCardDestinoComponent,
-    GridCardDestinoComponent
+    GridCardDestinoComponent,
+    GridCardProductosComponent,
+    ListCardProductosComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,8 @@ import { GridCardDestinoComponent } from './components/grid-card-destino/grid-ca
   ],
   exports : [
     HomeComponent,
-    DestinosComponent
+    DestinosComponent,
+    ProductosComponent
   ]
 })
 export class SectionsModule { }
