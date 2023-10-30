@@ -18,3 +18,8 @@ p.nombre {
   font-weight: bold;
   font-size: larger;
 }
+
+.image-zoom:hover {
+  transform: scale(1.08);
+  transition: transform 0.2s ease-in-out;
+}
