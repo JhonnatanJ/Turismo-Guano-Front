@@ -1,0 +1,45 @@
+p{
+  font-size: 20px;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+hr{
+  margin: 2px;
+  padding: 2px;
+  background-color: black;
+  width: 800px;
+  align-self: center;
+}
+
+p.titulo {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+h1{
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+img.imagen-informacion{
+  width: 90%;
+  height: auto;
+}
+
+.titulo-informacion {
+  border-radius: 10px;
+  background-color: #C7D6C2;
+}
+.titulo-productos {
+  border-radius: 10px;
+  background-color: #E3D8CA;
+}
+
+.titulo-destino {
+  border-radius: 10px;
+  background-color: #BADECE;
+}
+
+

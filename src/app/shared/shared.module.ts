@@ -5,6 +5,7 @@ import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
 import { CardComponent } from './components/card/card.component';
+import { CardDestinoComponent } from './components/card-destino/card-destino.component';
 
 
 
@@ -14,10 +15,19 @@ import { CardComponent } from './components/card/card.component';
     HeaderComponent,
     FooterComponent,
     CarruselComponent,
-    CardComponent
+    CardComponent,
+    CardDestinoComponent
   ],
   imports: [
     CommonModule
+  ],
+  exports : [
+    HeaderComponent,
+    CarruselComponent,
+    CardComponent,
+    FooterComponent,
+
+    CardDestinoComponent
   ]
 })
 export class SharedModule { }

@@ -5,6 +5,9 @@ import { DestinosComponent } from './pages/destinos/destinos.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { GridCardComponent } from './components/grid-card/grid-card.component';
 import { ListCardComponent } from './components/list-card/list-card.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SharedModule } from '../shared/shared.module';
+import { ListCardDestinoComponent } from './components/list-card-destino/list-card-destino.component';
 
 
 
@@ -14,10 +17,16 @@ import { ListCardComponent } from './components/list-card/list-card.component';
     DestinosComponent,
     ProductosComponent,
     GridCardComponent,
-    ListCardComponent
+    ListCardComponent,
+    HomeComponent,
+    ListCardDestinoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
+  ],
+  exports : [
+    HomeComponent
   ]
 })
 export class SectionsModule { }

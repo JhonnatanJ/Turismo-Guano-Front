@@ -1,1 +1,55 @@
-<p>header works!</p>
+<header class="container-fluid p-3">
+  <div class="row align-items-center">
+    <!-- ------------------------------------------------------- LOGO -->
+    <div class="col-2">
+      <a routerLink="">
+        <img src="../../../../assets/icons/light/logoGuano.png" alt="logoGuano" class="logo">
+      </a>
+    </div>
+    <!-- ------------------------------------------------------- BUSQUEDA -->
+    <div class="col-6 ps-2">
+      <form autocomplete="off">
+        <input
+          routerLink="busqueda"
+          routerLinkActive="active"
+          type="text"
+          name="termino"
+          class="form-control"
+          placeholder="Busca aquí..."
+          image = '../../../../assets/icons/light/lupa.png'
+        />
+      </form>
+    </div>
+
+  <!-- ----------------------------------------------------- SECTIONS -->
+    <div class="col-1 p-0">
+      <a routerLink="destinos">
+        <img src="../../../../assets/icons/light/maps.png" alt="destinos" class="carrito">
+        <p class="m-0 fw-normal" >Destinos</p>
+      </a>
+    </div>
+
+    <div class="col-1 p-0">
+      <a routerLink="destinos">
+        <img src="../../../../assets/icons/light/productos.png" alt="destinos" class="carrito">
+        <p class="m-0 fw-normal" >Productos</p>
+      </a>
+    </div>
+
+    <div class="col-1 p-0">
+      <a routerLink="destinos">
+        <img src="../../../../assets/icons/light/email.png" alt="destinos" class="carrito">
+        <p class="m-0 fw-normal" >Contactenos</p>
+      </a>
+    </div>
+
+    <div class="col-1 p-0">
+      <a routerLink="destinos">
+        <img src="../../../../assets/icons/light/usuario.png" alt="destinos" class="carrito">
+        <p class="m-0 fw-normal" >IniciarSesion</p>
+      </a>
+    </div>
+
+  </div>
+
+</header>
