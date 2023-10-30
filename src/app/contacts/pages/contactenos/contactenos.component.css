@@ -4,10 +4,10 @@ h1{
   font-size: calc(0.8rem + 1.5vw);
 }
 
-/* h2.titulo {
-  background-color: #C2E4FF;
+ h2.titulo {
+  background-color: var(--secundario);
   border-radius: 10px;
-} */
+}
 
 p.decripcion{
   font-size: 18px;
