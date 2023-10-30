@@ -9,6 +9,7 @@ import { CardDestinoComponent } from './components/card-destino/card-destino.com
 import { CarruselProductosComponent } from './components/temp/carrusel-productos/carrusel-productos.component';
 import { CarruselDestinosComponent } from './components/temp/carrusel-destinos/carrusel-destinos.component';
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -25,7 +26,8 @@ import { CardProductoComponent } from './components/card-producto/card-producto.
     CardProductoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports : [
     HeaderComponent,
