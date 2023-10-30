@@ -8,6 +8,7 @@ import { ListCardComponent } from './components/list-card/list-card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { ListCardDestinoComponent } from './components/list-card-destino/list-card-destino.component';
+import { GridCardDestinoComponent } from './components/grid-card-destino/grid-card-destino.component';
 
 
 
@@ -19,14 +20,16 @@ import { ListCardDestinoComponent } from './components/list-card-destino/list-ca
     GridCardComponent,
     ListCardComponent,
     HomeComponent,
-    ListCardDestinoComponent
+    ListCardDestinoComponent,
+    GridCardDestinoComponent
   ],
   imports: [
     CommonModule,
     SharedModule
   ],
   exports : [
-    HomeComponent
+    HomeComponent,
+    DestinosComponent
   ]
 })
 export class SectionsModule { }
