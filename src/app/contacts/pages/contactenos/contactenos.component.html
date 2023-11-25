@@ -1,173 +1,176 @@
-<div class="d-flex flex-column flex-wrap justify-content-center m-4 px-5">
-  <h2 class="text-center mt-2 mb-0 titulo">DATOS DE CLIENTE</h2>
-  <br />
+<div class="container d-flex flex-column justify-content-center">
+  <div class="d-flex flex-column flex-wrap justify-content-center m-4 px-5">
+    <h2 class="text-center mt-2 mb-0 titulo">DATOS DE CLIENTE</h2>
+    <br />
 
-  <div class="d-flex mb-2 p-0 justify-content-center">
-    <hr class="mt-2">
-  </div>
-
-  <div class="row mt-3 text-center">
-    <p class="decripcion">Nos interesa mucho conocer tu opinión; escribe tus consultas, comentarios o sugerencias y con gusto responderemos.</p>
-  </div>
-
-  <form class="m-1 p-4 formulario" [formGroup] = "formCliente">
-    <div class="row container-fluid input">
-      <div class="col-12 col-sm-6">
-        <label for="nombre" class="form-label">Nombres</label><br />
-        <input
-          formControlName="nombres"
-          type="text"
-          name="name"
-          class="form-control"
-          placeholder="Nombres"
-          [ngClass]="{
-            'is-invalid': nombresControl.invalid && nombresControl.touched
-          }"
-        />
-        <div
-          *ngIf="
-            nombresControl.invalid &&
-            (nombresControl.touched || nombresControl.dirty)
-          "
-          class="errors-container"
-        >
-          <p class="error-msg" *ngIf="nombresControl.hasError('required')">
-            *Campo vacío
-          </p>
-          <p class="error-msg" *ngIf="nombresControl.hasError('pattern')">
-            *Solo se permiten letras
-          </p>
-          <p class="error-msg" *ngIf="nombresControl.hasError('pattern')">
-            *Limite de texto superado
-          </p>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6">
-        <label for="apellidos" class="form-label">Apellidos</label><br />
-        <input
-          formControlName="apellidos"
-          type="text"
-          class="form-control"
-          name="lastname"
-          placeholder="Apellidos"
-          [ngClass]="{
-            'is-invalid': apellidosControl.invalid && apellidosControl.touched
-          }"
-        />
-        <div
-          *ngIf="
-            apellidosControl.invalid &&
-            (apellidosControl.touched || apellidosControl.dirty)
-          "
-          class="errors-container"
-        >
-          <p class="error-msg" *ngIf="apellidosControl.hasError('required')">
-            *Campo vacío
-          </p>
-          <p class="error-msg" *ngIf="apellidosControl.hasError('pattern')">
-            *Solo se permiten letras
-          </p>
-          <p class="error-msg" *ngIf="apellidosControl.hasError('maxlength')">
-            *Limite de texto superado
-          </p>
-        </div>
-      </div>
+    <div class="d-flex mb-2 p-0 justify-content-center">
+      <hr class="mt-2" />
     </div>
-    <div class="row container-fluid input">
-      <div class="col-12 col-sm-6">
-        <label for="nombre" class="form-label">Email</label><br />
-        <input
-          formControlName="email"
-          type="text"
-          name="id"
-          class="form-control"
-          autocomplete="off"
-          placeholder="Email"
-          [ngClass]="{
-            'is-invalid': emailControl.invalid && emailControl.touched
-          }"
-        />
-        <div
-          *ngIf="
-            emailControl.invalid &&
-            (emailControl.touched || emailControl.dirty)
-          "
-          class="errors-container"
+
+    <div class="row mt-3 text-center">
+      <p class="decripcion">
+        Nos interesa mucho conocer tu opinión; escribe tus consultas,
+        comentarios o sugerencias y con gusto responderemos.
+      </p>
+    </div>
+
+    <form class="m-1 p-4 formulario" [formGroup]="formCliente">
+      <div class="row container-fluid input">
+        <div class="col-12 col-sm-6">
+          <label for="nombre" class="form-label">Nombres</label><br />
+          <input
+            formControlName="nombres"
+            type="text"
+            name="name"
+            class="form-control"
+            placeholder="Nombres"
+            [ngClass]="{
+              'is-invalid': nombresControl.invalid && nombresControl.touched
+            }"
+          />
+          <div
+            *ngIf="
+              nombresControl.invalid &&
+              (nombresControl.touched || nombresControl.dirty)
+            "
+            class="errors-container"
           >
-          <p class="error-msg" *ngIf="emailControl.hasError('required')">
-            *Campo vacío
-          </p>
-          <p class="error-msg" *ngIf="celularControl.hasError('pattern')">
-            *Correo electrónico incorrecto
-          </p>
+            <p class="error-msg" *ngIf="nombresControl.hasError('required')">
+              *Campo vacío
+            </p>
+            <p class="error-msg" *ngIf="nombresControl.hasError('pattern')">
+              *Solo se permiten letras
+            </p>
+            <p class="error-msg" *ngIf="nombresControl.hasError('pattern')">
+              *Limite de texto superado
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="apellidos" class="form-label">Apellidos</label><br />
+          <input
+            formControlName="apellidos"
+            type="text"
+            class="form-control"
+            name="lastname"
+            placeholder="Apellidos"
+            [ngClass]="{
+              'is-invalid': apellidosControl.invalid && apellidosControl.touched
+            }"
+          />
+          <div
+            *ngIf="
+              apellidosControl.invalid &&
+              (apellidosControl.touched || apellidosControl.dirty)
+            "
+            class="errors-container"
+          >
+            <p class="error-msg" *ngIf="apellidosControl.hasError('required')">
+              *Campo vacío
+            </p>
+            <p class="error-msg" *ngIf="apellidosControl.hasError('pattern')">
+              *Solo se permiten letras
+            </p>
+            <p class="error-msg" *ngIf="apellidosControl.hasError('maxlength')">
+              *Limite de texto superado
+            </p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6">
-        <label for="apellidos" class="form-label">Celular</label><br />
-        <input
-          formControlName="celular"
-          type="text"
-          class="form-control"
-          name="phone"
-          placeholder="Celular de contacto"
-          [ngClass]="{
-            'is-invalid': celularControl.invalid && celularControl.touched
-          }"
-        />
-        <div
-          *ngIf="
-            celularControl.invalid &&
-            (celularControl.touched || celularControl.dirty)
-          "
-          class="errors-container"
-        >
-        <p class="error-msg" *ngIf="celularControl.hasError('required')">
-          *Campo vacío
-        </p>
-        <p class="error-msg" *ngIf="celularControl.hasError('pattern')">
-          *Solo se permiten números
-        </p>
-        <p class="error-msg" *ngIf="celularControl.hasError('minlength')">
-          *Solo se permiten 10 números
-        </p>
-        <p class="error-msg" *ngIf="celularControl.hasError('maxlength')">
-          *Solo se permiten 10 números
-        </p>
-      </div>
-    </div>
-    <div class="row container-fluid ">
-        <label for="apellidos" class="form-label mb-0">Mensaje</label><br />
-        <textarea
-          formControlName="mensaje"
-          type="text"
-          class="form-control ms-3"
-          name="mensaje"
-          placeholder="Ingrese su mensaje..."
-          [ngClass]="{
-            'is-invalid': mensajeControl.invalid && mensajeControl.touched
-          }"
-        >
-        </textarea>
-        <div
-          *ngIf="
-            mensajeControl.invalid &&
-            (mensajeControl.touched || mensajeControl.dirty)
-          "
-          class="errors-container"
-        >
-          <p class="error-msg" *ngIf="celularControl.hasError('required')">
-            *Ingrese mínimo 5 caracteres
-          </p>
-          <p class="error-msg" *ngIf="celularControl.hasError('minlength')">
-            *Se permite mínimo 5 caracteres
-          </p>
+      <div class="row container-fluid input">
+        <div class="col-12 col-sm-6">
+          <label for="nombre" class="form-label">Email</label><br />
+          <input
+            formControlName="email"
+            type="text"
+            name="id"
+            class="form-control"
+            autocomplete="off"
+            placeholder="Email"
+            [ngClass]="{
+              'is-invalid': emailControl.invalid && emailControl.touched
+            }"
+          />
+          <div
+            *ngIf="
+              emailControl.invalid &&
+              (emailControl.touched || emailControl.dirty)
+            "
+            class="errors-container"
+          >
+            <p class="error-msg" *ngIf="emailControl.hasError('required')">
+              *Campo vacío
+            </p>
+            <p class="error-msg" *ngIf="celularControl.hasError('pattern')">
+              *Correo electrónico incorrecto
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="apellidos" class="form-label">Celular</label><br />
+          <input
+            formControlName="celular"
+            type="text"
+            class="form-control"
+            name="phone"
+            placeholder="Celular de contacto"
+            [ngClass]="{
+              'is-invalid': celularControl.invalid && celularControl.touched
+            }"
+          />
+          <div
+            *ngIf="
+              celularControl.invalid &&
+              (celularControl.touched || celularControl.dirty)
+            "
+            class="errors-container"
+          >
+            <p class="error-msg" *ngIf="celularControl.hasError('required')">
+              *Campo vacío
+            </p>
+            <p class="error-msg" *ngIf="celularControl.hasError('pattern')">
+              *Solo se permiten números
+            </p>
+            <p class="error-msg" *ngIf="celularControl.hasError('minlength')">
+              *Solo se permiten 10 números
+            </p>
+            <p class="error-msg" *ngIf="celularControl.hasError('maxlength')">
+              *Solo se permiten 10 números
+            </p>
+          </div>
+        </div>
+        <div class="row container-fluid">
+          <label for="apellidos" class="form-label mb-0">Mensaje</label><br />
+          <textarea
+            formControlName="mensaje"
+            type="text"
+            class="form-control ms-3"
+            name="mensaje"
+            placeholder="Ingrese su mensaje..."
+            [ngClass]="{
+              'is-invalid': mensajeControl.invalid && mensajeControl.touched
+            }"
+          >
+          </textarea>
+          <div
+            *ngIf="
+              mensajeControl.invalid &&
+              (mensajeControl.touched || mensajeControl.dirty)
+            "
+            class="errors-container"
+          >
+            <p class="error-msg" *ngIf="celularControl.hasError('required')">
+              *Ingrese mínimo 5 caracteres
+            </p>
+            <p class="error-msg" *ngIf="celularControl.hasError('minlength')">
+              *Se permite mínimo 5 caracteres
+            </p>
+          </div>
         </div>
       </div>
+    </form>
+    <div class="row text-center mt-3 d-flex justify-content-center">
+      <button class="btn pasos">ENVIAR</button>
     </div>
-</form>
-<div class="row text-center mt-3 d-flex justify-content-center">
-  <button class="btn pasos">
-    ENVIAR
-  </button>
+  </div>
 </div>
-

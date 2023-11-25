@@ -10,36 +10,36 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'destinos',
-    component: DestinosComponent
+    component: DestinosComponent,
   },
   {
     path: 'productos',
-    component: ProductosComponent
+    component: ProductosComponent,
   },
   {
     path: 'contactenos',
-    component: ContactenosComponent
+    component: ContactenosComponent,
   },
   {
     path: 'articulo',
-    component: ArticuloDestinosComponent
+    component: ArticuloDestinosComponent,
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '/',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
