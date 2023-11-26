@@ -1,1 +1,147 @@
-  <p>list-articles works!</p>
+<div class="container px-5 mt-4">
+  <h2 class="text-center mt-2 mb-3 titulo">LISTADO DE DESTINOS</h2>
+
+  <!-- ------------------------------------------------------- BUSQUEDA -->
+  <div class="container mt-3 px-5 pt-4">
+    <div class=" group-input d-flex justify-content-center search">
+      <span class="col-auto text-center py-2 fs-5">Buscar destino:</span>
+      <div class="col-6 ps-2 py-2">
+        <form autocomplete="off">
+          <input
+            routerLink="busqueda"
+            routerLinkActive="active"
+            type="text"
+            name="termino"
+            class="form-control"
+            placeholder="Ingrese nombre de destino.."
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive-md mt-1 mb-3 pt-2 p-4 rounded-3">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th class="text-center">ID</th>
+          <th class="text-center">Imagen</th>
+          <th>Nombre</th>
+          <th>Etiqueta</th>
+          <th>Likes</th>
+          <th class="text-center">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">1</td>
+          <td
+            class="d-flex flex-row flex-wrap justify-content-center align-items-center"
+          >
+            <img
+              src="../../../../../assets/pictures/default_foto_destino.jpg"
+              alt="portada"
+              class="img-thumbnile img-resumen"
+            />
+          </td>
+          <td>Nombre</td>
+          <td>Descripcion</td>
+          <td>Likes</td>
+          <td class="text-center">
+            <button class="btn delete">
+              <img
+                src="../../../../../assets/icons/light/editar.png"
+                alt="editar"
+                width="24px"
+              />
+            </button>
+            <button class="btn delete ps-4">
+              <img
+                src="../../../../../assets/icons/light/basura.png"
+                alt="borrar"
+                width="24px"
+              />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex mt-4 mb-4 p-0 justify-content-center">
+    <hr class="mt-2" />
+  </div>
+
+  <!--                                                  PRODUCTOS -->
+
+  <h2 class="text-center mt-2 mb-3 titulo">LISTADO DE PRODUCTOS</h2>
+  <div class="container mt-3 px-5 pt-4">
+    <div class=" group-input d-flex justify-content-center search">
+      <span class="col-auto text-center py-2 fs-5">Buscar producto:</span>
+      <div class="col-6 ps-2 py-2">
+        <form autocomplete="off">
+          <input
+            routerLink="busqueda"
+            routerLinkActive="active"
+            type="text"
+            name="termino"
+            class="form-control"
+            placeholder="Ingrese nombre de producto..."
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive-md mt-1 mb-3 pt-2 p-4 rounded-3">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th class="text-center">ID</th>
+          <th class="text-center">Imagen</th>
+          <th>Nombre</th>
+          <th>Etiqueta</th>
+          <th>Likes</th>
+          <th class="text-center">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">1</td>
+          <td
+            class="d-flex flex-row flex-wrap justify-content-center align-items-center"
+          >
+            <img
+              src="../../../../../assets/pictures/default_foto_destino.jpg"
+              alt="portada"
+              class="img-thumbnile img-resumen"
+            />
+          </td>
+          <td>Nombre</td>
+          <td>Descripcion</td>
+          <td>Likes</td>
+          <td class="text-center">
+            <button class="btn delete">
+              <img
+                src="../../../../../assets/icons/light/editar.png"
+                alt="editar"
+                width="24px"
+              />
+            </button>
+            <button class="btn delete ps-4">
+              <img
+                src="../../../../../assets/icons/light/basura.png"
+                alt="borrar"
+                width="24px"
+              />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex mt-4 mb-4 p-0 justify-content-center">
+    <hr class="mt-2" />
+  </div>
+</div>
