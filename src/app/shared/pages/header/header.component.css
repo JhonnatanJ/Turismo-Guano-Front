@@ -1,5 +1,6 @@
 
 p{
+  font-size: medium;
   text-decoration: none;
 }
 
@@ -27,4 +28,9 @@ img.logo{
 img.carrito{
   width: auto;
   height: 2rem;
+}
+
+.section:hover{
+  border-radius: 15px;
+  background-color: #82b0d988;
 }
