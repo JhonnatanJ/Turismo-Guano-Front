@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './pages/navbar/navbar.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
@@ -11,11 +10,8 @@ import { CarruselDestinosComponent } from './components/temp/carrusel-destinos/c
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
 import { AppRoutingModule } from '../app-routing.module';
 
-
-
 @NgModule({
   declarations: [
-    NavbarComponent,
     HeaderComponent,
     FooterComponent,
     CarruselComponent,
@@ -23,23 +19,19 @@ import { AppRoutingModule } from '../app-routing.module';
     CardDestinoComponent,
     CarruselProductosComponent,
     CarruselDestinosComponent,
-    CardProductoComponent
+    CardProductoComponent,
   ],
-  imports: [
-    CommonModule,
-    AppRoutingModule
-  ],
-  exports : [
+  imports: [CommonModule, AppRoutingModule],
+  exports: [
     HeaderComponent,
     CarruselComponent,
     CardComponent,
     FooterComponent,
 
-
     CardDestinoComponent,
     CardProductoComponent,
     CarruselProductosComponent,
-    CarruselDestinosComponent
-  ]
+    CarruselDestinosComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

@@ -1,0 +1,25 @@
+li{
+  border-radius: 13px;
+}
+
+hr{
+  padding: 1px;
+  background-color: white;
+  width: 220px;
+  align-self: start;
+}
+
+li.nav-item:hover{
+  background-color: #3d7ab0a7;
+}
+
+a.opcion{
+  text-decoration: none;
+}
+
+.side{
+  background-color: #302e2ed6;
+  margin: 0px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16),
+              0 2px 10px 0 rgba(0, 0, 0, .12);
+}
