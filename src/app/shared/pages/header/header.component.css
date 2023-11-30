@@ -1,36 +1,95 @@
-
-p{
-  font-size: medium;
-  text-decoration: none;
-}
-
-header{
-  text-align: center;
-  align-items: center;
+header {
   background-color: var(--primario);
   margin: 0px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16),
-              0 2px 10px 0 rgba(0, 0, 0, .12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-input{
-  color: var(--primary);
-  border-color: var(--bordeinput);
-  border-width: 3px;
-  border-radius: 13px;
+li a {
+  text-decoration-color: black;
+  font-size: medium;
+  /* font-weight: 500; */
 }
 
-img.logo{
+li a:focus {
+  text-decoration-color: black;
+  background-color: rgb(255, 254, 254);
+  border-bottom: 3px solid black;
+  border-radius: 0%;
+  font-size: medium;
+  font-weight: 500;
+}
+
+input::placeholder {
+  color: var(--primario);
+}
+
+img.logo {
   width: 70%;
   height: auto;
 }
 
-img.carrito{
+img.option {
   width: auto;
   height: 2rem;
 }
 
-.section:hover{
-  border-radius: 15px;
-  background-color: #82b0d988;
+.btn-login {
+  background-color: var(--boton);
+}
+
+.btn-login:hover {
+  border: 2px solid var(--bs-gray-800);
+  font-weight: bolder;
+}
+
+.btn-login:active{
+  border: 2px solid var(--bs-gray-800);
+  background-color: white;
+}
+
+.card {
+  background-color: var(--primario);
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.forgot-pass:hover{
+  text-decoration: underline var(--bs-gray-800);
+}
+.form-control {
+  background-color: var(--primario);
+  border-radius: 0px;
+  border-top: 0px solid var(--primario);
+  border-left: 0px solid var(--primario);
+  border-right: 0px solid var(--primario);
+  border-bottom: 1px solid var(--bs-gray-500);
+}
+
+.form-control:focus {
+  border-bottom: 2px solid var(--bs-gray-800);
+  color: var(--bs-gray-800);
+}
+
+.form-control:hover {
+  border-bottom: 2px solid var(--bs-gray-800);
+  color: var(--bs-gray-800);
+}
+
+.form-control:focus::placeholder {
+  color: var(--bs-gray-800);
+}
+.form-control:hover::placeholder {
+  color: var(--bs-gray-800);
+}
+
+.option {
+  border-bottom: 3px solid var(--primario);
+}
+
+.option:hover {
+  background-color: rgb(255, 254, 254);
+  border-bottom: 3px solid black;
+  border-radius: 0%;
 }

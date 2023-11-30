@@ -1,27 +1,124 @@
-<header class="container-fluid p-3">
-  <div class="row align-items-center">
+<header class="container-fluid p-0">
+  <div
+    class="container d-flex flex-row justify-content-between align-items-center"
+  >
     <!-- ------------------------------------------------------- LOGO -->
     <div class="col-2">
       <a routerLink="home">
-        <img src="../../../../assets/icons/light/logoGuano.png" alt="logoGuano" class="logo">
+        <img
+          src="../../../../assets/icons/light/logoGuano.png"
+          alt="logoGuano"
+          class="logo"
+        />
       </a>
     </div>
-    <!-- ------------------------------------------------------- BUSQUEDA -->
-    <div class="col-6 ps-2">
-      <form autocomplete="off">
-        <input
-          routerLink="busqueda"
-          routerLinkActive="active"
-          type="text"
-          name="termino"
-          class="form-control"
-          placeholder="Busca aquí..."
-          image = '../../../../assets/icons/light/lupa.png'
-        />
-      </form>
+
+    <!-- ----------------------------------------------------- SECTIONS -->
+
+    <div class="nav-section">
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            routerLink="destinos"
+            class="nav-link option py-4 text-reset fw-medium"
+            aria-current="page"
+            href="#"
+            >Puntos Turísticos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="productos"
+            class="nav-link option py-4 text-reset fw-medium"
+            href="#"
+            >Productos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="contactenos"
+            class="nav-link option py-4 text-reset fw-medium"
+            href="#"
+            >Contactenos</a
+          >
+        </li>
+      </ul>
     </div>
 
-  <!-- ----------------------------------------------------- SECTIONS -->
+    <!-- ------------------------------------------ OPTIONS -->
+
+    <div class="nav-section">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link option py-4 active" aria-current="page" href="#">
+            <img
+              src="../../../../assets/icons/black/buscar.png"
+              alt="buscar"
+              width="24px"
+            />
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle option py-4"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="../../../../assets/icons/black/usuario.png"
+              alt="login"
+              width="24px"
+            />
+          </a>
+          <ul class="dropdown-menu p-0">
+            <div class="card p-2" style="width: 20rem">
+              <span class="text-center fs-6 fw-semibold m-2"
+                >Iniciar Sesión</span
+              >
+              <form class="d-flex flex-column justify-content-center">
+                <div class="m-2">
+                  <label for="inputEmail" class="form-label fs-6 fw-normal"
+                    >Email:</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="alguien@ejemplo.com"
+                  />
+                </div>
+                <div class="m-2">
+                  <label for="inputPassword" class="form-label fs-6 fw-normal"
+                    >Contraseña:</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    placeholder="***********"
+                  />
+                </div>
+                <span class="m-2 mt-1 fs-6 text-center">
+                  <a class="nav-link text-reset forgot-pass" href=""
+                    >¿Olvidó su contraseña?</a
+                  ></span
+                >
+                <div class="m-2 text-center">
+                  <button type="submit" class="btn btn-login fs-6">
+                    Iniciar Sesión
+                  </button>
+                </div>
+              </form>
+            </div>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- <a class="btn btn-primary option py-4" data-bs-toggle="collapse" href="#collapseLogin" role="button" aria-expanded="false" aria-controls="collapseLogin">
+      Link with href
+    </a> -->
+    <!--
     <div class="col-1 p-0 section">
       <div class="p-1 m-0">
         <a routerLink="destinos" class="text-decoration-none text-reset">
@@ -49,10 +146,7 @@
     <div class="col-1 p-1 section">
       <a routerLink="admin" class="text-decoration-none text-reset">
         <img src="../../../../assets/icons/light/usuario.png" alt="home" class="carrito">
-        <p class="m-0 fw-small" >Iniciar Sesión</p>
       </a>
-    </div>
-
+    </div>-->
   </div>
-
 </header>
