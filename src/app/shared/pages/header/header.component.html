@@ -6,7 +6,7 @@
     <div class="col-2">
       <a routerLink="home">
         <img
-          src="../../../../assets/icons/light/logoGuano.png"
+          src="../../../../assets/icons/black/logo.png"
           alt="logoGuano"
           class="logo"
         />
@@ -50,7 +50,7 @@
     <div class="nav-section">
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link option py-4 active" aria-current="page" href="#">
+          <a routerLink="buscar" class="nav-link option py-4 active" aria-current="page">
             <img
               src="../../../../assets/icons/black/buscar.png"
               alt="buscar"
@@ -71,11 +71,12 @@
               width="24px"
             />
           </a>
+          <!-- -------------------------------- LOG IN -->
           <ul class="dropdown-menu p-0">
-            <div class="card p-2" style="width: 20rem">
+            <div class="card py-3 px-4" style="width: 20rem">
               <span class="text-center fs-6 fw-semibold m-2"
-                >Iniciar Sesión</span
-              >
+                >Iniciar Sesión
+              </span>
               <form class="d-flex flex-column justify-content-center">
                 <div class="m-2">
                   <label for="inputEmail" class="form-label fs-6 fw-normal"
@@ -99,15 +100,20 @@
                     placeholder="***********"
                   />
                 </div>
-                <span class="m-2 mt-1 fs-6 text-center">
-                  <a class="nav-link text-reset forgot-pass" href=""
-                    >¿Olvidó su contraseña?</a
-                  ></span
-                >
-                <div class="m-2 text-center">
-                  <button type="submit" class="btn btn-login fs-6">
-                    Iniciar Sesión
-                  </button>
+
+                <div class=" mt-2 text-center d-flex flex-row align-items-center">
+                  <div class="col-6">
+                    <button type="submit" class="btn btn-login fs-6">
+                      Iniciar Sesión
+                    </button>
+                  </div>
+                  <div class="col-6">
+                    <span class="mt-1 fs-6 text-center">
+                      <a class="nav-link text-reset forgot-pass" href=""
+                        >¿Olvidó su contraseña?</a
+                      >
+                    </span>
+                  </div>
                 </div>
               </form>
             </div>
