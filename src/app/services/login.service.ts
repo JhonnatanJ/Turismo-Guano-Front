@@ -2,16 +2,27 @@ import { Injectable } from '@angular/core';
 import { Login } from '../entities/login.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  LOGGED: boolean = false;
+  usuario: Login = { email: 'jhonnatan@gmail.com', contrasenia: '1234' };
+  constructor() {}
 
-  constructor() { }
-
-  autenticar(credenciales: Login){
+  autenticar(credenciales: Login) {
     //TODO: Conectar con backend para verificar credenciales
-    const usuario = {email : '', contrasenia: ''}
+    if (
+      credenciales.email === this.usuario.email &&
+      credenciales.contrasenia === this.usuario.contrasenia
+    ) {
+      this.logStatus(true);
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-    return (credenciales === usuario) ? true : false;
+  logStatus(status: boolean) {
+    this.LOGGED = status;
   }
 }

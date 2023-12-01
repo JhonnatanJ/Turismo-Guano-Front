@@ -77,6 +77,15 @@ img.logo {
   border-bottom: 3px solid var(--primario);
 }
 
+.option-dropdown {
+  border-left: 3px solid var(--primario);
+}
+.option-dropdown:hover {
+  background-color: rgb(255, 254, 254);
+  border-left: 3px solid black;
+  border-radius: 0%;
+}
+
 .option:hover {
   background-color: rgb(255, 254, 254);
   border-bottom: 3px solid black;

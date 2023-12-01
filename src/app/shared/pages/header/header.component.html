@@ -69,7 +69,6 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
             data-bs-auto-close="outside"
-            (click)="loginForm.reset()"
           >
             <img
               src="../../../../assets/icons/black/usuario.png"
@@ -79,7 +78,11 @@
           </a>
           <!-- -------------------------------- LOG IN -->
           <ul class="dropdown-menu p-0">
-            <div class="card py-3 px-4" style="width: 20rem">
+            <div
+              *ngIf="!this.logged"
+              class="card py-3 px-4"
+              style="width: 20rem"
+            >
               <span class="text-center fs-6 fw-semibold m-2"
                 >Iniciar Sesión
               </span>
@@ -144,7 +147,7 @@
                       type="submit"
                       class="btn btn-login fs-6"
                       [disabled]="!loginForm.form.valid"
-                      (click)="onSubmit(loginForm)"
+                      (click)="onSubmit(loginForm); loginForm.reset()"
                     >
                       Iniciar Sesión
                     </button>
@@ -158,6 +161,29 @@
                   </div>
                 </div>
               </form>
+            </div>
+
+            <div
+              *ngIf="this.logged"
+              class="card py-3 px-2"
+              style="width: 20rem"
+            >
+              <li>
+                <span class="dropdown-item-text text-center fs-6 fw-semibold m-1 mb-3">Bienvenid@</span>
+              </li>
+              <li>
+                <a class="dropdown-item option-dropdown" routerLink="admin"
+                  >Opciones Administrador</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a
+                  class="btn dropdown-item option-dropdown"
+                  (click)="cerrarSesion()"
+                  >Cerrar Sesión</a
+                >
+              </li>
             </div>
           </ul>
         </li>
