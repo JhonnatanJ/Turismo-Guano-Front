@@ -1,0 +1,80 @@
+*{
+  --height-carousel-container: 33rem
+}
+
+p {
+  font-size: 18px;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+h3.titulo {
+  text-align: left;
+  font-weight: bolder;
+}
+
+hr {
+  margin: 1px;
+  padding: 2px;
+  background-color: black;
+  width: 300px;
+}
+
+.carousel-item {
+  height: var(--height-carousel-container);
+}
+
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.80);
+}
+
+div.titulo{
+  background-color: white;
+}
+
+.info-container {
+  position: relative;
+  display: grid;
+  height: var(--height-carousel-container);
+}
+.info-img {
+  display: inline;
+  justify-self: end;
+}
+.info-text {
+  position: absolute;
+  z-index: 1;
+  background-color: var(--primario);
+}
+
+img.info {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------- CARDS NORMAS Y GUIAS */
+
+.card{
+  background-color: var(--primario);
+  border: 0px;
+  border-radius: 15px;
+}
+
+.card:hover{
+  background-color: white;
+  border: 1px solid var(--bs-gray-400);
+  animation: danceMiddle;
+  transform: scale(1.1);
+  .card-header { background-color: white;}
+}
+
+.card-header{
+  background-color: var(--primario);
+}
+
+
+
+
+

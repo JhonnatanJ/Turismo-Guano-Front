@@ -61,15 +61,3 @@ img.logo-card {
   object-fit: fill;
 }
 
-/* --------------------------------------------------- */
-
-
-.titulo-productos {
-  border-radius: 10px;
-  background-color: #e3d8ca;
-}
-
-.titulo-destino {
-  border-radius: 10px;
-  background-color: #badece;
-}
