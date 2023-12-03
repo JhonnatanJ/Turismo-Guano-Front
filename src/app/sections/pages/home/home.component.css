@@ -1,46 +1,75 @@
-p{
-  font-size: 20px;
+p {
+  font-size: 18px;
   text-align: justify;
   margin-bottom: 0;
 }
 
-hr{
-  margin: 2px;
-  padding: 2px;
-  background-color: black;
-  width: 800px;
-  align-self: center;
-}
-
-p.titulo {
-  text-align: center;
-  font-size: 50px;
+h3.titulo {
+  text-align: left;
   font-weight: bolder;
 }
 
-h1{
-  margin-bottom: 0;
+hr {
+  margin: 1px;
+  padding: 2px;
+  background-color: black;
+  width: 300px;
 }
 
-img.imagen-informacion{
-  width: 90%;
-  height: auto;
+.card{
+  background-color: var(--primario);
+  border: 0px;
+  border-radius: 15px;
+  width: 15rem;
+  height: 18rem;
 }
 
-.titulo-informacion {
-  border-radius: 10px;
-  background-color: #C7D6C2;
+.card:hover{
+  background-color: white;
+  border: 1px solid var(--bs-gray-400);
+  animation: danceMiddle;
+  transform: scale(1.1);
 }
+
+.card-img{
+  height: 10rem;
+  border-bottom: 1px solid var(--bs-gray-400);
+  border-radius: 0px;
+}
+
+.info-container {
+  position: relative;
+  display: grid;
+}
+.info-img {
+  display: inline;
+  justify-self: end;
+}
+.info-text {
+  position: absolute;
+  z-index: 1;
+  background-color: var(--primario);
+}
+
+img.info {
+  height: 100%;
+  object-fit: cover;
+}
+
+img.logo-card {
+  height: 100%;
+  object-fit: fill;
+}
+
+/* --------------------------------------------------- */
+
+
 .titulo-productos {
   border-radius: 10px;
-  background-color: #E3D8CA;
+  background-color: #e3d8ca;
 }
 
 .titulo-destino {
   border-radius: 10px;
-  background-color: #BADECE;
+  background-color: #badece;
 }
-
-
-
-
