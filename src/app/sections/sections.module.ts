@@ -13,6 +13,7 @@ import { GridCardProductosComponent } from './components/grid-card-productos/gri
 import { ListCardProductosComponent } from './components/list-card-productos/list-card-productos.component';
 import { ColumnDestinoComponent } from './components/columns/column-destino/column-destino.component';
 import { ColumnProductoComponent } from './components/columns/column-producto/column-producto.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -33,7 +34,8 @@ import { ColumnProductoComponent } from './components/columns/column-producto/co
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   exports : [
     HomeComponent,

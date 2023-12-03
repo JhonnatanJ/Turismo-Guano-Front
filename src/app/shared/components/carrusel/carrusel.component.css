@@ -1,15 +1,39 @@
 .carousel {
   background-color: var(--secundario);
 }
+#carrusel{
+  position: relative;
+}
 
 .carousel-item {
-  height: 35rem;
-  width: 100%;
+  height: 43rem;
 }
 
-.carousel-item img {
-  width: 90%;
-  height: auto;
+.c-desc {
+  font-family: "Josefin_Sans", sans-serif;
+  color: white;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  top: 35%;
+  left: 23%;
 }
 
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.80);
+}
 
+h1.c-text{
+  font-size: 45px;
+}
+
+.hu__hu__ {
+  animation: hu__hu__ infinite 3s ease-in-out;
+}
+@keyframes hu__hu__ {
+  50% {
+    transform: translateY(30px);
+  }
+}
