@@ -1,8 +1,26 @@
+*{
+  --borde-card: var(--bs-gray-400)
+}
+
+a.c-icon:hover {
+  transform: scale(1.25);
+  transition: transform 0.2s ease-in-out;
+}
+
+img.c-icon:hover {
+  transform: scale(1.20);
+  transition: transform 0.2s ease-in-out;
+}
+
 .card {
-  width: 20rem;
-  border: 0px;
+  width: 18rem;
   border-radius: 15px;
+  border-top: 0px;
+  border-bottom: 1px solid var(--borde-card);
+  border-left: 1px solid var(--borde-card);
+  border-right: 1px solid var(--borde-card);
   background-color: var(--primario);
+
 }
 
 .card:hover {
@@ -11,12 +29,9 @@
   background-color: white;
 }
 
-img.c-icon:hover {
-  transform: scale(1.25);
-  transition: transform 0.2s ease-in-out;
+.c-image{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-a.c-icon:hover {
-  transform: scale(1.25);
-  transition: transform 0.2s ease-in-out;
-}
+

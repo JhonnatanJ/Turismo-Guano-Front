@@ -142,15 +142,21 @@
   </div>
 
   <div class="container row mt-3">
-
     <!-- ------------------------------------ CARDS -->
     <div class="d-flex flex-row justify-content-evenly mx-2 p-4 mt-3">
       <!-- ------------------------------NORMAS -->
       <div class="col-5">
         <div class="card py-3 px-2">
-          <span class="card-header d-flex flex-row align-items-center justify-content-between pe-4">
-            <h3 class=" m-0 fw-bolder fs-5">Normas</h3>
-            <img src="../../../../assets/icons/black/normas.png" alt="icon_guias" width="30px" height="28px">
+          <span
+            class="card-header d-flex flex-row align-items-center justify-content-between pe-4"
+          >
+            <h3 class="m-0 fw-bolder fs-5">Normas</h3>
+            <img
+              src="../../../../assets/icons/black/normas.png"
+              alt="icon_guias"
+              width="30px"
+              height="28px"
+            />
           </span>
           <div class="card-body mt-2 pb-0">
             <div class="card-text">
@@ -172,9 +178,16 @@
       <!-- ------------------------------GUIAS LOCALES -->
       <div class="col-5">
         <div class="card py-3 px-2">
-          <span class="card-header d-flex flex-row align-items-center justify-content-between pe-4">
-            <h3 class=" m-0 fw-bolder fs-5">Guías Locales</h3>
-            <img src="../../../../assets/icons/black/guias.png" alt="icon_guias" width="30px" height="30px">
+          <span
+            class="card-header d-flex flex-row align-items-center justify-content-between pe-4"
+          >
+            <h3 class="m-0 fw-bolder fs-5">Guías Locales</h3>
+            <img
+              src="../../../../assets/icons/black/guias.png"
+              alt="icon_guias"
+              width="30px"
+              height="30px"
+            />
           </span>
 
           <div class="card-body mt-2 pb-0">
@@ -197,14 +210,19 @@
   </div>
 
   <!-- ----------------------------------------------------- ACTIVIDADES -->
+  <!-- TODO: IMPLEMENTAR PAGINADO!!! -->
   <div class="text-center py-3 mt-5 titulo">
     <h2 class="fw-bolder">ACTIVIDADES</h2>
   </div>
 
   <div class="container my-5">
-
-    <shared-card-turismo></shared-card-turismo>
-
+    <div class="d-flex flex-row flex-wrap justify-content-evenly">
+      <div *ngFor="let actividad of this.actividades">
+        <shared-card-turismo
+          [actividad]="actividad"
+          class="col-3 m-3"
+        ></shared-card-turismo>
+      </div>
+    </div>
   </div>
-
 </div>

@@ -1,15 +1,18 @@
 <div class="card image-zoom">
-  <img
+  <div>
+    <img
     src="{{ this.actividad.imagen }}"
-    class="card-img-top"
+    class="card-img-top c-image"
     alt="imagen actividad turistica"
   />
+  </div>
+
   <div class="card-body px-3">
     <p class="card-text text-uppercase m-1 fs-6 fw-normal">
       {{ this.actividad.etiqueta }}
     </p>
     <p class="card-text m-1 my-3 fs-6 fw-bolder">{{ this.actividad.nombre }}</p>
-    <div class="d-flex flex-row align-items-center justify-content-between">
+    <div class="d-flex flex-row align-items-center justify-content-between m-1">
       <div>
         <a type="button">
           <img
