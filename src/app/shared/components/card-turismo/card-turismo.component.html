@@ -1,0 +1,45 @@
+<div class="card image-zoom">
+  <div>
+    <img
+    src="{{ this.actividad.imagen }}"
+    class="card-img-top c-image"
+    alt="imagen actividad turistica"
+  />
+  </div>
+
+  <div class="card-body px-3">
+    <p class="card-text text-uppercase m-1 fs-6 fw-normal">
+      {{ this.actividad.etiqueta }}
+    </p>
+    <p class="card-text m-1 my-3 fs-6 fw-bolder">{{ this.actividad.nombre }}</p>
+    <div class="d-flex flex-row align-items-center justify-content-between m-1">
+      <div>
+        <a type="button">
+          <img
+            src="../../../../assets/icons/black/like-empty.png"
+            class="c-icon"
+            alt="like"
+            width="25px"
+            height="25px"
+          />
+        </a>
+        <span class="ps-1">: {{ this.actividad.likes }}</span>
+      </div>
+      <div>
+        <a
+          type="button"
+          class="d-flex flex-row align-items-center justify-content-end text-reset text-decoration-none c-icon"
+        >
+          <p class="pe-1 m-0">Leer</p>
+          <img
+            src="../../../../assets/icons/black/flecha.png"
+            class=""
+            alt="flecha"
+            width="30px"
+            height="30px"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
