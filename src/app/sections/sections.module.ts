@@ -14,8 +14,7 @@ import { ListCardProductosComponent } from './components/list-card-productos/lis
 import { ColumnDestinoComponent } from './components/columns/column-destino/column-destino.component';
 import { ColumnProductoComponent } from './components/columns/column-producto/column-producto.component';
 import { AppRoutingModule } from '../app-routing.module';
-
-
+import { TurismoComponent } from './pages/turismo/turismo.component';
 
 @NgModule({
   declarations: [
@@ -30,18 +29,15 @@ import { AppRoutingModule } from '../app-routing.module';
     GridCardProductosComponent,
     ListCardProductosComponent,
     ColumnDestinoComponent,
-    ColumnProductoComponent
+    ColumnProductoComponent,
+    TurismoComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    AppRoutingModule
-  ],
-  exports : [
+  imports: [CommonModule, SharedModule, AppRoutingModule],
+  exports: [
     HomeComponent,
     DestinosComponent,
     ProductosComponent,
-    ArticuloDestinosComponent
-  ]
+    ArticuloDestinosComponent,
+  ],
 })
-export class SectionsModule { }
+export class SectionsModule {}

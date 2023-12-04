@@ -12,12 +12,14 @@ import { CardDestinoComponent } from './components/card-destino/card-destino.com
 import { CarruselProductosComponent } from './components/temp/carrusel-productos/carrusel-productos.component';
 import { CarruselDestinosComponent } from './components/temp/carrusel-destinos/carrusel-destinos.component';
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
+import { CardTurismoComponent } from './components/card-turismo/card-turismo.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     CarruselComponent,
+    CardTurismoComponent,
     CardComponent,
     CardDestinoComponent,
     CarruselProductosComponent,
@@ -30,6 +32,7 @@ import { CardProductoComponent } from './components/card-producto/card-producto.
     CarruselComponent,
     CardComponent,
     FooterComponent,
+    CardTurismoComponent,
     CardDestinoComponent,
     CardProductoComponent,
     CarruselProductosComponent,

@@ -27,7 +27,6 @@ hr {
 .card:hover{
   background-color: white;
   border: 1px solid var(--bs-gray-400);
-  animation: danceMiddle;
   transform: scale(1.1);
 }
 

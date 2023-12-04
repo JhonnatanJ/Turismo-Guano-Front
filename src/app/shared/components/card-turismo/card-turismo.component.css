@@ -1,0 +1,22 @@
+.card {
+  width: 20rem;
+  border: 0px;
+  border-radius: 15px;
+  background-color: var(--primario);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+  background-color: white;
+}
+
+img.c-icon:hover {
+  transform: scale(1.25);
+  transition: transform 0.2s ease-in-out;
+}
+
+a.c-icon:hover {
+  transform: scale(1.25);
+  transition: transform 0.2s ease-in-out;
+}
