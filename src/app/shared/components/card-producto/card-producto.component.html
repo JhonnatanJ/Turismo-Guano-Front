@@ -1,4 +1,55 @@
-<div class="card image-zoom" style="width: 18rem;">
+<div class="card image-zoom">
+  <div>
+    <img
+    src="{{this.producto.imagen}}"
+    class="card-img-top c-image"
+    alt="imagen actividad turistica"
+  />
+  </div>
+
+  <div class="card-body px-3">
+    <p class="card-text text-uppercase m-1 fs-6 fw-normal text-uppercase">
+      {{this.producto.etiqueta}}
+    </p>
+    <p class="card-text m-1 my-2 fs-6 fw-bolder text-capitalize">{{this.producto.nombre}}</p>
+
+    <p class="card-text m-1 my-2 fs-5 fw-semibold">$: {{this.producto.precio.toFixed(2)}}</p>
+
+    <div class="d-flex flex-row align-items-center justify-content-between m-1">
+      <div>
+        <a type="button">
+          <img
+            src="../../../../assets/icons/black/like-empty.png"
+            class="c-icon"
+            alt="like"
+            width="25px"
+            height="25px"
+          />
+        </a>
+        <span class="ps-1">: {{this.producto.likes}}</span>
+      </div>
+      <div>
+        <a
+          type="button"
+          class="d-flex flex-row align-items-center justify-content-end text-reset text-decoration-none c-icon"
+        >
+          <p class="pe-1 m-0">Ver</p>
+          <img
+            src="../../../../assets/icons/black/flecha.png"
+            class=""
+            alt="flecha"
+            width="30px"
+            height="30px"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="card image-zoom" style="width: 18rem;">
   <img src="../../../../assets/pictures/default_foto_producto_3.jpg" class="card-img-top" alt="...">
 
   <a routerLink="productos" routerlinkactive="active" class="p-0 text-decoration-none text-reset">
@@ -26,4 +77,4 @@
       </div>
     </div>
   </a>
-</div>
+</div> -->

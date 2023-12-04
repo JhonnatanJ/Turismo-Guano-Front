@@ -1,70 +1,169 @@
-<div class="container-fluid text-center mt-3 p-2 titulo-producto">
-  <div class="row">
-    <h1 class="m-0">PRODUCTOS</h1>
-  </div>
-</div>
+<div class="container d-flex flex-column p-0">
+  <!-- ------------------------------------------------------------ VIDOLAC INFO -->
+  <div class="container row mt-5 p-0 info-container">
+    <!-- -------------------------------------LOGO FLOTANTE -->
+    <div class="info-logo">
+      <img
+        src="../../../../assets/icons/black/Logo_Vidolac.png"
+        alt="logo Vidolac"
+        class="d-block w-100 info-logo hu__hu__"
+      />
+    </div>
 
-<div class="container d-flex flex-column justify-content-center">
-  <div class="container-fluid row p-2">
-    <div class="d-flex align-items-center">
-      <div class="col-6 p-5 pt-2 pb-2">
-        <img
-          src="../../../../assets/pictures/default_foto_producto_4jpg.jpg"
-          alt="paisaje"
-          class="img-fluid rounded"
-        />
+    <!-- -------------------------------------TEXTO -->
+    <div class="col-6 p-5 pt-2 info-text">
+      <div class="row mb-1">
+        <h3 class="titulo">VidoLac</h3>
       </div>
 
-      <div class="col-6 p-5 pt-2 pb-2 info">
-        <div class="row p-0">
-          <p>Etiqueta</p>
-        </div>
-        <div class="row p-0">
-          <p class="titulo">Nombre del Producto</p>
-        </div>
-        <div class="row">
-          <div class="container-fluid row justify-content-start">
-            <div class="col d-flex imagen p-0 align-items-center">
-              <img
-                src="../../../../assets/icons/light/like.png"
-                alt="like"
-                class="img-fluid"
-              />
-            </div>
-            <p class="col mb-0 ps-1">:20</p>
+      <hr class="mt-12 mb-4" />
+
+      <div class="row">
+        <p class="lh-base">
+          La planta de acopio de leche "San Rafael" fue establecida en el 2018
+          para apoyar a los productores de leche y sus familias en San Rafael de
+          Chuquipogyo. <br />
+          <br />
+          Administrada por la "Asociación de Producción Ganadera el Refugio"
+          (ASOPROGAR), con 89 socios ganaderos, cuenta con los permisos de
+          funcionamiento de Agro Calidad que asegura la calidad de la leche
+          recolectada.
+          <br />
+          <br />
+          Dentro del proceso industrial que enfoca en la empresa VidoLac a
+          través de “ASOPROGAR”, lleva a cabo la elaboración de ciertos
+          productos como: Leche, Yogurt y Queso, detallados a continuación.
+        </p>
+      </div>
+    </div>
+
+    <!-- ------------------------------------CARRUSEL IMAGENES -->
+    <div class="col-10 p-0 mx-0 info-img">
+      <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="carousel-inner">
+          <div
+            class="carousel-item active carousel-item"
+            data-bs-interval="2000"
+          >
+            <img
+              src="../../../../assets/pictures/Info_Asoprogar_1.jpg"
+              class="d-block w-100 c-img"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item carousel-item" data-bs-interval="2000">
+            <img
+              src="../../../../assets/pictures/Info_Asoprogar_2.JPG"
+              class="d-block w-100 c-img"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item carousel-item" data-bs-interval="2000">
+            <img
+              src="../../../../assets/pictures/Info_Asoprogar_3.JPG"
+              class="d-block w-100 c-img"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item carousel-item" data-bs-interval="2000">
+            <img
+              src="../../../../assets/pictures/Info_Asoprogar_4.JPG"
+              class="d-block w-100 c-img"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item carousel-item" data-bs-interval="2000">
+            <img
+              src="../../../../assets/pictures/Info_Asoprogar_5.JPG"
+              class="d-block w-100 c-img"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item carousel-item" data-bs-interval="2000">
+            <img
+              src="../../../../assets/pictures/Info_Asoprogar_6.JPG"
+              class="d-block w-100 c-img"
+              alt="..."
+            />
           </div>
         </div>
-        <div class="row">
-          <div class="container-fluid row justify-content-start">
-            <div class="col d-flex imagen p-0 align-items-center">
-              <img
-                src="../../../../assets/icons/light/dollar.png"
-                alt="like"
-                class="img-fluid"
-              />
-            </div>
-            <p class="col mb-0 ps-1">:5.50</p>
-          </div>
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="5"
+            aria-label="Slide 6"
+          ></button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="d-flex justify-content-center">
-    <hr class="m-2" />
+  <!-- -------------------------------------------------------------------- NUESTROS PRODUCTOS -->
+
+  <div class="text-center py-3 mt-5 titulo">
+    <h2 class="fw-bolder">NUESTROS PRODUCTOS</h2>
   </div>
 
-  <!-- GRID DE CARDS -->
-  <div class="container-fluid p-3">
-    <app-grid-card-productos></app-grid-card-productos>
+  <!-- ---------------------------------------------------------------- LECHE  -->
+
+  <div class="container">
+    <div class="py-3 mx-5 mt-5 ps-5 titulo">
+      <h3 class="m-0 ps-3 fw-bolder">Leche</h3>
+      <hr class="ps-5" />
+    </div>
+
+    <!-- -------------------------------------------------------- GRID PRODUCTOS (LECHE)  -->
   </div>
 
-  <!-- Carrusel Destinos-->
-  <div class="container-fluid text-center mt-3 p-2 titulo-destino">
-    <div class="row">
-      <h3 class="m-0">Conozca nuestra oferta turistica...</h3>
+  <div class="container my-3">
+    <div class="d-flex flex-row flex-wrap justify-content-evenly px-4">
+      <div *ngFor="let producto of this.productos">
+        <shared-card-producto
+          [producto]="producto"
+          class="col-3 m-3"
+        ></shared-card-producto>
+      </div>
     </div>
   </div>
-
-  <app-carrusel-destinos></app-carrusel-destinos>
 </div>

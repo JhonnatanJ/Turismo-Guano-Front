@@ -1,25 +1,39 @@
-.imagen {
-  max-width: 20px;
+*{
+  --borde-card: var(--bs-gray-400)
 }
 
-.card-body {
+a.c-icon:hover {
+  transform: scale(1.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+img.c-icon:hover {
+  transform: scale(1.18);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card {
+  width: 18rem;
+  border-radius: 15px;
+  border-top: 0px;
+  border-bottom: 1px solid var(--borde-card);
+  border-left: 1px solid var(--borde-card);
+  border-right: 1px solid var(--borde-card);
   background-color: var(--primario);
+
 }
 
-.card-body:hover {
-  background-color: #E3D8CA;
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.4s ease-in-out;
+  background-color: white;
 }
 
-p{
-  font-size: medium;
-}
-
-p.nombre {
-  font-weight: bold;
-  font-size: larger;
-}
-
-.image-zoom:hover {
-  transform: scale(1.08);
-  transition: transform 0.2s ease-in-out;
+.c-image{
+  height: 12rem;
+  width: 18rem;
+  overflow: hidden;
+  object-fit: contain;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
