@@ -66,7 +66,8 @@ img.info {
   background-color: white;
   border: 1px solid var(--bs-gray-400);
   animation: danceMiddle;
-  transform: scale(1.1);
+  transform: scale(1.05);
+  transition: transform 0.4s ease-in-out;
   .card-header { background-color: white;}
 }
 

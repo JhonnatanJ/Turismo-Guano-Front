@@ -28,6 +28,7 @@ hr {
   background-color: white;
   border: 1px solid var(--bs-gray-400);
   transform: scale(1.1);
+  transition: transform 0.4s ease-in-out;
 }
 
 .card-img{
