@@ -13,7 +13,7 @@ footer{
 }
 
 div.col{
-  padding-top: 3%;
+  padding-top: 1%;
 }
 
 footer h4{
@@ -22,6 +22,7 @@ footer h4{
 
 .redes{
   width: 2rem;
+  filter: brightness(0.87);
 }
 .logo{
   height: auto;
