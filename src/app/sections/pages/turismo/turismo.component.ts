@@ -1,41 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-interface Actividad{
-  nombre: string;
-  etiqueta: string;
-  imagen: string;
-  descripcion: string;
-  likes: number;
-}
+import { Actividad } from 'src/app/entities/paged-actividad.interface';
+
+import { TurismoService } from 'src/app/services/turismo.service';
 
 @Component({
   selector: 'app-turismo',
   templateUrl: './turismo.component.html',
   styleUrls: ['./turismo.component.css'],
 })
-export class TurismoComponent {
+export class TurismoComponent implements OnInit {
+  countEntities: number = 0;
+  next: boolean = false;
+  pagina: number = 1;
 
+  actividades: Actividad[] = [];
 
-  miActividad: Actividad = {
-    etiqueta: 'Senderismo',
-    imagen:
-      'https://img.freepik.com/foto-gratis/estilo-vida-viajar-vista-mujer-joven_1150-969.jpg?w=360&t=st=1701727195~exp=1701727795~hmac=daa9f9557fa3be05d512dec01b8c7c27052f31502e00d1ed0b03b061695b5f37',
-    nombre: 'Las Lagunas Mágicas de San Rafael: Ruta Piedra Bolivar',
-    descripcion:
-      'Bienvenido, esta actividad presente en la ruta Piedra Bolivar inicia con la salida en Consectetur velit est nulla est dolore occaecat amet aliqua excepteur irure. Pariatur in id reprehenderit ullamco nulla tempor ex quis et dolore. Duis do nulla duis elit ex magna. Consectetur in pariatur proident irure fugiat adipisicing consequat aliqua anim velit excepteur id...',
-    likes: 20,
-  };
+  constructor(private turismoService: TurismoService) {}
 
-  actividades = [
-    this.miActividad,
-    this.miActividad,
-    this.miActividad,
-    this.miActividad,
-    this.miActividad,
-    this.miActividad,
-    this.miActividad,
-    this.miActividad,
-  ];
+  ngOnInit(): void {
+    try {
+      this.getActividades(this.pagina);
+    } catch (error) {
+      this.countEntities = 0;
+      this.actividades = [];
+      console.log(error);
+    }
+  }
 
-  // TODO: HACER PAGINADO!!!!
+  getActividades(pagina: number) {
+    this.turismoService.getAllActividades(pagina).subscribe(
+      (allActividades) => {
+        this.countEntities = allActividades.rows.length;
+        this.actividades = allActividades.rows;
+        this.siguientePagina(this.pagina+1);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  cambiarPagina(num: number) {
+    this.pagina = this.pagina + num;
+    this.getActividades(this.pagina);
+    this.siguientePagina(this.pagina+1)
+  }
+
+  siguientePagina(sigPag: number) {
+    let resp: number = 0;
+    this.turismoService
+      .getAllActividades(sigPag)
+      .subscribe((allActividades) => {
+        resp = allActividades.rows.length;
+        if (resp > 0) {
+          this.next = true;
+        } else {
+          this.next = false;
+        }
+      });
+  }
 }

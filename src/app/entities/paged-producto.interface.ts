@@ -1,6 +1,6 @@
 export interface PagedProductos {
   count:     number;
-  productos: Producto[];
+  rows: Producto[];
 }
 
 export interface Producto {

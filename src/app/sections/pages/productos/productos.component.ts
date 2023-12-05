@@ -1,38 +1,62 @@
-import { Component } from '@angular/core';
-interface Producto {
-  nombre: string;
-  etiqueta: string;
-  imagen: string;
-  descripcion: string;
-  likes: number;
-  precio: number;
-}
+import { Component, OnInit } from '@angular/core';
+import { Producto } from 'src/app/entities/paged-producto.interface';
+import { ProductoService } from 'src/app/services/producto.service';
+
 @Component({
   selector: 'sections-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
 })
-export class ProductosComponent {
+export class ProductosComponent implements OnInit{
 
-  producto: Producto = {
-    nombre: 'Funda de leche - 1 litro',
-    etiqueta: 'Leche',
-    imagen:
-    'https://www.supermercadosantamaria.com/documents/10180/10504/79347_G.jpg',
-    descripcion: 'Funda de leche de 1 litro con normas de calidad adecuadas',
-    likes: 15,
-    precio: 1.2,
-  };
+  countEntities: number = 0;
+  next: boolean = false;
+  pagina: number = 1;
 
-  productos: Producto[] = [
-    this.producto,
-    this.producto,
-    this.producto,
-    this.producto,
-    this.producto,
-    this.producto,
-    this.producto,
-    this.producto,
-  ]
+  productos: Producto[] = [];
 
+  constructor(private productoService: ProductoService) {}
+
+  ngOnInit(): void {
+    try {
+      this.getProductos(this.pagina);
+    } catch (error) {
+      this.countEntities = 0;
+      this.productos = [];
+      console.log(error);
+    }
+  }
+
+  getProductos(pagina: number) {
+    this.productoService.getAllProductos(pagina).subscribe(
+      (allProductos) => {
+        this.countEntities = allProductos.rows.length;
+        this.productos = allProductos.rows;
+        this.siguientePagina(this.pagina+1);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  cambiarPagina(num: number) {
+    this.pagina = this.pagina + num;
+    this.getProductos(this.pagina);
+    this.siguientePagina(this.pagina+1)
+  }
+
+  siguientePagina(sigPag: number) {
+    let resp: number = 0;
+    this.productoService
+      .getAllProductos(sigPag)
+      .subscribe((allProductos) => {
+        resp = allProductos.rows.length;
+        if (resp > 0) {
+          this.next = true;
+        } else {
+          this.next = false;
+        }
+      });
+  }
 }

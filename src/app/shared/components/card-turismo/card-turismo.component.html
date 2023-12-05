@@ -1,7 +1,7 @@
 <div class="card image-zoom">
   <div>
     <img
-      src="{{ this.actividad.imagen }}"
+      src="{{ this.actividad.Imagenes[0].url_imagen}}"
       class="card-img-top c-image"
       alt="imagen actividad turistica"
     />
@@ -9,10 +9,10 @@
 
   <div class="card-body px-3">
     <p class="card-text text-uppercase m-1 fs-6 fw-normal">
-      {{ this.actividad.etiqueta }}
+      {{ this.actividad.Etiqueta.nombre_etiqueta}}
     </p>
     <p class="card-text m-1 my-3 fs-6 fw-bolder text-capitalize">
-      {{ this.actividad.nombre }}
+      {{ this.actividad.nombres_punto }}
     </p>
     <div class="d-flex flex-row align-items-center justify-content-between m-1">
       <div>
@@ -25,7 +25,7 @@
             height="25px"
           />
         </a>
-        <span class="ps-1">: {{ this.actividad.likes }}</span>
+        <span class="ps-1">: {{ this.actividad.likes_punto }}</span>
       </div>
       <div>
         <a

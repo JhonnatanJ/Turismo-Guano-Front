@@ -1,6 +1,6 @@
 export interface PagedActividades {
   count:       number;
-  actividades: Actividad[];
+  rows: Actividad[];
 }
 
 export interface Actividad {
