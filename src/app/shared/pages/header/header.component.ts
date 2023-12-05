@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from 'src/app/entities/login.interface';
+import { Login } from 'src/app/entities/login.dto';
+import { Usuario } from 'src/app/entities/paged-producto.interface';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -11,20 +12,28 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeaderComponent {
   logged: boolean = false;
+  usuario!: Usuario;
 
   credentials!: Login;
   constructor(private loginService: LoginService, private router: Router) {}
 
   onSubmit(loginForm: NgForm) {
-    const respuesta = this.loginService.autenticar(loginForm.value);
-    if (respuesta) {
-      alert('INICIÓ SESIÓN CON ÉXITO');
-      this.logged = this.loginService.LOGGED;
-      this.router.navigate(['admin']);
-    } else {
-      return alert('ERROR DE CREDENCIALES');
-    }
-    return respuesta;
+    this.loginService.autenticar(loginForm.value).subscribe(
+      (usuario) => {
+        this.usuario = usuario;
+        if (this.usuario) {
+          alert('INICIÓ SESIÓN CON ÉXITO');
+          this.loginService.logStatus(true);
+          this.logged = this.loginService.LOGGED;
+          this.router.navigate(['admin']);
+        } else {
+          return alert('ERROR DE CREDENCIALES');
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   cerrarSesion() {

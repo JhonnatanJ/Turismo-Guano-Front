@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Login } from '../entities/login.interface';
+import { Login } from '../entities/login.dto';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Usuario } from '../entities/paged-producto.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
   LOGGED: boolean = false;
-  usuario: Login = { email: 'jhonnatan@gmail.com', contrasenia: '1234' };
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  autenticar(credenciales: Login) {
-    //TODO: Conectar con backend para verificar credenciales
-    if (
-      credenciales.email === this.usuario.email &&
-      credenciales.contrasenia === this.usuario.contrasenia
-    ) {
-      this.logStatus(true);
-      return true;
-    } else {
-      return false;
-    }
+  private host = 'http://localhost:4000';
+
+  autenticar(credenciales: Login): Observable<Usuario> {
+    const url = `${this.host}/login`;
+    return this.http.post<Usuario>(url, credenciales);
   }
 
   logStatus(status: boolean) {
