@@ -4,6 +4,11 @@
   src: url("./assets/fonts/Junge/Junge-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Josefin_Sans";
+  src: url("./assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf");
+}
+
 body {
   font-family: "Junge", sans-serif;
 }
@@ -14,6 +19,8 @@ body {
   --informacion: #a9cff0;
   --on-hover: #0065bd70;
   --bordeinput: rgba(190, 190, 190, 0.789);
+  --boton: rgba(232, 227, 227, 0.864);
+  --backgroundhover: rgba(224, 223, 223, 0.952);
   --textoligth: white;
   --textodark: rgba(141, 141, 141, 0.864);
   --texto-error: rgb(219, 84, 84);

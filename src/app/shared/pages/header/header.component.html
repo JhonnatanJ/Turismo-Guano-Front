@@ -1,58 +1,202 @@
-<header class="container-fluid p-3">
-  <div class="row align-items-center">
+<header class="container-fluid p-0">
+  <div
+    class="container d-flex flex-row justify-content-between align-items-center"
+  >
     <!-- ------------------------------------------------------- LOGO -->
     <div class="col-2">
-      <a routerLink="home">
-        <img src="../../../../assets/icons/light/logoGuano.png" alt="logoGuano" class="logo">
-      </a>
-    </div>
-    <!-- ------------------------------------------------------- BUSQUEDA -->
-    <div class="col-6 ps-2">
-      <form autocomplete="off">
-        <input
-          routerLink="busqueda"
-          routerLinkActive="active"
-          type="text"
-          name="termino"
-          class="form-control"
-          placeholder="Busca aquí..."
-          image = '../../../../assets/icons/light/lupa.png'
+      <a routerLink="">
+        <img
+          src="../../../../assets/icons/black/logo.png"
+          alt="logoGuano"
+          class="logo"
         />
-      </form>
-    </div>
-
-  <!-- ----------------------------------------------------- SECTIONS -->
-    <div class="col-1 p-0 section">
-      <div class="p-1 m-0">
-        <a routerLink="destinos" class="text-decoration-none text-reset">
-          <img src="../../../../assets/icons/light/maps.png" alt="destinos" class="carrito">
-          <p class="m-0" >Destinos</p>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="col-1 p-1 section">
-      <a routerLink="productos" class="text-decoration-none text-reset">
-        <img src="../../../../assets/icons/light/productos.png" alt="productos" class="carrito">
-        <p class="m-0 fw-small" >Productos</p>
       </a>
     </div>
 
-    <div class="col-1 p-1 section">
-      <a routerLink="contactenos" class="text-decoration-none text-reset">
-        <img src="../../../../assets/icons/light/email.png" alt="contactenos" class="carrito">
-        <p class="m-0 fw-small" >Contactenos</p>
-      </a>
+    <!-- ----------------------------------------------------- SECTIONS -->
+
+    <div class="nav-section">
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            routerLink=""
+            class="nav-link option py-4 text-reset fw-medium"
+            aria-current="page"
+            href="#"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="turismo"
+            class="nav-link option py-4 text-reset fw-medium"
+            aria-current="page"
+            href="#"
+            >Turismo</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="productos"
+            class="nav-link option py-4 text-reset fw-medium"
+            href="#"
+            >Productos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="contactenos"
+            class="nav-link option py-4 text-reset fw-medium"
+            href="#"
+            >Contactenos</a
+          >
+        </li>
+      </ul>
     </div>
 
-    <div class="col-1 p-1 section">
-      <a routerLink="admin" class="text-decoration-none text-reset">
-        <img src="../../../../assets/icons/light/usuario.png" alt="home" class="carrito">
-        <p class="m-0 fw-small" >Iniciar Sesión</p>
-      </a>
-    </div>
+    <!-- ------------------------------------------ OPTIONS -->
 
+    <div class="nav-section">
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            routerLink="buscar"
+            class="nav-link option py-4 active"
+            aria-current="page"
+          >
+            <img
+              src="../../../../assets/icons/black/buscar.png"
+              alt="buscar"
+              width="24px"
+            />
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle option py-4"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            data-bs-auto-close="outside"
+          >
+            <img
+              src="../../../../assets/icons/black/usuario.png"
+              alt="login"
+              width="24px"
+            />
+          </a>
+          <!-- -------------------------------- LOG IN -->
+          <ul class="dropdown-menu p-0">
+            <div
+              *ngIf="!this.logged"
+              class="card py-3 px-4"
+              style="width: 20rem"
+            >
+              <span class="text-center fs-6 fw-semibold m-2"
+                >Iniciar Sesión
+              </span>
+              <form
+                #loginForm="ngForm"
+                class="d-flex flex-column justify-content-center"
+              >
+                <div class="form-group m-2">
+                  <label for="inputEmail" class="form-label fs-6 fw-normal"
+                    >Email:</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="alguien@ejemplo.com"
+                    pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+                    required
+                    ngModel
+                    name="email"
+                    #email="ngModel"
+                  />
+                  <div
+                    [hidden]="email.valid || email.untouched"
+                    class="alert p-0 ps-2 pt-1 m-0 text-alert"
+                  >
+                    *Ingrese un correo electrónico válido
+                  </div>
+                </div>
+                <div class="form-group m-2">
+                  <label for="inputPassword" class="form-label fs-6 fw-normal"
+                    >Contraseña:</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    placeholder="***********"
+                    required
+                    ngModel
+                    name="contrasenia"
+                    #contrasenia="ngModel"
+                  />
+                </div>
+                <div
+                  [hidden]="contrasenia.valid || contrasenia.untouched"
+                  class="alert p-0 ps-2 pt-1 m-0 text-alert"
+                >
+                  *Ingrese su contraseña
+                </div>
+                <div
+                  class="mt-2 text-center d-flex flex-row align-items-center"
+                >
+                  <div class="col-6">
+                    <div
+                      [hidden]="email.valid && contrasenia.valid"
+                      class="alert p-0 ps-2 pt-1 m-0 text-alert-button"
+                    >
+                      *Ingrese los campos requeridos
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-login fs-6"
+                      [disabled]="!loginForm.form.valid"
+                      (click)="onSubmit(loginForm); loginForm.reset()"
+                    >
+                      Iniciar Sesión
+                    </button>
+                  </div>
+                  <div class="col-6">
+                    <span class="mt-1 fs-6 text-center">
+                      <a class="nav-link text-reset forgot-pass" href="">
+                        ¿Olvidó su contraseña?</a
+                      >
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div
+              *ngIf="this.logged"
+              class="card py-3 px-2"
+              style="width: 20rem"
+            >
+              <li>
+                <span class="dropdown-item-text text-center fs-6 fw-semibold m-1 mb-3">Bienvenid@</span>
+              </li>
+              <li>
+                <a class="dropdown-item option-dropdown" routerLink="admin"
+                  >Opciones Administrador</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a
+                  class="btn dropdown-item option-dropdown"
+                  (click)="cerrarSesion()"
+                  >Cerrar Sesión</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-
 </header>

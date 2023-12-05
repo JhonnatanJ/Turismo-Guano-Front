@@ -1,4 +1,87 @@
-.imagen {
+
+*{
+  --height-carousel-container: 32rem
+}
+
+p {
+  font-size: 17px;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+h3.titulo {
+  text-align: left;
+  font-weight: bolder;
+}
+
+hr {
+  margin: 1px;
+  padding: 2px;
+  background-color: black;
+  width: 300px;
+}
+
+hr.hr-leche{
+  margin: 1px;
+  padding: 2px;
+  background-color: black;
+  width: 150px;
+}
+
+.carousel-item {
+  height: var(--height-carousel-container);
+}
+
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.80);
+}
+
+div.titulo{
+  background-color: white;
+}
+
+.info-container {
+  position: relative;
+  display: grid;
+  height: var(--height-carousel-container);
+}
+.info-img {
+  display: inline;
+  justify-self: end;
+}
+.info-text {
+  position: absolute;
+  z-index: 1;
+  background-color: var(--primario);
+}
+
+img.info {
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-logo{
+  background-color: rgba(255, 255, 255, 0.45);
+  width: 10rem;
+  position: absolute;
+  z-index: 2;
+  right: 2%;
+  top: 3%
+}
+
+.hu__hu__ {
+  animation: hu__hu__ infinite 3s ease-in-out;
+}
+@keyframes hu__hu__ {
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+/* ------------------------------- */
+/* .imagen {
   max-width: 35px;
 }
 
@@ -35,4 +118,4 @@ hr {
 .carrusel-productos {
   max-height: 90%;
   width: auto;
-}
+} */

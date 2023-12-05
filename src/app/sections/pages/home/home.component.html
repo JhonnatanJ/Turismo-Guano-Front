@@ -3,71 +3,130 @@
   <shared-carrusel></shared-carrusel>
 </div>
 
-<div class="container flex-column d-flex justify-content-center">
-  <div class="container row mt-2 p-2 pe-0 m-2 me-0">
-
-    <hr class="mt-3" />
-    <div class="col-6 ms-6 pe-3 align-text-center align-items-center">
-      <div class="row mb-3 titulo-informacion">
-        <p class="titulo">
-          San Rafael de <br />
-          Chiquipoguio
-        </p>
+<div class="container flex-column d-flex justify-content-center mt-5">
+  <div class="container row mt-5 p-0 info-container">
+    <div class="col-6 p-5 pt-2 info-text">
+      <div class="row mb-1">
+        <h3 class="titulo">¿Quiénes Somos?</h3>
       </div>
 
+      <hr class="mt-1 mb-5" />
+
       <div class="row">
-        <p>
-          Te mostramos la guía de turismo oficial de la comunidad de San Rafael
-          en Guano-Ecuador, un lugar que se encuentra rodeado por hermosas
-          elevaciones como el volcán Chimborazo, el más alto del Ecuador y punto
-          más cercano al Sol. ¡La Sultana de los Andes, te espera Lorem, ipsum
-          dolor sit amet consectetur adipisicing elit. Temporibus, voluptate
-          soluta sapiente alias nam omnis asperiores? Corrupti cum ipsa odio
-          architecto nemo molestiae eum. Nisi velit ratione nesciunt incidunt
-          consequatur Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Architecto necessitatibus et praesentium magni qui, deleniti vero.
-          Consequuntur illo non voluptatum tenetur, similique porro facilis
-          numquam reprehenderit officiis accusantium voluptatem amet.
+        <p class="lh-base">
+          Te mostramos la guía de turismo y producción oficial de la comunidad
+          de San Rafael de Chiquipogyo en Guano-Ecuador. Un lugar que se
+          encuentra rodeado por hermosas elevaciones, nevados, y varios
+          atractivos turísticos como la Ruta Piedra de Bolivar - Arista del Sol,
+          que sobresale por sus características naturales y por permitir el
+          acceso a un patrimonio cultural e histórico de importancia.
+          <br /><br />
+          Además, los productos lacteos: leche, yogurt, quesos; obtenidos a
+          partir de la leche cruda abastecida por la comunidad en la planta de
+          acopio de leche "San Rafael" asegura la agrocalidad e impulsa el
+          desarrollo económico de la comunidad
         </p>
       </div>
     </div>
 
-    <div class="col-6 ps-3">
+    <div class="col-10 p-0 info-img">
       <img
-        src="../../../../assets/pictures/default_foto_SanRafael.jpg"
+        src="../../../../assets/pictures/Comunidad_SanRafael.jpg"
         alt="San Rafael"
-        class="img-fluid rounded"
+        class="d-block w-100 rounded info"
       />
     </div>
   </div>
-  <hr />
-  <!-- * PRODUCTOS -->
-  <!-- Titulo con Enlace a Sección Productos -->
-  <div class="container text-center mt-2 p-2 titulo-productos">
-    <div class="row">
-      <a routerLink="productos" class="p-0 text-decoration-none text-reset">
-        <h1>PRODUCTOS</h1>
-      </a>
+
+  <div class="container mx-2 p-4 mt-5">
+    <div class="text-center">
+      <h2 class="fw-bolder">¡LA MEJOR EXPERIENCIA!</h2>
     </div>
-  </div>
-  <!-- LISTADO PRODUCTOS -->
-  <div class="container-fluid p-3">
-    <app-list-card-productos></app-list-card-productos>
+    <div class="d-flex flex-row justify-content-evenly mx-2 p-4 mt-5">
+      <div class="col-3">
+        <div class="card p-4 px-2">
+          <a routerLink="turismo" class="text-reset text-decoration-none">
+            <div class="pb-4 px-2 card-img">
+              <img
+                src="../../../../assets/icons/black/Logo_SmartTourism.png"
+                class="d-block w-100 logo-card"
+                alt="..."
+              />
+            </div>
+            <div class="card-body mt-2">
+              <p class="card-text text-center fw-bolder fs-5">
+                Ruta <br />
+                Piedra de Bolívar
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card p-4 px-2">
+          <a routerLink="productos" class="text-reset text-decoration-none">
+            <div class="pb-4 px-2 card-img">
+              <img
+                src="../../../../assets/icons/black/Logo_Vidolac.png"
+                class="d-block w-100 logo-card"
+                alt="..."
+              />
+            </div>
+            <div class="card-body mt-2">
+              <p class="card-text text-center fw-bolder fs-5">
+                Productos Lacteos
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card p-4 px-2">
+          <a routerLink="contactenos" class="text-reset text-decoration-none">
+            <div class="pb-4 px-2 card-img">
+              <img
+                src="../../../../assets/icons/black/logo.png"
+                class="d-block w-100 logo-card"
+                alt="..."
+              />
+            </div>
+            <div class="card-body mt-2">
+              <p class="card-text text-center fw-bolder fs-5">
+                Reserva Ahora
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- * DESTINOS TURISTICOS -->
-
-  <!-- Titulo con Enlace a Sección Destino -->
-  <div class="container-fluid text-center mt-2 p-2 titulo-destino">
-    <div class="row">
-      <a routerLink="destinos" class="p-0 text-decoration-none text-reset">
-        <h1>DESTINOS TURÍSTICOS</h1>
-      </a>
+  <div class="container mb-5 row">
+    <div class="col-6 mt-5">
+      <img
+        src="../../../../assets/pictures/Conservacion_SocioBosque.jpg"
+        alt="chuquiragua"
+        class="d-block w-100 info"
+      />
     </div>
-  </div>
-  <!-- LISTADO DESTINOS -->
-  <div class="container-fluid p-3">
-    <app-list-card-destino></app-list-card-destino>
-    <app-list-card-destino></app-list-card-destino>
+    <div class="col-6 mt-5 p-5 pt-0">
+      <h3 class="titulo mb-1">Conservación Socio Bosque</h3>
+      <hr class="mt-1 mb-5" />
+      <p class="lh-base">
+        El Gobierno Nacional, en cumplimiento del Plan Nacional de Desarrollo
+        que plantea la reducción de la tasa de deforestación en un 50%, creó
+        desde el 2008 el Programa Socio Bosque cuyo objetivo principal es la
+        conservación de bosques y páramos nativos en todos los rincones del
+        país. <br /><br />
+        Los bosques nativos, páramos y otra cobertura vegetal nativa, son de
+        extrema importancia por los servicios ambientales que brindan, entre
+        estos: almacenamiento de carbono, refugio de biodiversidad, protección
+        de suelos y reservas de agua dulce. Además, los bosques tienen un alto
+        valor económico, cultural y espiritual
+      </p>
+    </div>
   </div>
 </div>

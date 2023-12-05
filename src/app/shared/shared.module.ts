@@ -1,37 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { AppRoutingModule } from '../app-routing.module';
+
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
-import { CardComponent } from './components/card/card.component';
-import { CardDestinoComponent } from './components/card-destino/card-destino.component';
-import { CarruselProductosComponent } from './components/temp/carrusel-productos/carrusel-productos.component';
-import { CarruselDestinosComponent } from './components/temp/carrusel-destinos/carrusel-destinos.component';
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { CardTurismoComponent } from './components/card-turismo/card-turismo.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     CarruselComponent,
-    CardComponent,
-    CardDestinoComponent,
-    CarruselProductosComponent,
-    CarruselDestinosComponent,
+    CardTurismoComponent,
     CardProductoComponent,
   ],
-  imports: [CommonModule, AppRoutingModule],
+  imports: [CommonModule, AppRoutingModule, FormsModule],
   exports: [
     HeaderComponent,
     CarruselComponent,
-    CardComponent,
     FooterComponent,
-
-    CardDestinoComponent,
+    CardTurismoComponent,
     CardProductoComponent,
-    CarruselProductosComponent,
-    CarruselDestinosComponent,
   ],
 })
 export class SharedModule {}
