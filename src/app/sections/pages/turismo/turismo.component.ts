@@ -10,14 +10,17 @@ import { TurismoService } from 'src/app/services/turismo.service';
   styleUrls: ['./turismo.component.css'],
 })
 export class TurismoComponent implements OnInit {
-  private countEntities: number = 0;
+  countEntities: number = 0;
+  next: boolean = false;
+  pagina: number = 1;
+
   actividades: Actividad[] = [];
 
   constructor(private turismoService: TurismoService) {}
 
   ngOnInit(): void {
     try {
-      this.getActividades(1);
+      this.getActividades(this.pagina);
     } catch (error) {
       this.countEntities = 0;
       this.actividades = [];
@@ -28,12 +31,35 @@ export class TurismoComponent implements OnInit {
   getActividades(pagina: number) {
     this.turismoService.getAllActividades(pagina).subscribe(
       (allActividades) => {
-        this.countEntities = allActividades.count;
+        this.countEntities = allActividades.rows.length;
         this.actividades = allActividades.rows;
+        this.siguientePagina(this.pagina+1);
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+
+  cambiarPagina(num: number) {
+    this.pagina = this.pagina + num;
+    this.getActividades(this.pagina);
+  }
+
+  siguientePagina(sigPag: number) {
+    let resp: number = 0;
+    this.turismoService
+      .getAllActividades(sigPag)
+      .subscribe((allActividades) => {
+        resp = allActividades.rows.length;
+        console.log(resp);
+        if (resp > 0) {
+          this.next = true;
+        } else {
+          this.next = false;
+        }
+      });
+
+    console.log(resp);
   }
 }

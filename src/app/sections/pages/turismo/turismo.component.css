@@ -75,7 +75,15 @@ img.info {
   background-color: var(--primario);
 }
 
+/* ------------------- PAGINADO*/
 
+span.i-paginado{
+  color: black;
+}
+
+a.page-link{
+  color: black;
+}
 
 
 
