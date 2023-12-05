@@ -7,10 +7,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
-import { CardComponent } from './components/card/card.component';
-import { CardDestinoComponent } from './components/card-destino/card-destino.component';
-import { CarruselProductosComponent } from './components/temp/carrusel-productos/carrusel-productos.component';
-import { CarruselDestinosComponent } from './components/temp/carrusel-destinos/carrusel-destinos.component';
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
 import { CardTurismoComponent } from './components/card-turismo/card-turismo.component';
 
@@ -20,23 +16,15 @@ import { CardTurismoComponent } from './components/card-turismo/card-turismo.com
     FooterComponent,
     CarruselComponent,
     CardTurismoComponent,
-    CardComponent,
-    CardDestinoComponent,
-    CarruselProductosComponent,
-    CarruselDestinosComponent,
     CardProductoComponent,
   ],
   imports: [CommonModule, AppRoutingModule, FormsModule],
   exports: [
     HeaderComponent,
     CarruselComponent,
-    CardComponent,
     FooterComponent,
     CardTurismoComponent,
-    CardDestinoComponent,
     CardProductoComponent,
-    CarruselProductosComponent,
-    CarruselDestinosComponent,
   ],
 })
 export class SharedModule {}
