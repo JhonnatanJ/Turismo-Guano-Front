@@ -11,6 +11,8 @@ import { EditProductComponent } from './articles/pages/edit-product/edit-product
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ListActividadesComponent } from './turismo/list-actividades/list-actividades.component';
 import { CreateActividadComponent } from './turismo/create-actividad/create-actividad.component';
+import { ListProductosComponent } from './productos/list-productos/list-productos.component';
+import { CreateProductoComponent } from './productos/create-producto/create-producto.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { CreateActividadComponent } from './turismo/create-actividad/create-acti
     EditProductComponent,
     SidebarComponent,
     ListActividadesComponent,
-    CreateActividadComponent
+    CreateActividadComponent,
+    ListProductosComponent,
+    CreateProductoComponent
   ],
   imports: [
     CommonModule,

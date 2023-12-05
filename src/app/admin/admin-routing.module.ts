@@ -6,9 +6,11 @@ import { EditArticleComponent } from './articles/pages/edit-article/edit-article
 import { CreateProductComponent } from './articles/pages/create-product/create-product.component';
 import { EditProductComponent } from './articles/pages/edit-product/edit-product.component';
 import { ListActividadesComponent } from './turismo/list-actividades/list-actividades.component';
+import { ListProductosComponent } from './productos/list-productos/list-productos.component';
 
 const routes: Routes = [
   { path: '', component: ListActividadesComponent, pathMatch: 'full' },
+  { path: 'list-producto', component: ListProductosComponent },
   { path: 'create-article', component: CreateArticleComponent },
   { path: 'edit-article', component: EditArticleComponent },
   { path: 'create-product', component: CreateProductComponent },
