@@ -5,9 +5,10 @@ import { CreateArticleComponent } from './articles/pages/create-article/create-a
 import { EditArticleComponent } from './articles/pages/edit-article/edit-article.component';
 import { CreateProductComponent } from './articles/pages/create-product/create-product.component';
 import { EditProductComponent } from './articles/pages/edit-product/edit-product.component';
+import { ListActividadesComponent } from './turismo/list-actividades/list-actividades.component';
 
 const routes: Routes = [
-  { path: '', component: ListArticlesComponent, pathMatch: 'full' },
+  { path: '', component: ListActividadesComponent, pathMatch: 'full' },
   { path: 'create-article', component: CreateArticleComponent },
   { path: 'edit-article', component: EditArticleComponent },
   { path: 'create-product', component: CreateProductComponent },
