@@ -44,6 +44,7 @@ export class TurismoComponent implements OnInit {
   cambiarPagina(num: number) {
     this.pagina = this.pagina + num;
     this.getActividades(this.pagina);
+    this.siguientePagina(this.pagina+1)
   }
 
   siguientePagina(sigPag: number) {
@@ -52,14 +53,11 @@ export class TurismoComponent implements OnInit {
       .getAllActividades(sigPag)
       .subscribe((allActividades) => {
         resp = allActividades.rows.length;
-        console.log(resp);
         if (resp > 0) {
           this.next = true;
         } else {
           this.next = false;
         }
       });
-
-    console.log(resp);
   }
 }
