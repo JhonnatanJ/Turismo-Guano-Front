@@ -1,5 +1,5 @@
-*{
-  --borde-card: var(--bs-gray-400)
+* {
+  --borde-card: var(--bs-gray-400);
 }
 
 a.c-icon:hover {
@@ -20,7 +20,6 @@ img.c-icon:hover {
   border-left: 1px solid var(--borde-card);
   border-right: 1px solid var(--borde-card);
   background-color: var(--primario);
-
 }
 
 .card:hover {
@@ -29,9 +28,11 @@ img.c-icon:hover {
   background-color: white;
 }
 
-.c-image{
+.c-image {
+  height: 12rem;
+  width: 18rem;
+  overflow: hidden;
+  object-fit: contain;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-
-
