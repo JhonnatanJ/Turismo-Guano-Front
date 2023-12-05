@@ -150,14 +150,58 @@
   <div class="container">
     <div class="py-3 mx-5 mt-5 ps-5 titulo">
       <h3 class="m-0 ps-3 fw-bolder">Leche</h3>
-      <hr class="ps-5" />
+      <hr class="ps-5 hr-leche" />
     </div>
-
-    <!-- -------------------------------------------------------- GRID PRODUCTOS (LECHE)  -->
+  </div>
+  <!-- -------------------------------------------------------- GRID PRODUCTOS (LECHE)  -->
+  <div class="container my-3">
+    <div
+      class="d-flex flex-row flex-wrap justify-content-evenly align-items-center px-4"
+    >
+      <div *ngFor="let producto of this.productos">
+        <shared-card-producto
+          [producto]="producto"
+          class="col-3 m-3"
+        ></shared-card-producto>
+      </div>
+    </div>
   </div>
 
+  <!-- ---------------------------------------------------------------- YOGURT  -->
+
+  <div class="container">
+    <div class="py-3 mx-5 mt-5 ps-5 titulo">
+      <h3 class="m-0 ps-3 fw-bolder">Yogurt</h3>
+      <hr class="ps-5 hr-leche" />
+    </div>
+  </div>
+  <!-- -------------------------------------------------------- GRID PRODUCTOS (YOGURT)  -->
   <div class="container my-3">
-    <div class="d-flex flex-row flex-wrap justify-content-evenly px-4">
+    <div
+      class="d-flex flex-row flex-wrap justify-content-evenly align-items-center px-4"
+    >
+      <div *ngFor="let producto of this.productos">
+        <shared-card-producto
+          [producto]="producto"
+          class="col-3 m-3"
+        ></shared-card-producto>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------------------------- QUESO  -->
+
+  <div class="container">
+    <div class="py-3 mx-5 mt-5 ps-5 titulo">
+      <h3 class="m-0 ps-3 fw-bolder">Queso</h3>
+      <hr class="ps-5 hr-leche" />
+    </div>
+  </div>
+  <!-- -------------------------------------------------------- GRID PRODUCTOS (QUESO)  -->
+  <div class="container my-3">
+    <div
+      class="d-flex flex-row flex-wrap justify-content-evenly align-items-center px-4"
+    >
       <div *ngFor="let producto of this.productos">
         <shared-card-producto
           [producto]="producto"

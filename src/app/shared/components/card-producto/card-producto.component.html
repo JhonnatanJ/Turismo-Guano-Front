@@ -1,19 +1,23 @@
 <div class="card image-zoom">
   <div>
     <img
-    src="{{this.producto.imagen}}"
-    class="card-img-top c-image"
-    alt="imagen actividad turistica"
-  />
+      src="{{ this.producto.imagen }}"
+      class="card-img-top c-image"
+      alt="imagen actividad turistica"
+    />
   </div>
 
   <div class="card-body px-3">
-    <p class="card-text text-uppercase m-1 fs-6 fw-normal text-uppercase">
-      {{this.producto.etiqueta}}
+    <p class="card-text text-uppercase m-1 fs-6 fw-normal">
+      {{ this.producto.etiqueta }}
     </p>
-    <p class="card-text m-1 my-2 fs-6 fw-bolder text-capitalize">{{this.producto.nombre}}</p>
+    <p class="card-text m-1 my-2 fs-6 fw-bolder text-capitalize">
+      {{ this.producto.nombre }}
+    </p>
 
-    <p class="card-text m-1 my-2 fs-5 fw-semibold">$: {{this.producto.precio.toFixed(2)}}</p>
+    <p class="card-text m-1 my-2 fs-5 fw-semibold">
+      $: {{ this.producto.precio.toFixed(2) }}
+    </p>
 
     <div class="d-flex flex-row align-items-center justify-content-between m-1">
       <div>
@@ -26,7 +30,7 @@
             height="25px"
           />
         </a>
-        <span class="ps-1">: {{this.producto.likes}}</span>
+        <span class="ps-1">: {{ this.producto.likes }}</span>
       </div>
       <div>
         <a
@@ -46,8 +50,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- <div class="card image-zoom" style="width: 18rem;">
   <img src="../../../../assets/pictures/default_foto_producto_3.jpg" class="card-img-top" alt="...">

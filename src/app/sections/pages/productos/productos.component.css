@@ -21,6 +21,13 @@ hr {
   width: 300px;
 }
 
+hr.hr-leche{
+  margin: 1px;
+  padding: 2px;
+  background-color: black;
+  width: 150px;
+}
+
 .carousel-item {
   height: var(--height-carousel-container);
 }
