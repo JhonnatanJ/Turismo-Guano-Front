@@ -104,8 +104,3 @@ span.i-paginado {
 a.page-link {
   color: black;
 }
-
-li.paginado {
-  background-color: var(--bs-gray-800);
-  border-radius: 10px;
-}

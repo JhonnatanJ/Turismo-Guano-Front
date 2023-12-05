@@ -230,24 +230,27 @@
     <!-- ---------------------------------- PAGINADO -->
     <nav>
       <ul *ngIf="countEntities > 0" class="pagination justify-content-center">
-        <li *ngIf="pagina === 1; else anterior" class="page-item disabled">
+        <li
+          *ngIf="pagina === 1; else anterior"
+          class="page-item disabled paginado"
+        >
           <a class="page-link"> Anterior </a>
         </li>
         <ng-template #anterior>
-          <li class="page-item">
+          <li class="page-item paginado">
             <a (click)="cambiarPagina(-1)" class="btn page-link"> Anterior </a>
           </li>
         </ng-template>
-        <li class="page-item disabled">
+        <li class="page-item disabled paginado">
           <a class="page-link"> Página {{ pagina }} </a>
         </li>
 
-        <li *ngIf="!next; else siguiente" class="page-item disabled">
+        <li *ngIf="!next; else siguiente" class="page-item disabled paginado">
           <a class="page-link"> Siguiente </a>
         </li>
 
         <ng-template #siguiente>
-          <li class="page-item">
+          <li class="page-item paginado">
             <a (click)="cambiarPagina(1)" class="btn page-link"> Siguiente </a>
           </li>
         </ng-template>
