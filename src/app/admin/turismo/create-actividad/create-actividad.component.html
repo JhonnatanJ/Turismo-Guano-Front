@@ -66,4 +66,190 @@
       </form>
     </div>
   </div>
+
+  <!-- * ---------------------------------------------------------- PASO 2 -->
+  <div *ngIf="paso1">
+    <!-- -------------------------------------- TITULO PASO 2 -->
+    <div class="py-3 mx-5 ps-4 titulo">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="../../../../assets/icons/black/informacion.png"
+          alt="etiqueta"
+          width="23px"
+          height="23px"
+        />
+        <h3 class="m-0 ps-2 fw-semibold fs-5">
+          PASO 2: <span class="ps-3">Ingresar Datos</span>
+        </h3>
+      </div>
+      <hr class="ps-5 hr-leche" />
+    </div>
+
+    <!-- -------------------------------------- FORMULARIO -->
+    <div class="row my-4 mx-5">
+      <form #infoForm="ngForm" class="formulario py-3">
+        <div
+          class="my-3 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label for="inputNombre" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Nombre de la Actividad Turística:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            placeholder="Ingrese el nombre de la actividad turística"
+            required
+            ngModel
+            name="nombre"
+            #nombre="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="nombre.valid || nombre.untouched"
+          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+        >
+          *Ingrese un nombre válido
+        </div>
+
+        <div
+          class="my-4 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label
+            for="inputDescripcion"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Descripción:
+          </label>
+          <textarea
+            type="text"
+            rows="8"
+            class="form-control"
+            id="inputDescripcion"
+            placeholder="Ingrese todos los detalles de la actividad turística..."
+            required
+            ngModel
+            name="descripcion"
+            #descripcion="ngModel"
+          ></textarea>
+        </div>
+        <div
+          [hidden]="descripcion.valid || descripcion.untouched"
+          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+        >
+          *Ingrese un texto válido
+        </div>
+
+        <!-- --------------------- BOTÓN -->
+        <div class="d-flex flex-column align-items-start mx-3">
+          <div
+            [hidden]="nombre.valid"
+            class="p-0 ps-2 pt-1 m-0 text-alert-button"
+          >
+            *Ingrese todos los campos solicitados
+          </div>
+          <button
+            type="submit"
+            class="btn btn-form"
+            [disabled]="!infoForm.form.valid"
+            (click)="onSubmit2(infoForm); infoForm.reset()"
+          >
+            Siguiente
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- * ------------------------------------------------------ PASO 3 -->
+  <div *ngIf="paso1">
+    <!-- -------------------------------------- TITULO PASO 2 -->
+    <div class="py-3 mx-5 ps-4 titulo">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="../../../../assets/icons/black/informacion.png"
+          alt="etiqueta"
+          width="23px"
+          height="23px"
+        />
+        <h3 class="m-0 ps-2 fw-semibold fs-5">
+          PASO 3: <span class="ps-3">Ingresar Imagen</span>
+        </h3>
+      </div>
+      <hr class="ps-5 hr-leche" />
+    </div>
+
+    <!-- -------------------------------------- FORMULARIO -->
+    <div class="row my-4 mx-5">
+      <form #infoForm="ngForm" class="formulario py-3">
+        <div
+          class="my-3 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label for="inputNombre" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Nombre de la Actividad Turística:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            placeholder="Ingrese el nombre de la actividad turística"
+            required
+            ngModel
+            name="nombre"
+            #nombre="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="nombre.valid || nombre.untouched"
+          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+        >
+          *Ingrese un nombre válido
+        </div>
+
+        <div
+          class="my-4 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label
+            for="inputDescripcion"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Descripción:
+          </label>
+          <textarea
+            type="text"
+            rows="8"
+            class="form-control"
+            id="inputDescripcion"
+            placeholder="Ingrese todos los detalles de la actividad turística..."
+            required
+            ngModel
+            name="descripcion"
+            #descripcion="ngModel"
+          ></textarea>
+        </div>
+        <div
+          [hidden]="descripcion.valid || descripcion.untouched"
+          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+        >
+          *Ingrese un texto válido
+        </div>
+
+        <!-- --------------------- BOTÓN -->
+        <div class="d-flex flex-column align-items-start mx-3">
+          <div
+            [hidden]="nombre.valid"
+            class="p-0 ps-2 pt-1 m-0 text-alert-button"
+          >
+            *Ingrese todos los campos solicitados
+          </div>
+          <button
+            type="submit"
+            class="btn btn-form"
+            [disabled]="!infoForm.form.valid"
+            (click)="onSubmit2(infoForm); infoForm.reset()"
+          >
+            Siguiente
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
