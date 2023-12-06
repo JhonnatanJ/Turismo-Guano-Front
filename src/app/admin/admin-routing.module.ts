@@ -7,9 +7,11 @@ import { CreateProductComponent } from './articles/pages/create-product/create-p
 import { EditProductComponent } from './articles/pages/edit-product/edit-product.component';
 import { ListActividadesComponent } from './turismo/list-actividades/list-actividades.component';
 import { ListProductosComponent } from './productos/list-productos/list-productos.component';
+import { CreateActividadComponent } from './turismo/create-actividad/create-actividad.component';
 
 const routes: Routes = [
   { path: '', component: ListActividadesComponent, pathMatch: 'full' },
+  { path: 'create-actividad', component: CreateActividadComponent },
   { path: 'list-producto', component: ListProductosComponent },
   { path: 'create-article', component: CreateArticleComponent },
   { path: 'edit-article', component: EditArticleComponent },

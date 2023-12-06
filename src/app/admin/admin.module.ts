@@ -13,6 +13,7 @@ import { ListActividadesComponent } from './turismo/list-actividades/list-activi
 import { CreateActividadComponent } from './turismo/create-actividad/create-actividad.component';
 import { ListProductosComponent } from './productos/list-productos/list-productos.component';
 import { CreateProductoComponent } from './productos/create-producto/create-producto.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CreateProductoComponent } from './productos/create-producto/create-prod
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

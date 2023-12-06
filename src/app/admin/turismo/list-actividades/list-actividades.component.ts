@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actividad } from 'src/app/entities/paged-actividad.interface';
 import { TurismoService } from 'src/app/services/turismo.service';
 
@@ -14,13 +15,17 @@ export class ListActividadesComponent implements OnInit {
 
   actividades!: Actividad[];
 
-  constructor(private turismoService: TurismoService) {}
+  constructor(private turismoService: TurismoService, private router: Router) {}
   ngOnInit(): void {
     try {
       this.getActividades(this.pagina);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  crearActividad() {
+    this.router.navigate(['admin/create-actividad'])
   }
 
   getActividades(pagina: number) {
