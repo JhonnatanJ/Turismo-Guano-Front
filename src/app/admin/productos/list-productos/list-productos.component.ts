@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Producto } from 'src/app/entities/paged-producto.interface';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-list-productos',
   templateUrl: './list-productos.component.html',
-  styleUrls: ['./list-productos.component.css']
+  styleUrls: ['./list-productos.component.css'],
 })
 export class ListProductosComponent implements OnInit {
   countEntities: number = 0;
@@ -14,13 +16,20 @@ export class ListProductosComponent implements OnInit {
 
   productos!: Producto[];
 
-  constructor(private productoService: ProductoService) {}
+  constructor(
+    private productoService: ProductoService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     try {
       this.getProductos(this.pagina);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  crearProducto() {
+    this.router.navigate(['admin/create-producto']);
   }
 
   getProductos(pagina: number) {
@@ -44,15 +53,13 @@ export class ListProductosComponent implements OnInit {
 
   siguientePagina(sigPag: number) {
     let resp: number = 0;
-    this.productoService
-      .getAllProductos(sigPag)
-      .subscribe((allProductos) => {
-        resp = allProductos.rows.length;
-        if (resp > 0) {
-          this.next = true;
-        } else {
-          this.next = false;
-        }
-      });
+    this.productoService.getAllProductos(sigPag).subscribe((allProductos) => {
+      resp = allProductos.rows.length;
+      if (resp > 0) {
+        this.next = true;
+      } else {
+        this.next = false;
+      }
+    });
   }
 }
