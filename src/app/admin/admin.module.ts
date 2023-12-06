@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
+
 import { AdminComponent } from './admin.component';
 import { CreateArticleComponent } from './articles/pages/create-article/create-article.component';
 import { EditArticleComponent } from './articles/pages/edit-article/edit-article.component';
@@ -13,7 +15,6 @@ import { ListActividadesComponent } from './turismo/list-actividades/list-activi
 import { CreateActividadComponent } from './turismo/create-actividad/create-actividad.component';
 import { ListProductosComponent } from './productos/list-productos/list-productos.component';
 import { CreateProductoComponent } from './productos/create-producto/create-producto.component';
-import { FormsModule } from '@angular/forms';
 
 
 @NgModule({

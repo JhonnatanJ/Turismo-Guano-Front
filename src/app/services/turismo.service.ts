@@ -23,8 +23,10 @@ export class TurismoService {
   }
 
   createImagen(imagen:File, idActividad: number): Observable<Imagen>{
+    const dataForm = new FormData();
+    dataForm.append('imagen',imagen);
     const url = `${this.host}/punto/imagen/${idActividad}`;
-    return this.http.post<Imagen>(url,imagen);
+    return this.http.post<any>(url,dataForm);
 
   }
 }

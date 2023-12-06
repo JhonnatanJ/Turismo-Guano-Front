@@ -161,7 +161,7 @@
   </div>
 
   <!-- * ------------------------------------------------------ PASO 3 -->
-  <div *ngIf="paso1">
+  <div *ngIf="paso3">
     <!-- -------------------------------------- TITULO PASO 2 -->
     <div class="py-3 mx-5 ps-4 titulo">
       <div class="d-flex flex-row align-items-center">
@@ -180,7 +180,7 @@
 
     <!-- -------------------------------------- FORMULARIO -->
     <div class="d-flex flex-row my-4 mx-5 align-items-center formulario py-3">
-      <form #imageForm="ngForm" class=" col">
+      <form #imageForm="ngForm" class="col" enctype="multipart/form-data">
         <div
           class="my-3 mx-3"
         >
