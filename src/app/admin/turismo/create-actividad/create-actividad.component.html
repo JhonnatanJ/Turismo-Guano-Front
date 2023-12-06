@@ -68,7 +68,7 @@
   </div>
 
   <!-- * ---------------------------------------------------------- PASO 2 -->
-  <div *ngIf="paso1">
+  <div *ngIf="paso2">
     <!-- -------------------------------------- TITULO PASO 2 -->
     <div class="py-3 mx-5 ps-4 titulo">
       <div class="d-flex flex-row align-items-center">
@@ -161,7 +161,7 @@
   </div>
 
   <!-- * ------------------------------------------------------ PASO 3 -->
-  <div *ngIf="paso1">
+  <div *ngIf="paso3">
     <!-- -------------------------------------- TITULO PASO 2 -->
     <div class="py-3 mx-5 ps-4 titulo">
       <div class="d-flex flex-row align-items-center">
@@ -179,77 +179,46 @@
     </div>
 
     <!-- -------------------------------------- FORMULARIO -->
-    <div class="row my-4 mx-5">
-      <form #infoForm="ngForm" class="formulario py-3">
+    <div class="d-flex flex-row my-4 mx-5 align-items-center formulario py-3">
+      <form #imageForm="ngForm" class="col" enctype="multipart/form-data">
         <div
-          class="my-3 mx-3 d-flex flex-column justify-content-center align-items-start"
+          class="my-3 mx-3"
         >
-          <label for="inputNombre" class="form-label fs-5 text-nowrap mx-3 my-0"
-            >Ingresar Nombre de la Actividad Turística:
-          </label>
+          <label for="inputImage" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Imagen:</label
+          >
           <input
-            type="text"
             class="form-control"
-            id="inputNombre"
-            placeholder="Ingrese el nombre de la actividad turística"
-            required
-            ngModel
-            name="nombre"
-            #nombre="ngModel"
+            type="file"
+            id="inputImage"
+            (change)="onFileChange($event)"
+            accept="image/png, image/jpg, image/jpeg, image/gif"
+            #imagen
           />
         </div>
-        <div
-          [hidden]="nombre.valid || nombre.untouched"
-          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
-        >
-          *Ingrese un nombre válido
-        </div>
-
-        <div
-          class="my-4 mx-3 d-flex flex-column justify-content-center align-items-start"
-        >
-          <label
-            for="inputDescripcion"
-            class="form-label fs-5 text-nowrap mx-3 my-0"
-            >Ingresar Descripción:
-          </label>
-          <textarea
-            type="text"
-            rows="8"
-            class="form-control"
-            id="inputDescripcion"
-            placeholder="Ingrese todos los detalles de la actividad turística..."
-            required
-            ngModel
-            name="descripcion"
-            #descripcion="ngModel"
-          ></textarea>
-        </div>
-        <div
-          [hidden]="descripcion.valid || descripcion.untouched"
-          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
-        >
-          *Ingrese un texto válido
-        </div>
-
         <!-- --------------------- BOTÓN -->
         <div class="d-flex flex-column align-items-start mx-3">
-          <div
-            [hidden]="nombre.valid"
-            class="p-0 ps-2 pt-1 m-0 text-alert-button"
-          >
+          <div class="p-0 ps-2 pt-1 m-0 text-alert-button">
             *Ingrese todos los campos solicitados
           </div>
           <button
             type="submit"
             class="btn btn-form"
-            [disabled]="!infoForm.form.valid"
-            (click)="onSubmit2(infoForm); infoForm.reset()"
+            [disabled]="!imagen"
+            (click)="onSubmit3(); reset(imageForm)"
           >
             Siguiente
           </button>
         </div>
       </form>
+      <div class="col c-imgtemp px-3">
+        <img
+          [src]="imagenMin"
+          [hidden]="!imagenMin"
+          alt="previsualizar imagen"
+          class=" img-thumbnail"
+        />
+      </div>
     </div>
   </div>
 </div>

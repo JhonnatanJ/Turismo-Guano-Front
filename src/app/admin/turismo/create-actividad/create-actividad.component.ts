@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CreateActividadDto } from 'src/app/entities/dto/turismo/create-actividad.dto';
+import { CreateComentarioDto } from 'src/app/entities/dto/turismo/create-comentario.dto';
 import { CreateEtiquetaDto } from 'src/app/entities/dto/turismo/create-etiqueta.dto';
 import {
   Actividad,
   Etiqueta,
 } from 'src/app/entities/paged-actividad.interface';
+import { ComentarioService } from 'src/app/services/comentario.service';
 import { EtiquetaService } from 'src/app/services/etiqueta.service';
 import { TurismoService } from 'src/app/services/turismo.service';
 
@@ -14,7 +17,7 @@ import { TurismoService } from 'src/app/services/turismo.service';
   templateUrl: './create-actividad.component.html',
   styleUrls: ['./create-actividad.component.css'],
 })
-export class CreateActividadComponent {
+export class CreateActividadComponent implements OnInit {
   etiqueta!: Etiqueta;
   actividad!: Actividad;
 
@@ -24,8 +27,16 @@ export class CreateActividadComponent {
 
   constructor(
     private etiquetaService: EtiquetaService,
-    private turismoService: TurismoService
+    private turismoService: TurismoService,
+    private comentarioService: ComentarioService,
+    private router: Router
   ) {}
+
+  ngOnInit(): void {
+    this.paso1 = true;
+    this.paso2 = false;
+    this.paso3 = false;
+  }
 
   // ** ------------------------------------------------------------------- PASO 1
   onSubmit(etiquetaForm: NgForm) {
@@ -100,14 +111,47 @@ export class CreateActividadComponent {
 
   // * ------------------------------------------------------------------ PASO 3
 
-  
+  imagen!: File;
+  imagenMin!: File;
 
+  onSubmit3() {
+    this.turismoService
+      .createImagen(this.imagen, this.actividad.id_punto)
+      .subscribe(
+        (imagen) => {
+          const comentario: CreateComentarioDto = {
+            mensaje: 'Recomendado, un excelente sitio para el turismo.',
+          };
+          this.comentarioService.createComentario(
+            comentario,
+            this.actividad.id_punto
+          );
+          this.paso3Completo();
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
 
+  onFileChange(event: Event) {
+    this.imagen = (<HTMLInputElement>event.target).files![0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
+  }
+
+  reset(imageForm: NgForm) {
+    this.imagen != null;
+    this.imagenMin != null;
+    imageForm.reset();
+  }
   //-------------------------------------------- pasos completados
 
   paso3Completo() {
-    this.paso1 = false;
-    this.paso2 = false;
-    this.paso3 = true;
+    this.paso3 = false;
+    this.router.navigate(['admin']);
   }
 }
