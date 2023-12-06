@@ -100,9 +100,37 @@ export class CreateActividadComponent {
 
   // * ------------------------------------------------------------------ PASO 3
 
-  
+  imagen!: File;
+  imagenMin!: File;
 
+  onSubmit3() {
+    this.turismoService
+      .createImagen(this.imagen, this.actividad.id_punto)
+      .subscribe(
+        (imagen) => {
+          console.log('Imagen Creada');
+          // todo cargar comentario
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
 
+  onFileChange(event: Event) {
+    this.imagen = (<HTMLInputElement>event.target).files![0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
+  }
+
+  reset(imageForm: NgForm) {
+    this.imagen != null;
+    this.imagenMin != null;
+    imageForm.reset();
+  }
   //-------------------------------------------- pasos completados
 
   paso3Completo() {

@@ -9,6 +9,19 @@
   font-weight: bolder;
 }
 
+.c-imgtemp{
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  overflow: hidden;
+  background-color: var(--secundario);
+}
+
+img.img-temp{
+  height: 100%;
+  object-fit: cover;
+}
+
 .alert{
   color: #a94442;
 }
