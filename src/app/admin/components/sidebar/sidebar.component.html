@@ -1,96 +1,50 @@
-<div class="min-vh-100 p-2 side">
-  <a
-    class="d-flex mt-1 align-items-center justify-content-center text-decoration-none text-reset mt-2"
-  >
-    <span class="fs-4 d-none d-sm-inline text-white"> OPCIONES </span>
+<nav
+  class="navbar-section side h-100 d-flex flex-column align-items-start justify-content-start px-3"
+>
+  <a class="navbar-brand py-4 m-0 flex-inline align-self-center">
+    <img
+      src="../../../../assets/icons/black/opciones-admin.png"
+      alt="opciones administrador"
+      width="62px"
+      height="62px"
+    />
   </a>
-  <ul class="nav nav-pills flex-column mt-4">
-    <hr class="m-0" />
-    <li class="pt-0">
-      <a href="#" class="nav-link text-white d-flex justify-content-start">
-        <i class="bi bi-house"></i>
-        <span class="fs-4 d-none d-sm-inline">Articulos</span>
-      </a>
-    </li>
-    <li class="nav-item">
+  <ul class="navbar-nav w-100">
+    <li class="nav-item flex-row justify-content-start align-items-center my-2">
       <a
-        routerLink="list-articles"
-        routerLinkActive="active"
-        class="d-flex justify-content-start align-items-center nav-link text-white"
+        class="nav-link active fs-5 fw-light"
+        aria-current="page"
+        routerLink="admin"
+        ><img
+          class="mx-2"
+          src="../../../../assets/icons/black/turismo.png"
+          alt="turismo"
+          width="30px"
+          height="30px"
+        />Turismo</a
       >
-        <img
-          src="../../../../assets/icons/dark/ver-articulos.png"
-          alt="ver articulos"
-          width="24px"
-          height="24px"
-        />
-        <span class="fs-5 ms-3 d-none d-sm-inline">Ver Articulos</span>
-      </a>
     </li>
-    <li class="nav-item">
-      <a
-        routerLink="create-article"
-        class="d-flex justify-content-start align-items-center nav-link text-white"
-      >
+    <li class="nav-item flex-row justify-content-start align-items-center my-2">
+      <a class="nav-link fs-5 fs-5 fw-light" routerLink="list-producto">
         <img
-          src="../../../../assets/icons/dark/agregar-destino.png"
-          alt="Crear Destino"
-          width="24px"
-          height="24px"
-        />
-        <span class="fs-5 ms-3 d-none d-sm-inline">Crear Destino</span>
-      </a>
+          class="mx-2"
+          src="../../../../assets/icons/black/productos.png"
+          alt="productos"
+          width="30px"
+          height="30px"
+        />Productos</a
+      >
     </li>
-    <li class="nav-item">
-      <a
-        routerLink="create-product"
-        class="d-flex justify-content-start align-items-center nav-link text-white"
-      >
+    <li class="nav-item flex-row justify-content-start align-items-center my-2">
+      <a class="nav-link fs-5 fs-5 fw-light" href="#">
         <img
-          src="../../../../assets/icons/dark/agregar-producto.png"
-          alt="Crear Producto"
-          width="24px"
-          height="24px"
-        />
-        <span class="fs-5 ms-3 d-none d-sm-inline">Crear Producto</span>
-      </a>
+          class="mx-2"
+          src="../../../../assets/icons/black/gestion-usuarios.png"
+          alt="productos"
+          width="30px"
+          height="30px"
+        />Usuarios</a
+      >
     </li>
   </ul>
-  <ul class="nav nav-pills flex-column mt-4">
-    <hr class="m-0" />
-    <li>
-      <a href="#" class="nav-link text-white d-flex justify-content-start">
-        <i class="bi bi-house"></i>
-        <span class="fs-4 d-none d-sm-inline">Usuarios</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        href="#"
-        class="d-flex justify-content-start align-items-center nav-link text-white"
-      >
-        <img
-          src="../../../../assets/icons/dark/ver-articulos.png"
-          alt="articulo nuevo"
-          width="24px"
-          height="24px"
-        />
-        <span class="fs-5 ms-3 d-none d-sm-inline">Ver Usuarios</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        href="#"
-        class="d-flex justify-content-start align-items-center nav-link text-white"
-      >
-        <img
-          src="../../../../assets/icons/dark/agregar-destino.png"
-          alt="articulo nuevo"
-          width="24px"
-          height="24px"
-        />
-        <span class="fs-5 ms-3 d-none d-sm-inline">Crear Usuario</span>
-      </a>
-    </li>
-  </ul>
-</div>
+</nav>

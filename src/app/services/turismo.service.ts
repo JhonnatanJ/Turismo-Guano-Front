@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PagedActividades } from '../entities/paged-actividad.interface';
+import { Actividad, Imagen, PagedActividades } from '../entities/paged-actividad.interface';
 import { Observable } from 'rxjs';
+import { CreateActividadDto } from '../entities/dto/turismo/create-actividad.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +15,18 @@ export class TurismoService {
   getAllActividades(pagina: number): Observable<PagedActividades> {
     const url = `${this.host}/puntos/${pagina}`;
     return this.http.get<PagedActividades>(url);
+  }
+
+  createActividad(actividad: CreateActividadDto):Observable<Actividad>{
+    const url = `${this.host}/punto`;
+    return this.http.post<Actividad>(url,actividad);
+  }
+
+  createImagen(imagen:File, idActividad: number): Observable<Imagen>{
+    const dataForm = new FormData();
+    dataForm.append('imagen',imagen);
+    const url = `${this.host}/punto/imagen/${idActividad}`;
+    return this.http.post<any>(url,dataForm);
+
   }
 }
