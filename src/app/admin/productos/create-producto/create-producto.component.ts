@@ -1,36 +1,98 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { ProductoService } from 'src/app/services/producto.service';
 
 import { CreateProductoDto } from 'src/app/entities/dto/productos/create-producto.dto';
-import { Producto } from '../../../entities/paged-producto.interface';
-import { Etiqueta } from '../../../entities/paged-actividad.interface';
+import { Producto } from 'src/app/entities/Producto';
+import { UpdateProductoDto } from 'src/app/entities/dto/productos/update-producto.dto';
 
 @Component({
   selector: 'app-create-producto',
   templateUrl: './create-producto.component.html',
-  styleUrls: ['./create-producto.component.css']
+  styleUrls: ['./create-producto.component.css'],
 })
-export class CreateProductoComponent implements OnInit{
+export class CreateProductoComponent implements OnInit {
   etiquetas = ['Leche', 'Yogurt', 'Queso'];
   etiqueta!: string;
-  producto!: Producto;
+  producto: Producto = new Producto();
+  idProducto!: number;
 
   paso1: boolean = true;
   paso2: boolean = false;
 
   constructor(
     private productoService: ProductoService,
+    private _router: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.paso1 = true;
     this.paso2 = false;
+    this.idProducto = parseInt(this._router.snapshot.paramMap.get('id')!);
+    console.log(this.producto);
+
+    if (this.idProducto) {
+      this.getProductoById(this.idProducto);
+    }
   }
 
+  //!----------------------------------------------------------------------------------- EDITAR
+
+  getProductoById(idProducto: number) {
+    this.productoService.getProductoById(idProducto).subscribe(
+      (producto) => {
+        this.producto = producto;
+        console.log(this.producto);
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  updateProducto() {
+    const auxProducto: UpdateProductoDto = {
+      newNombre: this.producto.nombres_producto,
+      newPrecio: this.producto.precio_producto,
+      newDescripcion: this.producto.descripcion_producto,
+      newEtiqueta: this.producto.etiqueta_producto,
+      newLikes: this.producto.likes_producto,
+      id_usuario: this.producto.id_usuario,
+    };
+    this.productoService.updateProducto(auxProducto, this.idProducto).subscribe(
+      (producto) => {
+        this.router.navigate(['admin/list-producto']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  updateImagen() {
+    this.productoService
+    .updateImagen(this.imagen, this.producto.Imagenes[0].id_imagen, this.idProducto)
+    .subscribe(
+      (imagen) => {
+        this.paso2Completo();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  regresarPaso() {
+    this.paso2 = false;
+    this.paso1 = true;
+  }
+  avanzarPaso() {
+    this.paso2 = true;
+    this.paso1 = false;
+  }
+
+  //! ----------------------------------------------------------------------------------- CREAR
   // ** ------------------------------------------------------------------- PASO 1
 
   onSubmit(infoForm: NgForm) {
@@ -44,6 +106,7 @@ export class CreateProductoComponent implements OnInit{
         id_usuario: JSON.parse(sessionStorage.getItem('usuario')!).id_usuario,
       };
       this.createProducto(auxProducto);
+      console.log(auxProducto);
     } catch (error) {
       console.log(error);
     }

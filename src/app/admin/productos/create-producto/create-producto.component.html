@@ -35,7 +35,7 @@
             autocomplete="off"
             placeholder="Ingrese el nombre del producto"
             required
-            ngModel
+            [(ngModel)]="producto.nombres_producto"
             name="nombre"
             #nombre="ngModel"
           />
@@ -59,7 +59,7 @@
               class="form-control"
               id="selectEtiqueta"
               required
-              ngModel
+              [(ngModel)]="producto.etiqueta_producto"
               name="etiqueta"
               #etiqueta="ngModel"
             >
@@ -88,7 +88,7 @@
               placeholder="Ingrese el precio en ($)Dólares"
               autocomplete="off"
               required
-              ngModel
+              [(ngModel)]="producto.precio_producto"
               name="precio"
               #precio="ngModel"
             />
@@ -117,16 +117,16 @@
             placeholder="Ingrese todos los detalles del producto..."
             autocomplete="off"
             required
-            ngModel
+            [(ngModel)]="producto.descripcion_producto"
             name="descripcion"
             #descripcion="ngModel"
           ></textarea>
-        </div>
-        <div
-          [hidden]="descripcion.valid || descripcion.untouched"
-          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
-        >
-          *Ingrese un texto válido
+          <div
+            [hidden]="descripcion.valid || descripcion.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
         </div>
 
         <!-- --------------------- BOTÓN -->
@@ -142,14 +142,36 @@
           >
             *Ingrese todos los campos solicitados
           </div>
-          <button
-            type="submit"
-            class="btn btn-form"
-            [disabled]="!infoForm.form.valid"
-            (click)="onSubmit(infoForm); infoForm.reset()"
-          >
-            Siguiente
-          </button>
+          <div *ngIf="this.idProducto" class="d-flex flex-row">
+            <button
+              type="submit"
+              class="btn btn-form me-3"
+              [disabled]="!infoForm.form.valid"
+              (click)="updateProducto(); infoForm.reset()"
+            >
+              Guardar Cambios
+            </button>
+            <!-- TODO CREAR FUNCION PARA ACTUALIZAR FOTO-->
+            <button
+              type="submit"
+              class="btn btn-form ms-3"
+              [disabled]="!infoForm.form.valid"
+              (click)="avanzarPaso()"
+            >
+              Editar Imagen
+              <i class="bi bi-arrow-right-circle ms-1"></i>
+            </button>
+          </div>
+          <div *ngIf="!this.idProducto">
+            <button
+              type="submit"
+              class="btn btn-form"
+              [disabled]="!infoForm.form.valid"
+              (click)="onSubmit(infoForm); infoForm.reset()"
+            >
+              Siguiente
+            </button>
+          </div>
         </div>
       </form>
     </div>
@@ -189,23 +211,55 @@
             #imagen
           />
         </div>
+        <div [hidden]="!imagen" class="p-0 ps-2 pt-1 m-0 text-alert-button">
+          *Ingrese todos los campos solicitados
+        </div>
         <!-- --------------------- BOTÓN -->
-        <div class="d-flex flex-column align-items-start mx-3">
-          <div class="p-0 ps-2 pt-1 m-0 text-alert-button">
-            *Ingrese todos los campos solicitados
-          </div>
+        <div
+          *ngIf="idProducto"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
           <button
             type="submit"
-            class="btn btn-form"
+            class="btn btn-form me-3"
             [disabled]="!imagen"
-            (click)="onSubmit2(); reset(imageForm)"
+            (click)="regresarPaso()"
           >
-            Siguiente
+            <i class="bi bi-arrow-left-circle"></i>
+            Regresar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!imagen"
+            (click)="updateImagen()"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+        <div
+          *ngIf="!idProducto"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!imagen"
+            (click)="onSubmit2()"
+          >
+            Guardar
           </button>
         </div>
       </form>
       <div class="col c-imgtemp px-3">
         <img
+          *ngIf="idProducto"
+          src="{{ producto.Imagenes[0].url_imagen }}"
+          alt="previsualizar imagen"
+          class="img-thumbnail"
+        />
+        <img
+          *ngIf="!idProducto"
           [src]="imagenMin"
           [hidden]="!imagenMin"
           alt="previsualizar imagen"

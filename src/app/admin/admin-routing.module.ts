@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'create-actividad', component: CreateActividadComponent },
   { path: 'list-producto', component: ListProductosComponent },
   { path: 'create-producto', component: CreateProductoComponent },
+  { path: 'create-producto/:id', component: CreateProductoComponent},
   { path: '**', redirectTo: '' },
 ];
 

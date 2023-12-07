@@ -28,6 +28,10 @@ export class ListProductosComponent implements OnInit {
     }
   }
 
+  editarProducto(idProducto: number) {
+    this.router.navigate(['admin/create-producto', idProducto]);
+  }
+
   crearProducto() {
     this.router.navigate(['admin/create-producto']);
   }

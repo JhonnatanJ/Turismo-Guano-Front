@@ -61,14 +61,15 @@
           <td>$: {{ producto.precio_producto.toFixed(2) }}</td>
           <td>{{ producto.likes_producto }}</td>
           <td class="text-center">
-            <button class="btn delete">
+            <button class="btn">
               <img
                 src="../../../../../assets/icons/light/editar.png"
                 alt="editar"
                 width="24px"
+                (click)="editarProducto(producto.id_producto)"
               />
             </button>
-            <button class="btn delete ps-4">
+            <button class="btn ps-4">
               <img
                 src="../../../../../assets/icons/light/basura.png"
                 alt="borrar"
