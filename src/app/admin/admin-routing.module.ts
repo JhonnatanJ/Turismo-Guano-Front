@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListArticlesComponent } from './articles/pages/list-articles/list-articles.component';
-import { CreateArticleComponent } from './articles/pages/create-article/create-article.component';
-import { EditArticleComponent } from './articles/pages/edit-article/edit-article.component';
-import { CreateProductComponent } from './articles/pages/create-product/create-product.component';
-import { EditProductComponent } from './articles/pages/edit-product/edit-product.component';
 import { ListActividadesComponent } from './turismo/list-actividades/list-actividades.component';
 import { ListProductosComponent } from './productos/list-productos/list-productos.component';
 import { CreateActividadComponent } from './turismo/create-actividad/create-actividad.component';
+import { CreateProductoComponent } from './productos/create-producto/create-producto.component';
 
 const routes: Routes = [
   { path: '', component: ListActividadesComponent, pathMatch: 'full' },
   { path: 'create-actividad', component: CreateActividadComponent },
-  { path: 'list-producto', component: ListProductosComponent },
-  { path: 'create-article', component: CreateArticleComponent },
-  { path: 'edit-article', component: EditArticleComponent },
-  { path: 'create-product', component: CreateProductComponent },
-  { path: 'edit-product', component: EditProductComponent },
+  { path: 'list-productos', component: ListProductosComponent },
+  { path: 'create-producto', component: CreateProductoComponent },
+  { path: 'create-producto/:id', component: CreateProductoComponent},
   { path: '**', redirectTo: '' },
 ];
 

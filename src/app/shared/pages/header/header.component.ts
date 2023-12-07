@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from 'src/app/entities/login.dto';
+import { Login } from 'src/app/entities/dto/login.dto';
 import { Usuario } from 'src/app/entities/paged-producto.interface';
 import { LoginService } from 'src/app/services/login.service';
 

@@ -4,27 +4,37 @@
   <!-- ------------------------------------------------------- BUSQUEDA -->
   <div class="container row mt-3 mb-2 px-5 pt-4">
     <div class="col-8 d-flex flex-row align-items-center">
-      <span class="text-nowrap fs-5">Buscar actividad:</span>
+      <span class="text-nowrap fs-5">Buscar producto:</span>
       <div class="w-100 ps-2 py-2">
-        <form autocomplete="off">
+        <form (ngSubmit)="buscar()" autocomplete="off">
           <input
             type="text"
             name="termino"
             class="form-control"
-            placeholder="Ingrese nombre de la actividad..."
+            placeholder="Ingrese nombre del producto..."
+            [(ngModel)]="termino"
           />
         </form>
       </div>
     </div>
-    <!-- --------------------------------------------------------- NUEVO -->
+    <!-- --------------------------------------------------------- OPCIONES GENERALES -->
     <div class="col-4 d-flex flex-row align-items-center justify-content-end">
-      <button class="btn crear" type="button">
-        <span class="pe-1">Nuevo</span>
+      <button class="btn crear me-2" type="button" (click)="recargarTabla()">
+        <span class="pe-1 fs-6">Recargar</span>
+        <img
+          src="../../../../assets/icons/black/recargar.png"
+          alt="recargar actividad"
+          width="15px"
+          height="15px"
+        />
+      </button>
+      <button class="btn crear ms-2" type="button" (click)="crearProducto()">
+        <span class="pe-1 fs-6">Nuevo</span>
         <img
           src="../../../../assets/icons/black/crear.png"
           alt="crear actividad"
-          width="25px"
-          height="25px"
+          width="16px"
+          height="17px"
         />
       </button>
     </div>
@@ -61,18 +71,20 @@
           <td>$: {{ producto.precio_producto.toFixed(2) }}</td>
           <td>{{ producto.likes_producto }}</td>
           <td class="text-center">
-            <button class="btn delete">
+            <button class="btn">
               <img
                 src="../../../../../assets/icons/light/editar.png"
                 alt="editar"
-                width="24px"
+                width="20px"
+                (click)="editarProducto(producto.id_producto)"
               />
             </button>
-            <button class="btn delete ps-4">
+            <button class="btn ps-4">
               <img
                 src="../../../../../assets/icons/light/basura.png"
                 alt="borrar"
-                width="24px"
+                width="20px"
+                (click)="deleteProducto(producto.Imagenes[0].id_imagen, producto.id_producto)"
               />
             </button>
           </td>
