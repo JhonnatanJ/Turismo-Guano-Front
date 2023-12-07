@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
@@ -37,5 +37,10 @@ export class ProductoService {
   ): Observable<Producto> {
     const url = `${this.host}/producto/${idProducto}`;
     return this.http.put<Producto>(url, producto);
+  }
+
+  deleteProducto(idProducto: number): Observable<HttpStatusCode>{
+    const url = `${this.host}/producto/${idProducto}`;
+    return this.http.delete<HttpStatusCode>(url);
   }
 }

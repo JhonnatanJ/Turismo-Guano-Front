@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Producto } from 'src/app/entities/paged-producto.interface';
 import { ProductoService } from 'src/app/services/producto.service';
+import { ImagenService } from '../../../services/imagen.service';
 
 @Component({
   selector: 'app-list-productos',
@@ -18,6 +19,7 @@ export class ListProductosComponent implements OnInit {
 
   constructor(
     private productoService: ProductoService,
+    private imagenService: ImagenService,
     private router: Router
   ) {}
   ngOnInit(): void {
@@ -34,6 +36,18 @@ export class ListProductosComponent implements OnInit {
 
   crearProducto() {
     this.router.navigate(['admin/create-producto']);
+  }
+
+  deleteProducto(idImagen: number, idProducto: number) {
+    this.imagenService.deleteImagen(idImagen).subscribe((statusImagen) => {
+      console.log(statusImagen);
+      this.productoService
+        .deleteProducto(idProducto)
+        .subscribe((statusProducto) => {
+          console.log(statusProducto);
+          this.router.navigate(['admin/list-productos']);
+        });
+    });
   }
 
   getProductos(pagina: number) {

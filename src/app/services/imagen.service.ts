@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Imagen } from '../entities/Imagen';
@@ -27,10 +27,15 @@ export class ImagenService {
 
   }
 
-  updateImagenProducto(imagen: File, idImagen: number, idProducto: number) {
+  updateImagenProducto(imagen: File, idImagen: number, idProducto: number): Observable<Imagen>{
     const dataForm = new FormData();
     dataForm.append('imagen', imagen);
     const url = `${this.host}/producto/imagen/${idProducto}/${idImagen}`;
     return this.http.put<any>(url, dataForm);
+  }
+
+  deleteImagen(idImagen: number): Observable<HttpStatusCode>{
+    const url = `${this.host}/imagen/${idImagen}`;
+    return this.http.delete<HttpStatusCode>(url);
   }
 }

@@ -74,15 +74,19 @@ export class CreateProductoComponent implements OnInit {
 
   updateImagen() {
     this.imagenService
-    .updateImagenProducto(this.imagen, this.producto.Imagenes[0].id_imagen, this.idProducto)
-    .subscribe(
-      (imagen) => {
-        this.paso2Completo();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+      .updateImagenProducto(
+        this.imagen,
+        this.producto.Imagenes[0].id_imagen,
+        this.idProducto
+      )
+      .subscribe(
+        (imagen) => {
+          this.paso2Completo();
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   }
 
   regresarPaso() {
