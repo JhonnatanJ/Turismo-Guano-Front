@@ -34,6 +34,13 @@ export class ImagenService {
     return this.http.put<any>(url, dataForm);
   }
 
+  updateImagenActividad(imagen: File, idImagen: number, idActividad: number): Observable<Imagen>{
+    const dataForm = new FormData();
+    dataForm.append('imagen', imagen);
+    const url = `${this.host}/punto/imagen/${idActividad}/${idImagen}`;
+    return this.http.put<any>(url, dataForm);
+  }
+
   deleteImagen(idImagen: number): Observable<HttpStatusCode>{
     const url = `${this.host}/imagen/${idImagen}`;
     return this.http.delete<HttpStatusCode>(url);

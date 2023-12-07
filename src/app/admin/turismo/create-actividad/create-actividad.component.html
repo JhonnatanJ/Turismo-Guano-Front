@@ -1,6 +1,5 @@
 <div class="container">
   <h2 class="text-center mt-2 mx-2 px-2 py-3 titulo">CREAR NUEVA ACTIVIDAD</h2>
-
   <!-- * ---------------------------------------------------------- PASO 1 -->
   <div *ngIf="paso1">
     <!-- -------------------------------------- TITULO PASO 1 -->
@@ -37,7 +36,7 @@
             placeholder="Ingrese el nombre de la etiqueta"
             autocomplete="off"
             required
-            ngModel
+            [(ngModel)]="this.actividad.Etiqueta.nombre_etiqueta"
             name="etiqueta"
             #etiqueta="ngModel"
           />
@@ -49,20 +48,42 @@
           *Ingrese una etiqueta válida
         </div>
         <div class="d-flex flex-column align-items-start mx-3">
-          <div
-            [hidden]="etiqueta.valid"
-            class="p-0 ps-2 pt-1 m-0 text-alert-button"
-          >
-            *Ingrese todos los campos solicitados
+          <div *ngIf="!this.idActividad">
+            <div
+              [hidden]="etiqueta.valid"
+              class="p-0 ps-2 pt-1 m-0 text-alert-button"
+            >
+              *Ingrese todos los campos solicitados
+            </div>
+            <button
+              type="submit"
+              class="btn btn-form"
+              [disabled]="!etiquetaForm.form.valid"
+              (click)="onSubmit(etiquetaForm); etiquetaForm.reset()"
+            >
+              Siguiente
+            </button>
           </div>
-          <button
-            type="submit"
-            class="btn btn-form"
-            [disabled]="!etiquetaForm.form.valid"
-            (click)="onSubmit(etiquetaForm); etiquetaForm.reset()"
-          >
-            Siguiente
-          </button>
+          <div *ngIf="this.idActividad" class="d-flex flex-row">
+            <button
+              type="submit"
+              class="btn btn-form me-3"
+              [disabled]="!etiquetaForm.form.valid"
+              (click)="updateEtiqueta()"
+            >
+              Guardar Cambios
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-form ms-3"
+              [disabled]="!etiquetaForm.form.valid"
+              (click)="avanzarPaso1()"
+            >
+              Editar Información
+              <i class="bi bi-arrow-right-circle ms-1"></i>
+            </button>
+          </div>
         </div>
       </form>
     </div>
@@ -102,7 +123,7 @@
             placeholder="Ingrese el nombre de la actividad turística"
             autocomplete="off"
             required
-            ngModel
+            [(ngModel)]="this.actividad.nombres_punto"
             name="nombre"
             #nombre="ngModel"
           />
@@ -130,7 +151,7 @@
             placeholder="Ingrese todos los detalles de la actividad turística..."
             autocomplete="off"
             required
-            ngModel
+            [(ngModel)]="this.actividad.descripcion_punto"
             name="descripcion"
             #descripcion="ngModel"
           ></textarea>
@@ -143,7 +164,10 @@
         </div>
 
         <!-- --------------------- BOTÓN -->
-        <div class="d-flex flex-column align-items-start mx-3">
+        <div
+          *ngIf="!this.idActividad"
+          class="d-flex flex-column align-items-start mx-3"
+        >
           <div
             [hidden]="nombre.valid && descripcion.valid"
             class="p-0 ps-2 pt-1 m-0 text-alert-button"
@@ -157,6 +181,36 @@
             (click)="onSubmit2(infoForm); infoForm.reset()"
           >
             Siguiente
+          </button>
+        </div>
+        <div *ngIf="this.idActividad" class="d-flex flex-row">
+          <button
+            type="submit"
+            class="btn btn-form me-3"
+            [disabled]="!infoForm.form.valid"
+            (click)="regresarPaso2()"
+          >
+            <i class="bi bi-arrow-left-circle"></i>
+            Editar Etiqueta
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-form mx-3"
+            [disabled]="!infoForm.form.valid"
+            (click)="updateActividad(); infoForm.reset()"
+          >
+            Guardar Cambios
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!infoForm.form.valid"
+            (click)="avanzarPaso2()"
+          >
+            Editar Imagen
+            <i class="bi bi-arrow-right-circle ms-1"></i>
           </button>
         </div>
       </form>
@@ -197,23 +251,58 @@
             #imagen
           />
         </div>
-        <!-- --------------------- BOTÓN -->
-        <div class="d-flex flex-column align-items-start mx-3">
-          <div class="p-0 ps-2 pt-1 m-0 text-alert-button">
-            *Ingrese todos los campos solicitados
-          </div>
+        <div [hidden]="imagen" class="p-0 ps-2 pt-1 m-0 text-alert-button">
+          *Ingrese todos los campos solicitados
+        </div>
+        <!-- ------------------------------------------------------ BOTONES -->
+        <!-- --------------------- BOTÓNES ACTUALIZAR IMAGEN -->
+        <div
+          *ngIf="idActividad"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
           <button
             type="submit"
-            class="btn btn-form"
+            class="btn btn-form me-3"
+            [disabled]="!imagen"
+            (click)="regresarPaso3()"
+          >
+            <i class="bi bi-arrow-left-circle"></i>
+            Regresar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!imagen"
+            (click)="updateImagen()"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+        <!-- --------------------- BOTÓN CREAR IMAGEN -->
+        <div
+          *ngIf="!idActividad"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
             [disabled]="!imagen"
             (click)="onSubmit3(); reset(imageForm)"
           >
-            Siguiente
+            Guardar
           </button>
         </div>
       </form>
+      <!-- --------------------------------------- PREVIEW IMAGEN -->
       <div class="col c-imgtemp px-3">
         <img
+          *ngIf="this.idActividad"
+          src="{{ actividad.Imagenes[0].url_imagen }}"
+          alt="previsualizar imagen"
+          class="img-thumbnail"
+        />
+        <img
+        *ngIf="!this.idActividad"
           [src]="imagenMin"
           [hidden]="!imagenMin"
           alt="previsualizar imagen"

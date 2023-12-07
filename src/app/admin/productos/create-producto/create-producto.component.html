@@ -151,7 +151,7 @@
             >
               Guardar Cambios
             </button>
-            <!-- TODO CREAR FUNCION PARA ACTUALIZAR FOTO-->
+
             <button
               type="submit"
               class="btn btn-form ms-3"
@@ -211,11 +211,11 @@
             #imagen
           />
         </div>
-        <div [hidden]="!imagen" class="p-0 ps-2 pt-1 m-0 text-alert-button">
+        <div [hidden]="imagen" class="p-0 ps-2 pt-1 m-0 text-alert-button">
           *Ingrese todos los campos solicitados
         </div>
         <!-- ------------------------------------------------------ BOTÓNES -->
-        <!-- --------------------- BOTÓNES ACTUALIZAR PRODUCTO -->
+        <!-- --------------------- BOTÓNES ACTUALIZAR IMAGEN -->
         <div
           *ngIf="idProducto"
           class="d-flex flex-row align-items-center justify-content-start mx-3"
@@ -238,7 +238,7 @@
             Guardar Cambios
           </button>
         </div>
-        <!-- --------------------- BOTÓN CREAR PRODUCTO -->
+        <!-- --------------------- BOTÓN CREAR IMAGEN -->
         <div
           *ngIf="!idProducto"
           class="d-flex flex-row align-items-center justify-content-start mx-3"
@@ -256,7 +256,7 @@
       <!-- ------------------ PREVIEW IMAGEN -->
       <div class="col c-imgtemp px-3">
         <img
-          *ngIf="idProducto"
+          *ngIf="this.idProducto"
           src="{{ producto.Imagenes[0].url_imagen }}"
           alt="previsualizar imagen"
           class="img-thumbnail"

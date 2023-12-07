@@ -34,7 +34,6 @@ export class CreateProductoComponent implements OnInit {
     this.paso1 = true;
     this.paso2 = false;
     this.idProducto = parseInt(this._router.snapshot.paramMap.get('id')!);
-    console.log(this.producto);
 
     if (this.idProducto) {
       this.getProductoById(this.idProducto);
@@ -47,7 +46,6 @@ export class CreateProductoComponent implements OnInit {
     this.productoService.getProductoById(idProducto).subscribe(
       (producto) => {
         this.producto = producto;
-        console.log(this.producto);
       },
       (err) => console.log(err)
     );

@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CreateActividadDto } from 'src/app/entities/dto/turismo/create-actividad.dto';
 import { CreateComentarioDto } from 'src/app/entities/dto/turismo/create-comentario.dto';
 import { CreateEtiquetaDto } from 'src/app/entities/dto/turismo/create-etiqueta.dto';
-import {
-  Actividad,
-  Etiqueta,
-} from 'src/app/entities/paged-actividad.interface';
+
 import { ComentarioService } from 'src/app/services/comentario.service';
 import { EtiquetaService } from 'src/app/services/etiqueta.service';
 import { TurismoService } from 'src/app/services/turismo.service';
 import { ImagenService } from '../../../services/imagen.service';
+import { Etiqueta } from 'src/app/entities/Etiqueta';
+import { Actividad } from 'src/app/entities/Actividad';
+import { UpdateEtiquetaDto } from 'src/app/entities/dto/turismo/update-etiqueta.dto';
+import { UpdateActividadDto } from 'src/app/entities/dto/turismo/update-actividad.dto';
 
 @Component({
   selector: 'app-create-actividad',
@@ -22,6 +23,8 @@ export class CreateActividadComponent implements OnInit {
   etiqueta!: Etiqueta;
   actividad!: Actividad;
 
+  idActividad!: number;
+
   paso1: boolean = true;
   paso2: boolean = false;
   paso3: boolean = false;
@@ -31,6 +34,7 @@ export class CreateActividadComponent implements OnInit {
     private turismoService: TurismoService,
     private imagenService: ImagenService,
     private comentarioService: ComentarioService,
+    private _router: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -38,7 +42,109 @@ export class CreateActividadComponent implements OnInit {
     this.paso1 = true;
     this.paso2 = false;
     this.paso3 = false;
+
+    this.idActividad = parseInt(this._router.snapshot.paramMap.get('id')!);
+
+    if (this.idActividad) {
+      this.getActividadById(this.idActividad);
+    }
   }
+
+  // !--------------------------------------------------------------------------------- EDIT'
+
+  getActividadById(idActividad: number) {
+    this.turismoService.getActividadById(idActividad).subscribe(
+      (actividad) => {
+        this.actividad = actividad;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  updateEtiqueta() {
+    const auxEtiqueta: UpdateEtiquetaDto = {
+      newNombre: this.actividad.Etiqueta.nombre_etiqueta,
+    };
+    this.etiquetaService
+      .updateEtiqueta(auxEtiqueta, this.actividad.Etiqueta.id_etiqueta)
+      .subscribe(
+        (etiqueta) => {
+          this.etiqueta = etiqueta;
+          console.log(this.etiqueta);
+          this.router.navigate(['admin']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+
+  updateActividad() {
+    const auxActividad: UpdateActividadDto = {
+      newNombre: this.actividad.nombres_punto,
+      newDescripcion: this.actividad.descripcion_punto,
+      newLikes: this.actividad.likes_punto,
+      id_usuario: this.actividad.id_usuario,
+      id_etiqueta: this.actividad.Etiqueta.id_etiqueta,
+    };
+    this.turismoService
+      .updateActividad(auxActividad, this.actividad.id_punto)
+      .subscribe(
+        (actividad) => {
+          this.actividad = actividad;
+          this.router.navigate(['admin'])
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+
+  updateImagen(){
+    this.imagenService
+    .updateImagenActividad(
+      this.imagen,
+      this.actividad.Imagenes[0].id_imagen,
+      this.actividad.id_punto
+    )
+    .subscribe(
+      (imagen) => {
+        this.paso3Completo();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  // ** -------------------------- PASOS
+
+  avanzarPaso1() {
+    this.paso1 = false;
+    this.paso2 = true;
+    this.paso3 = false;
+  }
+
+  regresarPaso2() {
+    this.paso1 = true;
+    this.paso2 = false;
+    this.paso3 = false;
+  }
+
+  avanzarPaso2() {
+    this.paso1 = false;
+    this.paso2 = false;
+    this.paso3 = true;
+  }
+  regresarPaso3() {
+    this.paso1 = false;
+    this.paso2 = true;
+    this.paso3 = false;
+  }
+
+  // !--------------------------------------------------------------------------------- CRUD
 
   // ** ------------------------------------------------------------------- PASO 1
   onSubmit(etiquetaForm: NgForm) {

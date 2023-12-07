@@ -28,6 +28,10 @@ export class ListActividadesComponent implements OnInit {
     this.router.navigate(['admin/create-actividad'])
   }
 
+  editarActividad(idActividad: number){
+    this.router.navigate(['admin/create-actividad', idActividad]);
+  }
+
   getActividades(pagina: number) {
     this.turismoService.getAllActividades(pagina).subscribe(
       (allActividades) => {
@@ -40,6 +44,9 @@ export class ListActividadesComponent implements OnInit {
       }
     );
   }
+
+
+  // ----------------------------------------------------- PAGINADO
 
   cambiarPagina(num: number) {
     this.pagina = this.pagina + num;
