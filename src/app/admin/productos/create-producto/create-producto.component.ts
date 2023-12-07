@@ -64,7 +64,7 @@ export class CreateProductoComponent implements OnInit {
     };
     this.productoService.updateProducto(auxProducto, this.idProducto).subscribe(
       (producto) => {
-        this.router.navigate(['admin/list-producto']);
+        this.router.navigate(['admin/list-productos']);
       },
       (err) => {
         console.log(err);
@@ -172,6 +172,6 @@ export class CreateProductoComponent implements OnInit {
 
   paso2Completo() {
     this.paso2 = false;
-    this.router.navigate(['admin/list-producto']);
+    this.router.navigate(['admin/list-productos']);
   }
 }

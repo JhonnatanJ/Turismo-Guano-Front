@@ -26,9 +26,9 @@ export class ProductoService {
     return this.http.get<Producto>(url);
   }
 
-  getProductosByNombre(nombreProducto: string): Observable<Producto[]>{
-    const url = `${this.host}/producto/nombre/${nombreProducto}`;
-    return this.http.get<Producto[]>(url);
+  getProductosByNombre(nombreProducto: string, pagina: number): Observable<PagedProductos>{
+    const url = `${this.host}/producto/nombre/${nombreProducto}/${pagina}`;
+    return this.http.get<PagedProductos>(url);
   }
 
   createProducto(producto: CreateProductoDto): Observable<Producto> {

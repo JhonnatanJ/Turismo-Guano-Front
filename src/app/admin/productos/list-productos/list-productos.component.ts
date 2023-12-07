@@ -31,22 +31,30 @@ export class ListProductosComponent implements OnInit {
     }
   }
 
-  // ------------------------------------------------------ BUSQUEDA
+  // ------------------------------------------------------ OPCIONES GENERALES
 
+// ----------------------------------- BUSCAR
   termino: string = '';
 
   buscar() {
     if (this.termino.length >= 3 && this.termino.indexOf('   ') === -1) {
-      this.productoService.getProductosByNombre(this.termino).subscribe(
-        (productos) => {
-          this.productos = productos;
-          this.termino = '';
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+      this.productoService
+        .getProductosByNombre(this.termino, this.pagina)
+        .subscribe(
+          (Allproductos) => {
+            this.productos = Allproductos.rows;
+            this.termino = '';
+            this.pagina = 1;
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
     }
+  }
+  // ----------------------------------- RECARGAR
+  recargarTabla(){
+    this.ngOnInit();
   }
 
   // ------------------------------------------------------  CRUD
