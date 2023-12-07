@@ -11,6 +11,7 @@ import {
 import { ComentarioService } from 'src/app/services/comentario.service';
 import { EtiquetaService } from 'src/app/services/etiqueta.service';
 import { TurismoService } from 'src/app/services/turismo.service';
+import { ImagenService } from '../../../services/imagen.service';
 
 @Component({
   selector: 'app-create-actividad',
@@ -28,6 +29,7 @@ export class CreateActividadComponent implements OnInit {
   constructor(
     private etiquetaService: EtiquetaService,
     private turismoService: TurismoService,
+    private imagenService: ImagenService,
     private comentarioService: ComentarioService,
     private router: Router
   ) {}
@@ -115,8 +117,8 @@ export class CreateActividadComponent implements OnInit {
   imagenMin!: File;
 
   onSubmit3() {
-    this.turismoService
-      .createImagen(this.imagen, this.actividad.id_punto)
+    this.imagenService
+      .createImagenTurismo(this.imagen, this.actividad.id_punto)
       .subscribe(
         (imagen) => {
           const comentario: CreateComentarioDto = {

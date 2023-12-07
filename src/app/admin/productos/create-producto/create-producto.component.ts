@@ -7,6 +7,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { CreateProductoDto } from 'src/app/entities/dto/productos/create-producto.dto';
 import { Producto } from 'src/app/entities/Producto';
 import { UpdateProductoDto } from 'src/app/entities/dto/productos/update-producto.dto';
+import { ImagenService } from '../../../services/imagen.service';
 
 @Component({
   selector: 'app-create-producto',
@@ -24,6 +25,7 @@ export class CreateProductoComponent implements OnInit {
 
   constructor(
     private productoService: ProductoService,
+    private imagenService: ImagenService,
     private _router: ActivatedRoute,
     private router: Router
   ) {}
@@ -71,8 +73,8 @@ export class CreateProductoComponent implements OnInit {
   }
 
   updateImagen() {
-    this.productoService
-    .updateImagen(this.imagen, this.producto.Imagenes[0].id_imagen, this.idProducto)
+    this.imagenService
+    .updateImagenProducto(this.imagen, this.producto.Imagenes[0].id_imagen, this.idProducto)
     .subscribe(
       (imagen) => {
         this.paso2Completo();
@@ -136,8 +138,8 @@ export class CreateProductoComponent implements OnInit {
   imagenMin!: File;
 
   onSubmit2() {
-    this.productoService
-      .createImagen(this.imagen, this.producto.id_producto)
+    this.imagenService
+      .createImagenProducto(this.imagen, this.producto.id_producto)
       .subscribe(
         (imagen) => {
           this.paso2Completo();

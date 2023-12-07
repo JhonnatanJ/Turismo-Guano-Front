@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
-  Imagen,
   PagedProductos,
   Producto,
 } from '../entities/paged-producto.interface';
@@ -38,19 +37,5 @@ export class ProductoService {
   ): Observable<Producto> {
     const url = `${this.host}/producto/${idProducto}`;
     return this.http.put<Producto>(url, producto);
-  }
-
-  createImagen(imagen: File, idProducto: number): Observable<Imagen> {
-    const dataForm = new FormData();
-    dataForm.append('imagen', imagen);
-    const url = `${this.host}/producto/imagen/${idProducto}`;
-    return this.http.post<any>(url, dataForm);
-  }
-
-  updateImagen(imagen: File, idImagen: number, idProducto: number) {
-    const dataForm = new FormData();
-    dataForm.append('imagen', imagen);
-    const url = `${this.host}/producto/imagen/${idProducto}/${idImagen}`;
-    return this.http.put<any>(url, dataForm);
   }
 }
