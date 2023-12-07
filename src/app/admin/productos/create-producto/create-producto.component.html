@@ -1,0 +1,274 @@
+<div class="container">
+  <h2 class="text-center mt-2 mx-2 px-2 py-3 titulo">CREAR NUEVO PRODUCTO</h2>
+
+  <!-- * ---------------------------------------------------------- PASO 1 -->
+  <div *ngIf="paso1">
+    <!-- -------------------------------------- TITULO PASO 1 -->
+    <div class="py-3 mx-5 ps-4 titulo">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="../../../../assets/icons/black/informacion.png"
+          alt="etiqueta"
+          width="23px"
+          height="23px"
+        />
+        <h3 class="m-0 ps-2 fw-semibold fs-5">
+          PASO 1: <span class="ps-3">Ingresar Datos</span>
+        </h3>
+      </div>
+      <hr class="ps-5 hr-leche" />
+    </div>
+
+    <!-- -------------------------------------- FORMULARIO -->
+    <div class="row my-4 mx-5">
+      <form #infoForm="ngForm" class="formulario py-3">
+        <div
+          class="my-3 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label for="inputNombre" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Nombre del Producto:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            autocomplete="off"
+            placeholder="Ingrese el nombre del producto"
+            required
+            [(ngModel)]="producto.nombres_producto"
+            name="nombre"
+            #nombre="ngModel"
+          />
+          <div
+            [hidden]="nombre.valid || nombre.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
+        </div>
+        <div
+          class="my-3 mx-3 d-flex flex-row justify-content-center align-items-start"
+        >
+          <div class="col me-3">
+            <label
+              for="selectEtiqueta"
+              class="form-label fs-5 text-nowrap mx-3 my-0 col"
+              >Seleccione etiqueta:
+            </label>
+            <select
+              class="form-control"
+              id="selectEtiqueta"
+              required
+              [(ngModel)]="producto.etiqueta_producto"
+              name="etiqueta"
+              #etiqueta="ngModel"
+            >
+              <option *ngFor="let etiqueta of etiquetas" [value]="etiqueta">
+                {{ etiqueta }}
+              </option>
+            </select>
+            <div
+              [hidden]="etiqueta.valid || etiqueta.untouched"
+              class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+            >
+              *Seleccione una etiqueta válida
+            </div>
+          </div>
+
+          <div class="col mx-3 d-flex flex-column">
+            <label
+              for="inputPrecio"
+              class="form-label fs-5 text-nowrap mx-3 my-0 col"
+              >Ingresar Precio del Producto:
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputPrecio"
+              placeholder="Ingrese el precio en ($)Dólares"
+              autocomplete="off"
+              required
+              [(ngModel)]="producto.precio_producto"
+              name="precio"
+              #precio="ngModel"
+            />
+            <div
+              [hidden]="precio.valid || precio.untouched"
+              class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+            >
+              *Ingrese un precio válido
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="my-4 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label
+            for="inputDescripcion"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Descripción:
+          </label>
+          <textarea
+            type="text"
+            rows="4"
+            class="form-control"
+            id="inputDescripcion"
+            placeholder="Ingrese todos los detalles del producto..."
+            autocomplete="off"
+            required
+            [(ngModel)]="producto.descripcion_producto"
+            name="descripcion"
+            #descripcion="ngModel"
+          ></textarea>
+          <div
+            [hidden]="descripcion.valid || descripcion.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
+        </div>
+
+        <!-- --------------------- BOTÓN -->
+        <div class="d-flex flex-column align-items-start mx-3">
+          <div
+            [hidden]="
+              nombre.valid &&
+              etiqueta.valid &&
+              precio.valid &&
+              descripcion.valid
+            "
+            class="p-0 ps-2 pt-1 m-0 text-alert-button"
+          >
+            *Ingrese todos los campos solicitados
+          </div>
+          <div *ngIf="this.idProducto" class="d-flex flex-row">
+            <button
+              type="submit"
+              class="btn btn-form me-3"
+              [disabled]="!infoForm.form.valid"
+              (click)="updateProducto(); infoForm.reset()"
+            >
+              Guardar Cambios
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-form ms-3"
+              [disabled]="!infoForm.form.valid"
+              (click)="avanzarPaso()"
+            >
+              Editar Imagen
+              <i class="bi bi-arrow-right-circle ms-1"></i>
+            </button>
+          </div>
+          <div *ngIf="!this.idProducto">
+            <button
+              type="submit"
+              class="btn btn-form"
+              [disabled]="!infoForm.form.valid"
+              (click)="onSubmit(infoForm); infoForm.reset()"
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- * ------------------------------------------------------ PASO 2 -->
+  <div *ngIf="paso2">
+    <!-- -------------------------------------- TITULO PASO 2 -->
+    <div class="py-3 mx-5 ps-4 titulo">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="../../../../assets/icons/black/imagen.png"
+          alt="etiqueta"
+          width="32px"
+          height="32px"
+        />
+        <h3 class="m-0 ps-2 fw-semibold fs-5">
+          PASO 2: <span class="ps-3">Ingresar Imagen</span>
+        </h3>
+      </div>
+      <hr class="ps-5 hr-leche" />
+    </div>
+
+    <!-- -------------------------------------- FORMULARIO -->
+    <div class="d-flex flex-row my-4 mx-5 align-items-center formulario py-3">
+      <form #imageForm="ngForm" class="col" enctype="multipart/form-data">
+        <div class="my-3 mx-3">
+          <label for="inputImage" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Imagen:</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="inputImage"
+            (change)="onFileChange($event)"
+            accept="image/png, image/jpg, image/jpeg, image/gif"
+            #imagen
+          />
+        </div>
+        <div [hidden]="imagen" class="p-0 ps-2 pt-1 m-0 text-alert-button">
+          *Ingrese todos los campos solicitados
+        </div>
+        <!-- ------------------------------------------------------ BOTÓNES -->
+        <!-- --------------------- BOTÓNES ACTUALIZAR IMAGEN -->
+        <div
+          *ngIf="idProducto"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
+          <button
+            type="submit"
+            class="btn btn-form me-3"
+            [disabled]="!imagen"
+            (click)="regresarPaso()"
+          >
+            <i class="bi bi-arrow-left-circle"></i>
+            Regresar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!imagen"
+            (click)="updateImagen()"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+        <!-- --------------------- BOTÓN CREAR IMAGEN -->
+        <div
+          *ngIf="!idProducto"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!imagen"
+            (click)="onSubmit2()"
+          >
+            Guardar
+          </button>
+        </div>
+      </form>
+      <!-- ------------------ PREVIEW IMAGEN -->
+      <div class="col c-imgtemp px-3">
+        <img
+          *ngIf="this.idProducto && !imagenMin"
+          src="{{ producto.Imagenes[0].url_imagen }}"
+          alt="previsualizar imagen"
+          class="img-thumbnail"
+        />
+        <img
+          *ngIf="!idProducto || imagenMin"
+          [src]="imagenMin"
+          [hidden]="!imagenMin"
+          alt="previsualizar imagen"
+          class="img-thumbnail"
+        />
+      </div>
+    </div>
+  </div>
+</div>

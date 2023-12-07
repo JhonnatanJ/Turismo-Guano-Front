@@ -1,0 +1,314 @@
+<div class="container">
+  <h2 class="text-center mt-2 mx-2 px-2 py-3 titulo">CREAR NUEVA ACTIVIDAD</h2>
+  <!-- * ---------------------------------------------------------- PASO 1 -->
+  <div *ngIf="paso1">
+    <!-- -------------------------------------- TITULO PASO 1 -->
+    <div class="py-3 mx-5 ps-4 titulo">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="../../../../assets/icons/black/etiqueta.png"
+          alt="etiqueta"
+          width="23px"
+          height="23px"
+        />
+        <h3 class="m-0 ps-2 fw-semibold fs-5">
+          PASO 1: <span class="ps-3">Seleccionar Etiqueta</span>
+        </h3>
+      </div>
+      <hr class="ps-5 hr-leche" />
+    </div>
+
+    <!-- -------------------------------------- FORMULARIO -->
+    <div class="row my-4 mx-5">
+      <form #etiquetaForm="ngForm" class="formulario py-3">
+        <div
+          class="my-3 d-flex flex-row justify-content-center align-items-center"
+        >
+          <label
+            for="inputEtiqueta"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Etiqueta:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputEtiqueta"
+            placeholder="Ingrese el nombre de la etiqueta"
+            autocomplete="off"
+            required
+            [(ngModel)]="this.etiqueta.nombre_etiqueta"
+            name="etiquetaInput"
+            #etiquetaInput="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="etiquetaInput.valid || etiquetaInput.untouched"
+          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+        >
+          *Ingrese una etiqueta válida
+        </div>
+        <div class="d-flex flex-column align-items-start mx-3">
+          <div *ngIf="!this.idActividad">
+            <div
+              [hidden]="etiquetaInput.valid"
+              class="p-0 ps-2 pt-1 m-0 text-alert-button"
+            >
+              *Ingrese todos los campos solicitados
+            </div>
+            <button
+              type="submit"
+              class="btn btn-form"
+              [disabled]="!etiquetaForm.form.valid"
+              (click)="onSubmit(etiquetaForm); etiquetaForm.reset()"
+            >
+              Siguiente
+            </button>
+          </div>
+          <div *ngIf="this.idActividad" class="d-flex flex-row">
+            <button
+              type="submit"
+              class="btn btn-form me-3"
+              [disabled]="!etiquetaForm.form.valid"
+              (click)="updateEtiqueta()"
+            >
+              Guardar Cambios
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-form ms-3"
+              [disabled]="!etiquetaForm.form.valid"
+              (click)="avanzarPaso1()"
+            >
+              Editar Información
+              <i class="bi bi-arrow-right-circle ms-1"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- * ---------------------------------------------------------- PASO 2 -->
+  <div *ngIf="paso2">
+    <!-- -------------------------------------- TITULO PASO 2 -->
+    <div class="py-3 mx-5 ps-4 titulo">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="../../../../assets/icons/black/informacion.png"
+          alt="etiqueta"
+          width="23px"
+          height="23px"
+        />
+        <h3 class="m-0 ps-2 fw-semibold fs-5">
+          PASO 2: <span class="ps-3">Ingresar Datos</span>
+        </h3>
+      </div>
+      <hr class="ps-5 hr-leche" />
+    </div>
+
+    <!-- -------------------------------------- FORMULARIO -->
+    <div class="row my-4 mx-5">
+      <form #infoForm="ngForm" class="formulario py-3">
+        <div
+          class="my-3 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label for="inputNombre" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Nombre de la Actividad Turística:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            placeholder="Ingrese el nombre de la actividad turística"
+            autocomplete="off"
+            required
+            [(ngModel)]="this.actividad.nombres_punto"
+            name="nombre"
+            #nombre="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="nombre.valid || nombre.untouched"
+          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+        >
+          *Ingrese un nombre válido
+        </div>
+
+        <div
+          class="my-4 mx-3 d-flex flex-column justify-content-center align-items-start"
+        >
+          <label
+            for="inputDescripcion"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Descripción:
+          </label>
+          <textarea
+            type="text"
+            rows="8"
+            class="form-control"
+            id="inputDescripcion"
+            placeholder="Ingrese todos los detalles de la actividad turística..."
+            autocomplete="off"
+            required
+            [(ngModel)]="this.actividad.descripcion_punto"
+            name="descripcion"
+            #descripcion="ngModel"
+          ></textarea>
+        </div>
+        <div
+          [hidden]="descripcion.valid || descripcion.untouched"
+          class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+        >
+          *Ingrese un texto válido
+        </div>
+
+        <!-- --------------------- BOTÓN -->
+        <div
+          *ngIf="!this.idActividad"
+          class="d-flex flex-column align-items-start mx-3"
+        >
+          <div
+            [hidden]="nombre.valid && descripcion.valid"
+            class="p-0 ps-2 pt-1 m-0 text-alert-button"
+          >
+            *Ingrese todos los campos solicitados
+          </div>
+          <button
+            type="submit"
+            class="btn btn-form"
+            [disabled]="!infoForm.form.valid"
+            (click)="onSubmit2(infoForm); infoForm.reset()"
+          >
+            Siguiente
+          </button>
+        </div>
+        <div *ngIf="this.idActividad" class="d-flex flex-row">
+          <button
+            type="submit"
+            class="btn btn-form me-3"
+            [disabled]="!infoForm.form.valid"
+            (click)="regresarPaso2()"
+          >
+            <i class="bi bi-arrow-left-circle"></i>
+            Editar Etiqueta
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-form mx-3"
+            [disabled]="!infoForm.form.valid"
+            (click)="updateActividad(); infoForm.reset()"
+          >
+            Guardar Cambios
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!infoForm.form.valid"
+            (click)="avanzarPaso2()"
+          >
+            Editar Imagen
+            <i class="bi bi-arrow-right-circle ms-1"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- * --------------------------------------------------------- PASO 3 -->
+  <div *ngIf="paso3">
+    <!-- -------------------------------------- TITULO PASO 3 -->
+    <div class="py-3 mx-5 ps-4 titulo">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="../../../../assets/icons/black/imagen.png"
+          alt="etiqueta"
+          width="23px"
+          height="23px"
+        />
+        <h3 class="m-0 ps-2 fw-semibold fs-5">
+          PASO 3: <span class="ps-3">Ingresar Imagen</span>
+        </h3>
+      </div>
+      <hr class="ps-5 hr-leche" />
+    </div>
+
+    <!-- -------------------------------------- FORMULARIO -->
+    <div class="d-flex flex-row my-4 mx-5 align-items-center formulario py-3">
+      <form #imageForm="ngForm" class="col" enctype="multipart/form-data">
+        <div class="my-3 mx-3">
+          <label for="inputImage" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Imagen:</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="inputImage"
+            (change)="onFileChange($event)"
+            accept="image/png, image/jpg, image/jpeg, image/gif"
+            #imagen
+          />
+        </div>
+        <div [hidden]="imagen" class="p-0 ps-2 pt-1 m-0 text-alert-button">
+          *Ingrese todos los campos solicitados
+        </div>
+        <!-- ------------------------------------------------------ BOTONES -->
+        <!-- --------------------- BOTÓNES ACTUALIZAR IMAGEN -->
+        <div
+          *ngIf="idActividad"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
+          <button
+            type="submit"
+            class="btn btn-form me-3"
+            [disabled]="!imagen"
+            (click)="regresarPaso3()"
+          >
+            <i class="bi bi-arrow-left-circle"></i>
+            Regresar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!imagen"
+            (click)="updateImagen()"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+        <!-- --------------------- BOTÓN CREAR IMAGEN -->
+        <div
+          *ngIf="!idActividad"
+          class="d-flex flex-row align-items-center justify-content-start mx-3"
+        >
+          <button
+            type="submit"
+            class="btn btn-form ms-3"
+            [disabled]="!imagen"
+            (click)="onSubmit3(); reset(imageForm)"
+          >
+            Guardar
+          </button>
+        </div>
+      </form>
+      <!-- --------------------------------------- PREVIEW IMAGEN -->
+      <div class="col c-imgtemp px-3">
+        <img
+          *ngIf="this.idActividad && !imagenMin"
+          src="{{ actividad.Imagenes[0].url_imagen }}"
+          alt="previsualizar imagen"
+          class="img-thumbnail"
+        />
+        <img
+        *ngIf="!this.idActividad || imagenMin"
+          [src]="imagenMin"
+          [hidden]="!imagenMin"
+          alt="previsualizar imagen"
+          class="img-thumbnail"
+        />
+      </div>
+    </div>
+  </div>
+</div>

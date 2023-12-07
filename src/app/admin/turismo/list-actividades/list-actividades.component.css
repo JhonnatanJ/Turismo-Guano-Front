@@ -1,0 +1,36 @@
+h2.titulo {
+  background-color: white;
+}
+
+th {
+  background-color: var(--secundario);
+}
+
+img.img-resumen {
+  width: 5rem;
+}
+
+.search {
+  background-color: var(--secundario);
+}
+
+button.crear{
+  border: 1px solid black;
+  background-color: var(--bs-gray-100);
+}
+
+button.crear:hover{
+  border: 2px solid black;
+  background-color: white;
+  font-weight: bolder;
+}
+
+/* ------------------- PAGINADO*/
+
+span.i-paginado {
+  color: black;
+}
+
+a.page-link {
+  color: black;
+}
