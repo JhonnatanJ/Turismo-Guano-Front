@@ -25,6 +25,11 @@ export class TurismoService {
     return this.http.get<Actividad>(url);
   }
 
+  getActividadesByNombre(nombreActividad: string, pagina: number): Observable<PagedActividades>{
+    const url = `${this.host}/punto/nombre/${nombreActividad}/${pagina}`;
+    return this.http.get<PagedActividades>(url);
+  }
+
   createActividad(actividad: CreateActividadDto):Observable<Actividad>{
     const url = `${this.host}/punto`;
     return this.http.post<Actividad>(url,actividad);

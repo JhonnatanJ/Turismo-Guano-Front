@@ -28,6 +28,32 @@ export class ListActividadesComponent implements OnInit {
       console.log(error);
     }
   }
+    // ------------------------------------------------------ OPCIONES GENERALES
+
+// ----------------------------------- BUSCAR
+termino: string = '';
+
+buscar() {
+  if (this.termino.length >= 3 && this.termino.indexOf('   ') === -1) {
+    this.turismoService
+      .getActividadesByNombre(this.termino, this.pagina)
+      .subscribe(
+        (Allactividades) => {
+          this.actividades = Allactividades.rows;
+          this.termino = '';
+          this.pagina = 1;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+}
+// ----------------------------------- RECARGAR
+recargarTabla(){
+  this.ngOnInit();
+}
+
 
   crearActividad() {
     this.router.navigate(['admin/create-actividad']);
