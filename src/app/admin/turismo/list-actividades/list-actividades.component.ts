@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actividad } from 'src/app/entities/paged-actividad.interface';
 import { TurismoService } from 'src/app/services/turismo.service';
+import { ImagenService } from '../../../services/imagen.service';
 
 @Component({
   selector: 'app-list-actividades',
@@ -15,7 +16,11 @@ export class ListActividadesComponent implements OnInit {
 
   actividades!: Actividad[];
 
-  constructor(private turismoService: TurismoService, private router: Router) {}
+  constructor(
+    private turismoService: TurismoService,
+    private imagenService: ImagenService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     try {
       this.getActividades(this.pagina);
@@ -23,9 +28,56 @@ export class ListActividadesComponent implements OnInit {
       console.log(error);
     }
   }
+    // ------------------------------------------------------ OPCIONES GENERALES
+
+// ----------------------------------- BUSCAR
+termino: string = '';
+
+buscar() {
+  if (this.termino.length >= 3 && this.termino.indexOf('   ') === -1) {
+    this.turismoService
+      .getActividadesByNombre(this.termino, this.pagina)
+      .subscribe(
+        (Allactividades) => {
+          this.actividades = Allactividades.rows;
+          this.termino = '';
+          this.pagina = 1;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+}
+// ----------------------------------- RECARGAR
+recargarTabla(){
+  this.ngOnInit();
+}
+
 
   crearActividad() {
-    this.router.navigate(['admin/create-actividad'])
+    this.router.navigate(['admin/create-actividad']);
+  }
+
+  editarActividad(idActividad: number) {
+    this.router.navigate(['admin/create-actividad', idActividad]);
+  }
+
+  deleteProducto(idImagen: number, idActividad: number) {
+    this.imagenService.deleteImagen(idImagen).subscribe(
+      (statusImagen) => {
+        console.log(statusImagen);
+        this.turismoService.deleteActividad(idActividad).subscribe(
+          (statusActividad) => {
+            console.log(statusActividad);
+            this.ngOnInit();
+          }
+        )
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
   }
 
   getActividades(pagina: number) {
@@ -40,6 +92,8 @@ export class ListActividadesComponent implements OnInit {
       }
     );
   }
+
+  // ----------------------------------------------------- PAGINADO
 
   cambiarPagina(num: number) {
     this.pagina = this.pagina + num;
