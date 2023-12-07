@@ -4,14 +4,15 @@
   <!-- ------------------------------------------------------- BUSQUEDA -->
   <div class="container row mt-3 mb-2 px-5 pt-4">
     <div class="col-8 d-flex flex-row align-items-center">
-      <span class="text-nowrap fs-5">Buscar actividad:</span>
+      <span class="text-nowrap fs-5">Buscar producto:</span>
       <div class="w-100 ps-2 py-2">
-        <form autocomplete="off">
+        <form (ngSubmit)="buscar()" autocomplete="off">
           <input
             type="text"
             name="termino"
             class="form-control"
-            placeholder="Ingrese nombre de la actividad..."
+            placeholder="Ingrese nombre del producto..."
+            [(ngModel)]="termino"
           />
         </form>
       </div>

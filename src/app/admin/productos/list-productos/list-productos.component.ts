@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Producto } from 'src/app/entities/paged-producto.interface';
@@ -29,6 +30,26 @@ export class ListProductosComponent implements OnInit {
       console.log(error);
     }
   }
+
+  // ------------------------------------------------------ BUSQUEDA
+
+  termino: string = '';
+
+  buscar() {
+    if (this.termino.length >= 3 && this.termino.indexOf('   ') === -1) {
+      this.productoService.getProductosByNombre(this.termino).subscribe(
+        (productos) => {
+          this.productos = productos;
+          this.termino = '';
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
+  }
+
+  // ------------------------------------------------------  CRUD
 
   editarProducto(idProducto: number) {
     this.router.navigate(['admin/create-producto', idProducto]);

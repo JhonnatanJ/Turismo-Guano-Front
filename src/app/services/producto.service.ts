@@ -26,6 +26,11 @@ export class ProductoService {
     return this.http.get<Producto>(url);
   }
 
+  getProductosByNombre(nombreProducto: string): Observable<Producto[]>{
+    const url = `${this.host}/producto/nombre/${nombreProducto}`;
+    return this.http.get<Producto[]>(url);
+  }
+
   createProducto(producto: CreateProductoDto): Observable<Producto> {
     const url = `${this.host}/producto`;
     return this.http.post<Producto>(url, producto);
