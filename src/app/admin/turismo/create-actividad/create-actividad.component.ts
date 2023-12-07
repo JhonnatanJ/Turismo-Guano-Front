@@ -23,6 +23,8 @@ export class CreateActividadComponent implements OnInit {
   etiqueta : Etiqueta = new Etiqueta();
   actividad: Actividad = new Actividad();
 
+  update: boolean = false;
+
   idActividad!: number;
 
   paso1: boolean = true;
@@ -42,10 +44,12 @@ export class CreateActividadComponent implements OnInit {
     this.paso1 = true;
     this.paso2 = false;
     this.paso3 = false;
+    this.update = false;
 
     this.idActividad = parseInt(this._router.snapshot.paramMap.get('id')!);
 
     if (this.idActividad) {
+      this.avanzarPaso1();
       this.getActividadById(this.idActividad);
     }
   }
@@ -65,8 +69,17 @@ export class CreateActividadComponent implements OnInit {
   }
 
   updateEtiqueta() {
+    let searchEtiqueta: Etiqueta = new Etiqueta();
+    this.etiquetaService.getEtiquetaPorNombre(this.actividad.Etiqueta.nombre_etiqueta). subscribe(
+      (etiqueta) => {
+        searchEtiqueta = etiqueta;
+      },
+      (err) =>{
+        console.log(err)
+      }
+    );
     const auxEtiqueta: UpdateEtiquetaDto = {
-      newNombre: this.actividad.Etiqueta.nombre_etiqueta,
+      newNombre: searchEtiqueta.nombre_etiqueta,
     };
     this.etiquetaService
       .updateEtiqueta(auxEtiqueta, this.actividad.Etiqueta.id_etiqueta)
