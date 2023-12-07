@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './sections/pages/home/home.component';
 import { ProductosComponent } from './sections/pages/productos/productos.component';
 import { ContactenosComponent } from './contacts/pages/contactenos/contactenos.component';
-import { ArticuloDestinosComponent } from './sections/pages/articulo-destinos/articulo-destinos.component';
 import { AdminComponent } from './admin/admin.component';
 import { TurismoComponent } from './sections/pages/turismo/turismo.component';
+import { ActividadComponent } from './sections/pages/actividad/actividad.component';
 
 const routes: Routes = [
   {
@@ -27,8 +27,8 @@ const routes: Routes = [
     component: ContactenosComponent,
   },
   {
-    path: 'articulo',
-    component: ArticuloDestinosComponent,
+    path: 'actividad/:id',
+    component: ActividadComponent,
   },
   {
     path: 'admin',

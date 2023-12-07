@@ -8,6 +8,8 @@ import { ArticuloDestinosComponent } from './pages/articulo-destinos/articulo-de
 import { ProductosComponent } from './pages/productos/productos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TurismoComponent } from './pages/turismo/turismo.component';
+import { ActividadComponent } from './pages/actividad/actividad.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,9 @@ import { TurismoComponent } from './pages/turismo/turismo.component';
     ProductosComponent,
     HomeComponent,
     TurismoComponent,
+    ActividadComponent,
   ],
-  imports: [CommonModule, SharedModule, AppRoutingModule],
-  exports: [HomeComponent, ProductosComponent, ArticuloDestinosComponent],
+  imports: [CommonModule, SharedModule, AppRoutingModule, FormsModule],
+  exports: [HomeComponent, ProductosComponent, ArticuloDestinosComponent, ActividadComponent],
 })
 export class SectionsModule {}
