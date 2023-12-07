@@ -36,13 +36,13 @@
             placeholder="Ingrese el nombre de la etiqueta"
             autocomplete="off"
             required
-            [(ngModel)]="this.actividad.Etiqueta.nombre_etiqueta"
-            name="etiqueta"
-            #etiqueta="ngModel"
+            [(ngModel)]="this.etiqueta.nombre_etiqueta"
+            name="etiquetaInput"
+            #etiquetaInput="ngModel"
           />
         </div>
         <div
-          [hidden]="etiqueta.valid || etiqueta.untouched"
+          [hidden]="etiquetaInput.valid || etiquetaInput.untouched"
           class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
         >
           *Ingrese una etiqueta válida
@@ -50,7 +50,7 @@
         <div class="d-flex flex-column align-items-start mx-3">
           <div *ngIf="!this.idActividad">
             <div
-              [hidden]="etiqueta.valid"
+              [hidden]="etiquetaInput.valid"
               class="p-0 ps-2 pt-1 m-0 text-alert-button"
             >
               *Ingrese todos los campos solicitados
@@ -217,7 +217,7 @@
     </div>
   </div>
 
-  <!-- * ------------------------------------------------------ PASO 3 -->
+  <!-- * --------------------------------------------------------- PASO 3 -->
   <div *ngIf="paso3">
     <!-- -------------------------------------- TITULO PASO 3 -->
     <div class="py-3 mx-5 ps-4 titulo">
@@ -296,13 +296,13 @@
       <!-- --------------------------------------- PREVIEW IMAGEN -->
       <div class="col c-imgtemp px-3">
         <img
-          *ngIf="this.idActividad"
+          *ngIf="this.idActividad && !imagenMin"
           src="{{ actividad.Imagenes[0].url_imagen }}"
           alt="previsualizar imagen"
           class="img-thumbnail"
         />
         <img
-        *ngIf="!this.idActividad"
+        *ngIf="!this.idActividad || imagenMin"
           [src]="imagenMin"
           [hidden]="!imagenMin"
           alt="previsualizar imagen"

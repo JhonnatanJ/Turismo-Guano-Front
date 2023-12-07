@@ -256,13 +256,13 @@
       <!-- ------------------ PREVIEW IMAGEN -->
       <div class="col c-imgtemp px-3">
         <img
-          *ngIf="this.idProducto"
+          *ngIf="this.idProducto && !imagenMin"
           src="{{ producto.Imagenes[0].url_imagen }}"
           alt="previsualizar imagen"
           class="img-thumbnail"
         />
         <img
-          *ngIf="!idProducto"
+          *ngIf="!idProducto || imagenMin"
           [src]="imagenMin"
           [hidden]="!imagenMin"
           alt="previsualizar imagen"

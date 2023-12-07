@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actividad } from 'src/app/entities/paged-actividad.interface';
 import { TurismoService } from 'src/app/services/turismo.service';
+import { ImagenService } from '../../../services/imagen.service';
 
 @Component({
   selector: 'app-list-actividades',
@@ -15,7 +16,11 @@ export class ListActividadesComponent implements OnInit {
 
   actividades!: Actividad[];
 
-  constructor(private turismoService: TurismoService, private router: Router) {}
+  constructor(
+    private turismoService: TurismoService,
+    private imagenService: ImagenService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     try {
       this.getActividades(this.pagina);
@@ -25,11 +30,28 @@ export class ListActividadesComponent implements OnInit {
   }
 
   crearActividad() {
-    this.router.navigate(['admin/create-actividad'])
+    this.router.navigate(['admin/create-actividad']);
   }
 
-  editarActividad(idActividad: number){
+  editarActividad(idActividad: number) {
     this.router.navigate(['admin/create-actividad', idActividad]);
+  }
+
+  deleteProducto(idImagen: number, idActividad: number) {
+    this.imagenService.deleteImagen(idImagen).subscribe(
+      (statusImagen) => {
+        console.log(statusImagen);
+        this.turismoService.deleteActividad(idActividad).subscribe(
+          (statusActividad) => {
+            console.log(statusActividad);
+            this.ngOnInit();
+          }
+        )
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
   }
 
   getActividades(pagina: number) {
@@ -44,7 +66,6 @@ export class ListActividadesComponent implements OnInit {
       }
     );
   }
-
 
   // ----------------------------------------------------- PAGINADO
 

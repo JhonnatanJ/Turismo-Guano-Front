@@ -20,8 +20,8 @@ import { UpdateActividadDto } from 'src/app/entities/dto/turismo/update-activida
   styleUrls: ['./create-actividad.component.css'],
 })
 export class CreateActividadComponent implements OnInit {
-  etiqueta!: Etiqueta;
-  actividad!: Actividad;
+  etiqueta : Etiqueta = new Etiqueta();
+  actividad: Actividad = new Actividad();
 
   idActividad!: number;
 
@@ -56,6 +56,7 @@ export class CreateActividadComponent implements OnInit {
     this.turismoService.getActividadById(idActividad).subscribe(
       (actividad) => {
         this.actividad = actividad;
+        this.etiqueta = actividad.Etiqueta;
       },
       (err) => {
         console.log(err);
@@ -72,7 +73,6 @@ export class CreateActividadComponent implements OnInit {
       .subscribe(
         (etiqueta) => {
           this.etiqueta = etiqueta;
-          console.log(this.etiqueta);
           this.router.navigate(['admin']);
         },
         (err) => {
@@ -148,7 +148,7 @@ export class CreateActividadComponent implements OnInit {
 
   // ** ------------------------------------------------------------------- PASO 1
   onSubmit(etiquetaForm: NgForm) {
-    const auxEtiqueta = etiquetaForm.value.etiqueta;
+    const auxEtiqueta = etiquetaForm.value.etiquetaInput;
     try {
       this.getEtiqueta(auxEtiqueta);
       this.createEtiqueta(auxEtiqueta);

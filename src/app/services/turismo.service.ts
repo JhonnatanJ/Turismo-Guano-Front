@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -33,5 +33,10 @@ export class TurismoService {
   updateActividad(actividad: UpdateActividadDto, idActividad: number): Observable<Actividad>{
     const url = `${this.host}/punto/${idActividad}`;
     return this.http.put<Actividad>(url,actividad);
+  }
+
+  deleteActividad(idActividad: number): Observable<HttpStatusCode>{
+    const url = `${this.host}/punto/${idActividad}`;
+    return this.http.delete<HttpStatusCode>(url);
   }
 }
