@@ -147,63 +147,92 @@
 
   <!-- ---------------------------------------------------------------- LECHE YOGURT QUESO -->
 
-  <div class="container productos-titulo d-flex flex-row justify-content-evenly align-items-center">
-    <div class="py-3 mx-5 ps-5 titulo">
-      <h3 class="m-0 ps-3 fw-bolder">Leche</h3>
-      <hr class="ps-5 hr-leche" />
-    </div>
-    <div class="py-3 mx-5 ps-5 titulo">
-      <h3 class="m-0 ps-3 fw-bolder">Yogurt</h3>
-      <hr class="ps-5 hr-yogurt" />
-    </div>
-    <div class="py-3 mx-5 ps-5 titulo">
-      <h3 class="m-0 ps-3 fw-bolder">Queso</h3>
-      <hr class="ps-5 hr-queso" />
-    </div>
-  </div>
-  <!-- -------------------------------------------------------- GRID PRODUCTOS (LECHE - YOGURT - QUESO)  -->
-  <div class="container my-3">
-    <div
-      class="d-flex flex-row flex-wrap justify-content-evenly align-items-center px-4"
-    >
-      <div *ngFor="let producto of this.productos">
-        <shared-card-producto
-          [producto]="producto"
-          class="col-3 m-3"
-        ></shared-card-producto>
+  <div
+    class="container  d-flex flex-column justify-content-evenly align-items-center"
+  >
+    <div class="container productos-titulo d-flex flex-row justify-content-evenly align-items-center">
+      <div class="py-3 mx-5 ps-5 titulo">
+        <div class="d-flex flex-row align-items-center">
+          <img
+            src="../../../../assets/icons/black/leche.png"
+            width="26px"
+            height="26px"
+          />
+          <h3 class="m-0 ps-1 fw-bolder fs-4">Leche</h3>
+        </div>
+        <hr class="ps-5 hr-leche" />
+      </div>
+
+      <div class="py-3 mx-5 ps-5 titulo">
+        <div class="d-flex flex-row align-items-center">
+          <img
+            src="../../../../assets/icons/black/yogurt.png"
+            width="24px"
+            height="24px"
+          />
+          <h3 class="m-0 ps-1 fw-bolder fs-4">Yogurt</h3>
+        </div>
+        <hr class="ps-5 hr-yogurt" />
+      </div>
+      <div class="py-3 mx-5 ps-5 titulo">
+        <div class="d-flex flex-row align-items-center">
+          <img
+            src="../../../../assets/icons/black/queso.png"
+            width="24px"
+            height="24px"
+          />
+          <h3 class="m-0 ps-1 fw-bolder fs-4">Queso</h3>
+        </div>
+        <hr class="ps-5 hr-queso" />
       </div>
     </div>
 
-    <!-- -------------------------------- PAGINADO -->
-    <nav>
-      <ul *ngIf="countEntities > 0" class="pagination justify-content-center">
-        <li
-          *ngIf="pagina === 1; else anterior"
-          class="page-item disabled paginado"
-        >
-          <a class="page-link"> Anterior </a>
-        </li>
-        <ng-template #anterior>
-          <li class="page-item paginado">
-            <a (click)="cambiarPagina(-1)" class="btn page-link"> Anterior </a>
-          </li>
-        </ng-template>
-        <li class="page-item disabled paginado">
-          <a class="page-link"> Página {{ pagina }} </a>
-        </li>
+    <!-- -------------------------------------------------------- GRID PRODUCTOS (LECHE - YOGURT - QUESO)  -->
+    <div class="container my-3">
+      <div
+        class="d-flex flex-row flex-wrap justify-content-evenly align-items-center px-4"
+      >
+        <div *ngFor="let producto of this.productos">
+          <shared-card-producto
+            [producto]="producto"
+            class="col-3 m-3"
+          ></shared-card-producto>
+        </div>
+      </div>
 
-        <li *ngIf="!next; else siguiente" class="page-item disabled paginado">
-          <a class="page-link"> Siguiente </a>
-        </li>
-
-        <ng-template #siguiente>
-          <li class="page-item paginado">
-            <a (click)="cambiarPagina(1)" class="btn page-link">
-              Siguiente
-            </a>
+      <!-- -------------------------------- PAGINADO -->
+      <nav>
+        <ul *ngIf="countEntities > 0" class="pagination justify-content-center">
+          <li
+            *ngIf="pagina === 1; else anterior"
+            class="page-item disabled paginado"
+          >
+            <a class="page-link"> Anterior </a>
           </li>
-        </ng-template>
-      </ul>
-    </nav>
+          <ng-template #anterior>
+            <li class="page-item paginado">
+              <a (click)="cambiarPagina(-1)" class="btn page-link">
+                Anterior
+              </a>
+            </li>
+          </ng-template>
+          <li class="page-item disabled paginado">
+            <a class="page-link"> Página {{ pagina }} </a>
+          </li>
+
+          <li *ngIf="!next; else siguiente" class="page-item disabled paginado">
+            <a class="page-link"> Siguiente </a>
+          </li>
+
+          <ng-template #siguiente>
+            <li class="page-item paginado">
+              <a (click)="cambiarPagina(1)" class="btn page-link">
+                Siguiente
+              </a>
+            </li>
+          </ng-template>
+        </ul>
+      </nav>
+    </div>
   </div>
 </div>

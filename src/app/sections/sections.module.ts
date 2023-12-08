@@ -8,8 +8,9 @@ import { ArticuloDestinosComponent } from './pages/articulo-destinos/articulo-de
 import { ProductosComponent } from './pages/productos/productos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TurismoComponent } from './pages/turismo/turismo.component';
-import { ActividadComponent } from './pages/actividad/actividad.component';
+import { VerActividadComponent } from './pages/ver-actividad/ver-actividad.component';
 import { FormsModule } from '@angular/forms';
+import { VerProductoComponent } from './pages/ver-producto/ver-producto.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,10 @@ import { FormsModule } from '@angular/forms';
     ProductosComponent,
     HomeComponent,
     TurismoComponent,
-    ActividadComponent,
+    VerActividadComponent,
+    VerProductoComponent,
   ],
   imports: [CommonModule, SharedModule, AppRoutingModule, FormsModule],
-  exports: [HomeComponent, ProductosComponent, ArticuloDestinosComponent, ActividadComponent],
+  exports: [HomeComponent, ProductosComponent, ArticuloDestinosComponent, VerActividadComponent],
 })
 export class SectionsModule {}

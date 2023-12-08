@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Actividad } from 'src/app/entities/Actividad';
 import { TurismoService } from 'src/app/services/turismo.service';
@@ -8,17 +8,16 @@ import { ComentarioService } from 'src/app/services/comentario.service';
 import { UpdateActividadDto } from 'src/app/entities/dto/turismo/update-actividad.dto';
 
 @Component({
-  selector: 'app-actividad',
-  templateUrl: './actividad.component.html',
-  styleUrls: ['./actividad.component.css'],
+  selector: 'app-ver-actividad',
+  templateUrl: './ver-actividad.component.html',
+  styleUrls: ['./ver-actividad.component.css'],
 })
-export class ActividadComponent implements OnInit {
+export class VerActividadComponent implements OnInit {
   actividad: Actividad = new Actividad();
 
   idActividad!: number;
 
   constructor(
-    private router: Router,
     private _router: ActivatedRoute,
     private turismoService: TurismoService,
     private comentarioService: ComentarioService
@@ -79,6 +78,3 @@ export class ActividadComponent implements OnInit {
       );
   }
 }
-// newLikes !: number;
-// id_usuario !: number;
-// id_etiqueta !: number;
