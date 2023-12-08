@@ -1,24 +1,10 @@
 <div class="container px-5 mt-4">
-  <h2 class="text-center mt-2 mx-2 px-2 py-3 titulo">LISTADO DE ACTIVIDADES</h2>
+  <h2 class="text-center mt-2 mx-2 px-2 py-3 titulo">LISTADO DE USUARIOS</h2>
 
   <!-- ------------------------------------------------------- BUSQUEDA -->
   <div class="container row mt-3 mb-2 px-5 pt-4">
-    <div class="col-8 d-flex flex-row align-items-center">
-      <span class="text-nowrap fs-5">Buscar actividad:</span>
-      <div class="w-100 ps-2 py-2">
-        <form (ngSubmit)="buscar()" autocomplete="off">
-          <input
-            type="text"
-            name="termino"
-            class="form-control"
-            placeholder="Ingrese nombre de la actividad..."
-            [(ngModel)]="termino"
-          />
-        </form>
-      </div>
-    </div>
     <!-- --------------------------------------------------------- OPCIONES GENERALES -->
-    <div class="col-4 d-flex flex-row align-items-center justify-content-end">
+    <div class="d-flex flex-row align-items-center justify-content-center"  >
       <button class="btn crear me-2" type="button" (click)="recargarTabla()">
         <span class="pe-1 fs-6">Recargar</span>
         <img
@@ -28,7 +14,7 @@
           height="15px"
         />
       </button>
-      <button class="btn crear ms-2" type="button" (click)="crearActividad()">
+      <button class="btn crear ms-2" type="button" (click)="crearUsuario()">
         <span class="pe-1 fs-6">Nuevo</span>
         <img
           src="../../../../assets/icons/black/crear.png"
@@ -46,35 +32,25 @@
       <thead class="table-light">
         <tr>
           <th class="text-center">ID</th>
-          <th class="text-center">Imagen</th>
-          <th>Nombre</th>
-          <th>Etiqueta</th>
-          <th>Likes</th>
+          <th class="text-center">Nombres</th>
+          <th>Apellidos</th>
+          <th>Email</th>
           <th class="text-center">Opciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let actividad of actividades">
-          <td class="text-center">{{ actividad.id_punto }}</td>
-          <td
-            class="d-flex flex-row flex-wrap justify-content-center align-items-center"
-          >
-            <img
-              src="{{ actividad.Imagenes[0].url_imagen }}"
-              alt="portada"
-              class="img-thumbnile img-resumen"
-            />
-          </td>
-          <td>{{ actividad.nombres_punto }}</td>
-          <td>{{ actividad.Etiqueta.nombre_etiqueta }}</td>
-          <td>{{ actividad.likes_punto }}</td>
+        <tr *ngFor="let usuario of usuarios">
+          <td class="text-center">{{ usuario.id_usuario }}</td>
+          <td>{{ usuario.nombres_usuario }}</td>
+          <td>{{ usuario.apellidos_usuario }}</td>
+          <td>{{ usuario.email_usuario }}</td>
           <td class="text-center">
             <button class="btn delete">
               <img
                 src="../../../../assets/icons/black/editar.png"
                 alt="editar"
                 width="20px"
-                (click)="editarActividad(actividad.id_punto)"
+                (click)="editarUsuario(usuario.id_usuario)"
               />
             </button>
             <button class="btn delete ps-4">
@@ -82,7 +58,7 @@
                 src="../../../../assets/icons/black/basura.png"
                 alt="borrar"
                 width="20px"
-                (click)="deleteProducto(actividad.Imagenes[0].id_imagen, actividad.id_punto)"
+                (click)="deleteUsuario(usuario.id_usuario)"
               />
             </button>
           </td>
