@@ -6,7 +6,8 @@ import { ProductosComponent } from './sections/pages/productos/productos.compone
 import { ContactenosComponent } from './contacts/pages/contactenos/contactenos.component';
 import { AdminComponent } from './admin/admin.component';
 import { TurismoComponent } from './sections/pages/turismo/turismo.component';
-import { ActividadComponent } from './sections/pages/actividad/actividad.component';
+import { VerActividadComponent } from './sections/pages/ver-actividad/ver-actividad.component';
+import { VerProductoComponent } from './sections/pages/ver-producto/ver-producto.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,11 @@ const routes: Routes = [
   },
   {
     path: 'actividad/:id',
-    component: ActividadComponent,
+    component: VerActividadComponent,
+  },
+  {
+    path: 'producto/:id',
+    component: VerProductoComponent,
   },
   {
     path: 'admin',

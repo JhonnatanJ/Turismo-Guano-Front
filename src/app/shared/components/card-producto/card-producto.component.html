@@ -21,19 +21,20 @@
 
     <div class="d-flex flex-row align-items-center justify-content-between m-1">
       <div>
-        <a type="button">
+        <a>
           <img
             src="../../../../assets/icons/black/like-empty.png"
             class="c-icon"
             alt="like"
-            width="25px"
-            height="25px"
+            width="20px"
+            height="20px"
           />
         </a>
         <span class="ps-1">: {{ this.producto.likes_producto }}</span>
       </div>
       <div>
         <a
+          (click)="verProducto(this.producto.id_producto)"
           type="button"
           class="d-flex flex-row align-items-center justify-content-end text-reset text-decoration-none c-icon"
         >
