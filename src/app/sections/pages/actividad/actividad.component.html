@@ -19,16 +19,18 @@
         </h4>
       </div>
       <div class="d-flex flex-row align-items-center">
-        <img
-          src="../../../../assets/icons/black/like-empty.png"
-          class="c-icon"
-          alt="like"
-          width="40px"
-          height="40px"
-        />
-        <span>
-          <h4 class="m-0 fs-3">: {{ this.actividad.likes_punto }}</h4></span
-        >
+        <a type="button" (click)="agregarLike()">
+          <!-- <img
+            src="../../../../assets/icons/black/like-empty.png"
+            class="c-icon"
+            alt="like"
+            width="40px"
+            height="40px"
+          /> -->
+          <span>
+            <h4 class="m-0 fs-3"><i class="bi bi-heart me-1"></i>: {{ this.actividad.likes_punto }}</h4>
+          </span>
+        </a>
       </div>
     </div>
 
@@ -83,7 +85,7 @@
             [disabled]="!comentarioForm.valid"
             class="btn crear ms-2 mt-2"
             type="button"
-            (click)="agregarComentario(comentarioForm); comentarioForm.reset"
+            (click)="agregarComentario(comentarioForm); (comentarioForm.reset)"
           >
             Agregar Comentario
           </button>

@@ -31,6 +31,10 @@ button.crear:hover{
   font-weight: bolder;
 }
 
+i.bi-heart:hover{
+  color:red;
+}
+
 .info-container {
   position: relative;
   display: grid;
