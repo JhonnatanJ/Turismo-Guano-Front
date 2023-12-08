@@ -10,6 +10,8 @@ import { ListActividadesComponent } from './turismo/list-actividades/list-activi
 import { CreateActividadComponent } from './turismo/create-actividad/create-actividad.component';
 import { ListProductosComponent } from './productos/list-productos/list-productos.component';
 import { CreateProductoComponent } from './productos/create-producto/create-producto.component';
+import { CreateUsuarioComponent } from './usuario/create-usuario/create-usuario.component';
+import { ListUsuariosComponent } from './usuario/list-usuarios/list-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { CreateProductoComponent } from './productos/create-producto/create-prod
     CreateActividadComponent,
     ListProductosComponent,
     CreateProductoComponent,
+    CreateUsuarioComponent,
+    ListUsuariosComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule],
 })
