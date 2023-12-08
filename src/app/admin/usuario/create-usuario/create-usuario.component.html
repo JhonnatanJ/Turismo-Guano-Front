@@ -1,1 +1,165 @@
-<p>create-usuario works!</p>
+<div class="container">
+  <h2 *ngIf="!this.idUsuario" class="text-center mt-2 mx-2 px-2 py-3 titulo">
+    CREAR NUEVO USUARIO
+  </h2>
+  <h2 *ngIf="this.idUsuario" class="text-center mt-2 mx-2 px-2 py-3 titulo">
+    EDITAR USUARIO
+  </h2>
+
+  <div class="py-3 mx-5 ps-4 titulo">
+    <div class="d-flex flex-row align-items-center">
+      <h3 class="m-0 ps-2 fw-semibold fs-5">
+        <i class="bi bi-person-add fs-4"></i>
+        <span class="ps-2">Ingrese datos de usuario</span>
+      </h3>
+    </div>
+    <hr class="ps-5 hr-leche" />
+  </div>
+
+  <div class="container p-0 py-4 px-5">
+    <form #usuarioForm="ngForm" class="formulario py-3 px-5">
+      <div
+        class="my-3 d-flex flex-row justify-content-center align-items-center"
+      >
+        <div class="col from-group px-2">
+          <label
+            for="inputNombres"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Nombres:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputApellido"
+            placeholder="Ingrese los nombres"
+            autocomplete="off"
+            required
+            [(ngModel)]="this.usuario.nombres_usuario"
+            name="nombres"
+            #nombres="ngModel"
+          />
+          <div
+            [hidden]="nombres.valid || nombres.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
+        </div>
+        <div class="col from-group px-2">
+          <label
+            for="inputApellidos"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Apellidos:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputApellidos"
+            placeholder="Ingrese los apellidos"
+            autocomplete="off"
+            required
+            [(ngModel)]="this.usuario.apellidos_usuario"
+            name="apellidos"
+            #apellidos="ngModel"
+          />
+          <div
+            [hidden]="apellidos.valid || apellidos.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="my-3 d-flex flex-row justify-content-center align-items-center"
+      >
+        <div class="col from-group px-2">
+          <label for="inputEmail" class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Email:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputApellido"
+            placeholder="Ingrese el correo electrónico"
+            autocomplete="off"
+            required
+            [(ngModel)]="this.usuario.email_usuario"
+            name="email"
+            #email="ngModel"
+          />
+          <div
+            [hidden]="email.valid || email.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un email válido
+          </div>
+        </div>
+        <div class="col from-group px-2">
+          <label
+            for="inputPassword"
+            class="form-label fs-5 text-nowrap mx-3 my-0"
+            >Ingresar Contraseña:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputPassword"
+            placeholder="Ingrese la contraseña"
+            autocomplete="off"
+            required
+            [(ngModel)]="this.usuario.contrasenia_usuario"
+            name="password"
+            #password="ngModel"
+          />
+          <div
+            [hidden]="password.valid || password.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column form-group px-2 justify-content-start">
+        <div *ngIf="!this.idUsuario">
+          <div
+            [hidden]="usuarioForm.valid"
+            class="p-0 ps-2 pt-1 m-0 text-alert-button"
+          >
+            *Ingrese todos los campos solicitados
+          </div>
+          <div class="d-flex flex-row">
+            <button
+              type="submit"
+              class="btn btn-form"
+              [disabled]="!usuarioForm.form.valid"
+              (click)="onCreate(usuarioForm); usuarioForm.reset()"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+        <div *ngIf="this.idUsuario">
+          <div
+            [hidden]="usuarioForm.valid"
+            class="p-0 ps-2 pt-1 m-0 text-alert-button"
+          >
+            *Ingrese todos los campos solicitados
+          </div>
+
+          <div class="d-flex flex-row">
+            <button
+              type="submit"
+              class="btn btn-form"
+              [disabled]="!usuarioForm.form.valid"
+              (click)="onUpdate(usuarioForm); usuarioForm.reset()"
+            >
+              Guardar Cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

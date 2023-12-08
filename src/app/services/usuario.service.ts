@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { PagedUsuario } from '../entities/paged-usuario.interface';
 import { Observable } from 'rxjs';
 import { Usuario } from '../entities/Usuario';
+import { CreateUsuarioDto } from '../entities/dto/usuario/create-usuario.dto';
+import { UpdateUsuarioDto } from '../entities/dto/usuario/update-usuario.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +17,21 @@ export class UsuarioService {
   getUsuarios(pagina: number): Observable<PagedUsuario> {
     const url = `${this.host}/usuarios/only/${pagina}`;
     return this.http.get<PagedUsuario>(url);
+  }
+
+  getUsuarioById(idUsuario: number): Observable<Usuario> {
+    const url = `${this.host}/usuario/${idUsuario}`;
+    return this.http.get<Usuario>(url);
+  }
+
+  createUsuario(usuario: CreateUsuarioDto): Observable<Usuario> {
+    const url = `${this.host}/usuario`;
+    return this.http.post<Usuario>(url, usuario);
+  }
+
+  updateUsuario(usuario: UpdateUsuarioDto, idUsuario: number): Observable<Usuario> {
+    const url = `${this.host}/usuario/${idUsuario}`;
+    return this.http.put<Usuario>(url, usuario);
   }
 
   deleteUsuario(idUsuario: number): Observable<HttpStatusCode> {
