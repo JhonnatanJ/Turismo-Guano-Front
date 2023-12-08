@@ -1,0 +1,61 @@
+div.titulo {
+  background-color: white;
+}
+
+p {
+  font-size: 18px;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+h3.titulo {
+  text-align: left;
+  font-weight: bolder;
+}
+
+hr {
+  margin: 1px;
+  padding: 2px;
+  background-color: black;
+  width: 300px;
+}
+
+button.crear{
+  border: 1px solid black;
+  background-color: var(--bs-gray-100);
+}
+
+button.crear:hover{
+  border: 2px solid black;
+  background-color: white;
+  font-weight: bolder;
+}
+
+i.bi-heart:hover{
+  color:red;
+}
+
+.info-container {
+  position: relative;
+  display: grid;
+}
+.info-img {
+  display: inline;
+  justify-self: end;
+  object-fit: contain;
+  overflow: none;
+  height: 32rem;
+  width: 55rem;
+}
+.info-text {
+  position: absolute;
+  width: 29rem;
+  bottom: 30%;
+  z-index: 1;
+  background-color: var(--primario);
+}
+
+img.info {
+  height: 100%;
+  object-fit: cover;
+}

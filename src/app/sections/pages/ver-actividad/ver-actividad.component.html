@@ -1,0 +1,99 @@
+<div class="container d-flex flex-column px-5">
+  <div class="text-center py-3 titulo">
+    <h2 class="fw-bolder py-2">NUESTRAS ACTIVIDADES</h2>
+  </div>
+
+  <div class="container row mt-3 p-0 info-container">
+    <div
+      class="col-5 p-5 pt-4 pe-0 info-text animate__animated animate__fadeInDown"
+    >
+      <div class="row mb-1">
+        <h3 class="titulo fs-3">{{ this.actividad.nombres_punto }}</h3>
+      </div>
+
+      <hr class="mt-1 m-0" />
+
+      <div class="row mb-4">
+        <h4 class="fs-4">
+          {{ this.actividad.Etiqueta.nombre_etiqueta.toUpperCase() }}
+        </h4>
+      </div>
+      <div class="d-flex flex-row align-items-center">
+        <a type="button" (click)="agregarLike()">
+          <span>
+            <h4 class="m-0 fs-3"><i class="bi bi-heart me-1"></i>: {{ this.actividad.likes_punto }}</h4>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-10 p-0 info-img">
+      <img
+        src="{{ this.actividad.Imagenes[0].url_imagen }}"
+        alt="San Rafael"
+        class="d-block w-100 rounded info"
+      />
+    </div>
+  </div>
+
+  <div class="container row mt-3 mb-4 px-4">
+    <div class="container row px-5">
+      <h4 class="fs-4 fw-semibold">Descripción:</h4>
+      <p class="lh-base mt-2">
+        {{ this.actividad.descripcion_punto }}Deserunt ipsum minim incididunt
+        reprehenderit fugiat duis sit dolore et enim ex excepteur duis sint.
+        Nisi ad irure sint eu sit. Nostrud voluptate irure sunt adipisicing duis
+        Lorem. Labore non laborum dolor deserunt esse sit. Anim quis Lorem aute
+        aliquip nostrud et elit qui magna eiusmod culpa magna. Non adipisicing
+        cupidatat culpa anim nostrud anim Lorem consectetur nostrud eu pariatur
+        ipsum. Elit dolore duis ad aute aute esse irure velit eu.
+      </p>
+    </div>
+  </div>
+
+  <div class="container row mt-3 mb-4 px-4">
+    <div class="container row px-5">
+      <h4 class="fs-4 fw-semibold">Comentarios:</h4>
+      <div class="my-2 d-flex flex-column">
+        <form #comentarioForm="ngForm">
+          <div class="form-group">
+            <label for="inputComentario" class="fs-5 ps-2"
+              ><i class="bi bi-chat-right-dots me-2"></i>Ingrese un Comentario:
+            </label>
+            <textarea
+              name="comentario"
+              class="form-control"
+              id="inputComentario"
+              autocomplete="off"
+              placeholder="Escriba aquí su comentario..."
+              rows="2"
+              required
+              ngModel
+              #comentario="ngModel"
+            >
+            ></textarea
+            >
+          </div>
+          <button
+            [disabled]="!comentarioForm.valid"
+            class="btn crear ms-2 mt-2"
+            type="button"
+            (click)="agregarComentario(comentarioForm); (comentarioForm.reset)"
+          >
+            Agregar Comentario
+          </button>
+        </form>
+      </div>
+      <div class="lh-base mt-2 ms-2">
+        <div
+          *ngFor="let comentario of this.actividad.Comentarios"
+          class="d-flex flex-row text-wrap py-2 my-1 align-items-center"
+        >
+          <i class="bi bi-person-square pe-1"></i>
+          <p class="m-0 fs-5 me-2 fw-normal fst-italic">Anónimo:</p>
+          {{ comentario.mensaje_comentario }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

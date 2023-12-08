@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actividad } from 'src/app/entities/paged-actividad.interface';
 
 @Component({
@@ -8,4 +9,10 @@ import { Actividad } from 'src/app/entities/paged-actividad.interface';
 })
 export class CardTurismoComponent {
   @Input() actividad!: Actividad;
+
+  constructor(private router: Router){}
+
+  leerActividad(idActividad: number){
+    this.router.navigate(['actividad',idActividad])
+  }
 }
