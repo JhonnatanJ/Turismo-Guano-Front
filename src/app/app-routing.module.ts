@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { TurismoComponent } from './sections/pages/turismo/turismo.component';
 import { VerActividadComponent } from './sections/pages/ver-actividad/ver-actividad.component';
 import { VerProductoComponent } from './sections/pages/ver-producto/ver-producto.component';
+import { BuscarComponent } from './sections/pages/buscar/buscar.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'contactenos',
     component: ContactenosComponent,
+  },
+  {
+    path: 'busqueda',
+    component: BuscarComponent,
   },
   {
     path: 'actividad/:id',

@@ -1,0 +1,79 @@
+<div class="container d-flex flex-column">
+  <div class="text-center py-3 titulo">
+    <h2 class="fw-bolder py-2">BUSQUEDA</h2>
+  </div>
+  <!------------------------------------------------------ FORMULARIO -->
+  <div class="container mt-2 py-3 px-5 pt-4 formulario">
+    <form #buscarForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <div class="row align-items-center px-4">
+        <div class="form-group col-8 ps-5 pe-1">
+          <label for="inputBusqueda "
+            ><span class="fw-semibold fs-5 ps-2">Buscar:</span></label
+          >
+          <div class="input-group">
+            <span class="input-group-text" id="addon"
+              ><i class="bi bi-search"></i
+            ></span>
+            <input
+              type="text"
+              id="inputBusqueda"
+              class="form-control"
+              placeholder="Ingrese el término a buscar..."
+              [(ngModel)]="termino"
+              name="busqueda"
+              #busqueda="ngModel"
+            />
+          </div>
+        </div>
+
+        <div class="form-group col ps-1 pe-5">
+          <label for="inputBusqueda "
+            ><span class="fw-semibold fs-5 ps-2">Opción:</span></label
+          >
+          <div class="input-group">
+            <span class="input-group-text" id="addon"
+              ><i class="bi bi-caret-down-fill"></i
+            ></span>
+            <select
+              class="form-control"
+              id="selectEtiqueta"
+              [(ngModel)]="opcionBusqueda"
+              defaultValue="Turismo"
+              #opcion="ngModel"
+              name="opcion"
+            >
+              <option *ngFor="let opcion of opciones" [value]="opcion">
+                {{ opcion }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container my-5">
+    <div
+      *ngIf="this.actividades"
+      class="d-flex flex-row flex-wrap justify-content-evenly align-items-center px-4"
+    >
+      <div *ngFor="let actividad of this.actividades">
+        <shared-card-turismo
+          [actividad]="actividad"
+          class="col-3 m-3"
+        ></shared-card-turismo>
+      </div>
+    </div>
+    <div
+      *ngIf="this.productos"
+      class="d-flex flex-column flex-wrap justify-content-center align-items-evenly px-4"
+    >
+      <div *ngFor="let producto of this.productos">
+        <shared-card-producto
+          [producto]="producto"
+          class="col-3 m-3"
+        ></shared-card-producto>
+      </div>
+    </div>
+  </div>
+</div>

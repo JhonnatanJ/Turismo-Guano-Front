@@ -1,0 +1,7 @@
+div.titulo {
+  background-color: white;
+}
+
+.formulario{
+  background-color: var(--secundario);
+}

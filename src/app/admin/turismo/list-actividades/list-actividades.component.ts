@@ -28,32 +28,31 @@ export class ListActividadesComponent implements OnInit {
       console.log(error);
     }
   }
-    // ------------------------------------------------------ OPCIONES GENERALES
+  // ------------------------------------------------------ OPCIONES GENERALES
 
-// ----------------------------------- BUSCAR
-termino: string = '';
+  // ----------------------------------- BUSCAR
+  termino: string = '';
 
-buscar() {
-  if (this.termino.length >= 3 && this.termino.indexOf('   ') === -1) {
-    this.turismoService
-      .getActividadesByNombre(this.termino, this.pagina)
-      .subscribe(
-        (Allactividades) => {
-          this.actividades = Allactividades.rows;
-          this.termino = '';
-          this.pagina = 1;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+  buscar() {
+    if (this.termino.length >= 3 && this.termino.indexOf('   ') === -1) {
+      this.turismoService
+        .getActividadesByNombre(this.termino, this.pagina)
+        .subscribe(
+          (Allactividades) => {
+            this.actividades = Allactividades.rows;
+            this.termino = '';
+            this.pagina = 1;
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    }
   }
-}
-// ----------------------------------- RECARGAR
-recargarTabla(){
-  this.ngOnInit();
-}
-
+  // ----------------------------------- RECARGAR
+  recargarTabla() {
+    this.ngOnInit();
+  }
 
   crearActividad() {
     this.router.navigate(['admin/create-actividad']);
@@ -67,17 +66,17 @@ recargarTabla(){
     this.imagenService.deleteImagen(idImagen).subscribe(
       (statusImagen) => {
         console.log(statusImagen);
-        this.turismoService.deleteActividad(idActividad).subscribe(
-          (statusActividad) => {
+        this.turismoService
+          .deleteActividad(idActividad)
+          .subscribe((statusActividad) => {
             console.log(statusActividad);
             this.ngOnInit();
-          }
-        )
+          });
       },
       (err) => {
         console.log(err);
       }
-    )
+    );
   }
 
   getActividades(pagina: number) {
