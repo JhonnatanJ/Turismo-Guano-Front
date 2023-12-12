@@ -12,6 +12,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeaderComponent implements OnInit {
   logged: boolean = JSON.parse(sessionStorage.getItem('logged')!);
+  usuarioLogged = JSON.parse(sessionStorage.getItem('usuario')!);
   usuario!: Usuario;
   credentials!: Login;
 
