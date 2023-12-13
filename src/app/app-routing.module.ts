@@ -9,6 +9,9 @@ import { TurismoComponent } from './sections/pages/turismo/turismo.component';
 import { VerActividadComponent } from './sections/pages/ver-actividad/ver-actividad.component';
 import { VerProductoComponent } from './sections/pages/ver-producto/ver-producto.component';
 import { BuscarComponent } from './sections/pages/buscar/buscar.component';
+import { CaracteristicasRutaComponent } from './sections/pages/turismo-info/caracteristicas-ruta/caracteristicas-ruta.component';
+import { PaqueteRutaComponent } from './sections/pages/turismo-info/paquete-ruta/paquete-ruta.component';
+import { CostosRutaComponent } from './sections/pages/turismo-info/costos-ruta/costos-ruta.component';
 
 const routes: Routes = [
   {
@@ -17,12 +20,16 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'turismo',
-    component: TurismoComponent,
+    path: 'actividad/:id',
+    component: VerActividadComponent,
   },
   {
     path: 'productos',
     component: ProductosComponent,
+  },
+  {
+    path: 'producto/:id',
+    component: VerProductoComponent,
   },
   {
     path: 'contactenos',
@@ -33,12 +40,20 @@ const routes: Routes = [
     component: BuscarComponent,
   },
   {
-    path: 'actividad/:id',
-    component: VerActividadComponent,
+    path: 'turismo',
+    component: TurismoComponent,
   },
   {
-    path: 'producto/:id',
-    component: VerProductoComponent,
+    path: 'caracteristica-ruta',
+    component: CaracteristicasRutaComponent,
+  },
+  {
+    path: 'paquete-ruta',
+    component: PaqueteRutaComponent,
+  },
+  {
+    path: 'costo-ruta',
+    component: CostosRutaComponent,
   },
   {
     path: 'admin',
