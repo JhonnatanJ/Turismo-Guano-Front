@@ -1,0 +1,79 @@
+th {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  font-size: large;
+  text-wrap: nowrap;
+}
+
+td {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  font-size: medium;
+  text-align: center;
+}
+
+tr {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--bs-gray-300);
+}
+
+tr.table-total{
+  background-color: var(--bs-gray-200);
+  border-bottom: 1px solid white;
+}
+
+tr.table-total-general{
+  background-color: var(--bs-gray-300);
+}
+
+.container{
+  padding-left: 8rem;
+  padding-right: 8rem;
+  position: relative;
+}
+
+.titulo{
+  background-color: white;
+}
+
+.caract-img{
+ position: absolute;
+ top: 6%;
+ right: 5%;
+ height: 20rem;
+ opacity: 5%
+}
+
+.caract-img-2{
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  height: 20rem;
+  opacity: 5%
+ }
+
+
+.card {
+  background-color: var(--primario);
+  border: 2px solid var(--bs-gray-300);
+  border-radius: 15px;
+}
+
+.card:hover {
+  background-color: white;
+  border: 1px solid var(--bs-gray-400);
+  animation: danceMiddle;
+  transform: scale(1.05);
+  transition: transform 0.4s ease-in-out;
+  .card-header {
+    background-color: white;
+  }
+}
+
+.card-header {
+  background-color: var(--primario);
+}
+
