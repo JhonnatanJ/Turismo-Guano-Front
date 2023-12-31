@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { Contacto } from 'src/app/entities/Contacto';
 
 @Component({
@@ -10,7 +11,23 @@ import { Contacto } from 'src/app/entities/Contacto';
 export class ContactoComponent {
   contacto: Contacto = new Contacto();
 
-  enviarCorreo(correoForm: NgForm) {
-    console.log(correoForm.value);
+  enviarCorreo(e: Event) {
+    emailjs
+      .sendForm(
+        'service_noik4qn',
+        'template_eryisjm',
+        e.target as HTMLFormElement,
+        'woW_vHGCSdnF-Zv4G'
+      )
+      .then(
+        (result: EmailJSResponseStatus) => {
+          alert('Mensaje Enviado con Éxito!');
+          console.log(result.text);
+        },
+        (error) => {
+          alert('ERROR: El Mensaje no se pudo enviar');
+          console.log(error.text);
+        }
+      );
   }
 }

@@ -6,7 +6,7 @@
   {{ contacto | json }}
   <!-- ----------------------------------------------------------- FORMULARIO -->
   <div class="container d-flex flex-column px-5 py-4">
-    <form #correoForm="ngForm" class="p-5" id="form">
+    <form #correoForm="ngForm" class="p-5" id="form" (ngSubmit)="enviarCorreo($event); correoForm.reset()">
       <div class="d-flex flex-row pb-3">
         <div class="form-group col-6 px-2 field">
           <label for="inputNombre" class="form-label ps-2 fs-5 fw-semibold"
@@ -146,7 +146,6 @@
           type="submit"
           class="btn btn-form me-3"
           [disabled]="!correoForm.form.valid"
-          (click)="enviarCorreo(correoForm); correoForm.reset()"
         >
           Enviar Correo
         </button>
