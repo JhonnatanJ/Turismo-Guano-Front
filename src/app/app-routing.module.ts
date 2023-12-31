@@ -12,6 +12,7 @@ import { BuscarComponent } from './sections/pages/buscar/buscar.component';
 import { CaracteristicasRutaComponent } from './sections/pages/turismo-info/caracteristicas-ruta/caracteristicas-ruta.component';
 import { PaqueteRutaComponent } from './sections/pages/turismo-info/paquete-ruta/paquete-ruta.component';
 import { CostosRutaComponent } from './sections/pages/turismo-info/costos-ruta/costos-ruta.component';
+import { ContactoComponent } from './sections/pages/contacto/contacto.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'contactenos',
-    component: ContactenosComponent,
+    component: ContactoComponent,
   },
   {
     path: 'busqueda',
