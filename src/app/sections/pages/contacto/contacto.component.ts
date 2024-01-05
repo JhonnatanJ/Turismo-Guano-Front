@@ -12,6 +12,7 @@ export class ContactoComponent {
   contacto: Contacto = new Contacto();
 
   enviarCorreo(e: Event) {
+    alert('ESPERE UN MOMENTO...\n (Presione Aceptar)');
     emailjs
       .sendForm(
         'service_noik4qn',
@@ -21,11 +22,11 @@ export class ContactoComponent {
       )
       .then(
         (result: EmailJSResponseStatus) => {
-          alert('Mensaje Enviado con Éxito!');
+          alert('MENSAJE ENVIADO CON ÉXITO!\n (Presione Aceptar)');
           console.log(result.text);
         },
         (error) => {
-          alert('ERROR: El Mensaje no se pudo enviar');
+          alert('ERROR: EL MENSAJE NO SE PUDO ENVIAR\n (Presione Aceptar)');
           console.log(error.text);
         }
       );
