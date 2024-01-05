@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './sections/pages/home/home.component';
 import { ProductosComponent } from './sections/pages/productos/productos.component';
-import { ContactenosComponent } from './contacts/pages/contactenos/contactenos.component';
 import { AdminComponent } from './admin/admin.component';
 import { TurismoComponent } from './sections/pages/turismo/turismo.component';
 import { VerActividadComponent } from './sections/pages/ver-actividad/ver-actividad.component';
@@ -12,6 +11,8 @@ import { BuscarComponent } from './sections/pages/buscar/buscar.component';
 import { CaracteristicasRutaComponent } from './sections/pages/turismo-info/caracteristicas-ruta/caracteristicas-ruta.component';
 import { PaqueteRutaComponent } from './sections/pages/turismo-info/paquete-ruta/paquete-ruta.component';
 import { CostosRutaComponent } from './sections/pages/turismo-info/costos-ruta/costos-ruta.component';
+import { ContactoComponent } from './sections/pages/contacto/contacto.component';
+import { ResetPasswordComponent } from './sections/pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'contactenos',
-    component: ContactenosComponent,
+    component: ContactoComponent,
   },
   {
     path: 'busqueda',
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'costo-ruta',
     component: CostosRutaComponent,
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
   },
   {
     path: 'admin',
