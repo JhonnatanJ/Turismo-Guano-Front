@@ -24,6 +24,11 @@ export class UsuarioService {
     return this.http.get<Usuario>(url);
   }
 
+  getUsuarioByEmail(emailUsuario: string): Observable<Usuario> {
+    const url = `${this.host}/usuario/email/${emailUsuario}`;
+    return this.http.get<Usuario>(url);
+  }
+
   createUsuario(usuario: CreateUsuarioDto): Observable<Usuario> {
     const url = `${this.host}/usuario`;
     return this.http.post<Usuario>(url, usuario);

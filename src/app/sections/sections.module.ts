@@ -16,6 +16,7 @@ import { CaracteristicasRutaComponent } from './pages/turismo-info/caracteristic
 import { PaqueteRutaComponent } from './pages/turismo-info/paquete-ruta/paquete-ruta.component';
 import { CostosRutaComponent } from './pages/turismo-info/costos-ruta/costos-ruta.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     PaqueteRutaComponent,
     CostosRutaComponent,
     ContactoComponent,
+    ResetPasswordComponent,
   ],
   imports: [CommonModule, SharedModule, AppRoutingModule, FormsModule],
   exports: [
@@ -42,6 +44,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     CostosRutaComponent,
     PaqueteRutaComponent,
     ContactoComponent,
+    ResetPasswordComponent
   ],
 })
 export class SectionsModule {}

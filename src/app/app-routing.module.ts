@@ -13,6 +13,7 @@ import { CaracteristicasRutaComponent } from './sections/pages/turismo-info/cara
 import { PaqueteRutaComponent } from './sections/pages/turismo-info/paquete-ruta/paquete-ruta.component';
 import { CostosRutaComponent } from './sections/pages/turismo-info/costos-ruta/costos-ruta.component';
 import { ContactoComponent } from './sections/pages/contacto/contacto.component';
+import { ResetPasswordComponent } from './sections/pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path: 'costo-ruta',
     component: CostosRutaComponent,
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
   },
   {
     path: 'admin',

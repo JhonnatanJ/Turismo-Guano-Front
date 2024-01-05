@@ -2,8 +2,6 @@
   <div class="text-center py-3 titulo">
     <h2 class="fw-bolder py-2">CONTACTENOS</h2>
   </div>
-
-  {{ contacto | json }}
   <!-- ----------------------------------------------------------- FORMULARIO -->
   <div class="container d-flex flex-column px-5 py-4">
     <form #correoForm="ngForm" class="p-5" id="form" (ngSubmit)="enviarCorreo($event); correoForm.reset()">
