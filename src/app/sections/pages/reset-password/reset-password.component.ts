@@ -4,7 +4,6 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from 'src/app/entities/Usuario';
 import { UpdateUsuarioDto } from 'src/app/entities/dto/usuario/update-usuario.dto';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/app/contacts/interfaces/user.interface';
 
 @Component({
   selector: 'app-reset-password',

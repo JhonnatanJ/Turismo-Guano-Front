@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './sections/pages/home/home.component';
 import { ProductosComponent } from './sections/pages/productos/productos.component';
-import { ContactenosComponent } from './contacts/pages/contactenos/contactenos.component';
 import { AdminComponent } from './admin/admin.component';
 import { TurismoComponent } from './sections/pages/turismo/turismo.component';
 import { VerActividadComponent } from './sections/pages/ver-actividad/ver-actividad.component';
