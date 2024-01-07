@@ -1,0 +1,30 @@
+form{
+  background-color: var(--secundario);
+  border-radius: 13px;
+}
+
+.btn-form {
+  background-color: var(--bs-gray-100);
+  border: 1px solid var(--bs-gray-800);
+}
+
+.btn-form:hover, .btn-form:active {
+  border: 2px solid var(--bs-gray-800);
+  background-color: white;
+  font-weight: bolder;
+}
+
+.titulo{
+  background-color: white;
+}
+
+.alert{
+  color: #a94442;
+}
+
+.ng-touched.ng-invalid:not(form){
+  border-left: 5px solid #a94442; /* red */
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948;
+}

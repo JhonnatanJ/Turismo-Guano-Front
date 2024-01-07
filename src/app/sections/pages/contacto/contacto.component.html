@@ -1,0 +1,153 @@
+<div class="container">
+  <div class="text-center py-3 titulo">
+    <h2 class="fw-bolder py-2">CONTACTENOS</h2>
+  </div>
+  <!-- ----------------------------------------------------------- FORMULARIO -->
+  <div class="container d-flex flex-column px-5 py-4">
+    <form #correoForm="ngForm" class="p-5" id="form" (ngSubmit)="enviarCorreo($event); correoForm.reset()">
+      <div class="d-flex flex-row pb-3">
+        <div class="form-group col-6 px-2 field">
+          <label for="inputNombre" class="form-label ps-2 fs-5 fw-semibold"
+            >Nombres:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            placeholder="Ingrese su nombre"
+            required
+            autocomplete="off"
+            [(ngModel)]="contacto.nombres"
+            name="nombres"
+            #nombres="ngModel"
+          />
+          <div
+            [hidden]="nombres.valid || nombres.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
+        </div>
+        <div class="form-group col-6 px-2">
+          <label for="inputApellido" class="form-label ps-2 fs-5 fw-semibold"
+            >Apellidos:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputApellido"
+            placeholder="Ingrese su apellido"
+            required
+            autocomplete="off"
+            [(ngModel)]="contacto.apellidos"
+            name="apellidos"
+            #apellidos="ngModel"
+          />
+          <div
+            [hidden]="apellidos.valid || apellidos.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un texto válido
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row pb-3">
+        <div class="form-group col-6 px-2">
+          <label for="inputEmailCorreo" class="form-label ps-2 fs-5 fw-semibold"
+            >Email:
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmailCorreo"
+            placeholder="Ingrese su email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
+            required
+            autocomplete="off"
+            [(ngModel)]="contacto.email"
+            name="emailCorreo"
+            #emailCorreo="ngModel"
+          />
+          <div
+            [hidden]="emailCorreo.valid || emailCorreo.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un email válido
+          </div>
+        </div>
+
+        <div class="form-group col-6 px-2">
+          <label for="inputCelular" class="form-label ps-2 fs-5 fw-semibold"
+            >Celular:
+          </label>
+          <input
+            type="tel"
+            class="form-control"
+            id="inputCelular"
+            placeholder="Ingrese su celular"
+            required
+            autocomplete="off"
+            [(ngModel)]="contacto.celular"
+            name="celular"
+            #celular="ngModel"
+          />
+          <div
+            [hidden]="celular.valid || celular.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un celular válido
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row pb-4">
+        <div class="form-group col-12 px-2">
+          <label for="inputMensaje" class="form-label ps-2 fs-5 fw-semibold"
+            >Mensaje:
+          </label>
+          <textarea
+            type="text"
+            rows="4"
+            class="form-control"
+            id="inputMensaje"
+            placeholder="Ingrese su mensaje..."
+            autocomplete="off"
+            required
+            [(ngModel)]="contacto.mensaje"
+            name="mensaje"
+            #mensaje="ngModel"
+          ></textarea>
+          <div
+            [hidden]="mensaje.valid || mensaje.untouched"
+            class="mx-3 alert p-0 ps-2 pt-1 m-0 text-alert"
+          >
+            *Ingrese un mensaje válido
+          </div>
+        </div>
+      </div>
+      <div
+        class="d-flex flex-column justify-content-center align-items-center"
+      >
+        <div
+          [hidden]="
+            nombres.valid &&
+            apellidos.valid &&
+            emailCorreo.valid &&
+            celular.valid &&
+            mensaje.valid
+          "
+          class="p-0 ps-2 py-2 m-0 text-alert-button"
+        >
+          *Ingrese todos los campos solicitados
+        </div>
+        <button
+          type="submit"
+          class="btn btn-form me-3"
+          [disabled]="!correoForm.form.valid"
+        >
+          Enviar Correo
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
