@@ -87,6 +87,7 @@
               id="inputPrecio"
               placeholder="Ingrese el precio en ($)Dólares"
               autocomplete="off"
+              pattern="^[0-9]+\.[0-9]{1,2}$"
               required
               [(ngModel)]="producto.precio_producto"
               name="precio"

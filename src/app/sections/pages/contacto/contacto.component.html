@@ -15,6 +15,7 @@
             class="form-control"
             id="inputNombre"
             placeholder="Ingrese su nombre"
+            pattern="^[a-zA-Z]+$"
             required
             autocomplete="off"
             [(ngModel)]="contacto.nombres"
@@ -37,6 +38,7 @@
             class="form-control"
             id="inputApellido"
             placeholder="Ingrese su apellido"
+            pattern="^[a-zA-Z]+$"
             required
             autocomplete="off"
             [(ngModel)]="contacto.apellidos"
@@ -62,7 +64,7 @@
             class="form-control"
             id="inputEmailCorreo"
             placeholder="Ingrese su email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
+            pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
             required
             autocomplete="off"
             [(ngModel)]="contacto.email"
@@ -86,6 +88,7 @@
             class="form-control"
             id="inputCelular"
             placeholder="Ingrese su celular"
+            pattern="^09[0-9]{1,8}$"
             required
             autocomplete="off"
             [(ngModel)]="contacto.celular"

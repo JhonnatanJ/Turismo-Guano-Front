@@ -33,6 +33,7 @@
             id="inputApellido"
             placeholder="Ingrese los nombres"
             autocomplete="off"
+            pattern="^[a-zA-Z]+$"
             required
             [(ngModel)]="this.usuario.nombres_usuario"
             name="nombres"
@@ -57,6 +58,7 @@
             id="inputApellidos"
             placeholder="Ingrese los apellidos"
             autocomplete="off"
+            pattern="^[a-zA-Z]+$"
             required
             [(ngModel)]="this.usuario.apellidos_usuario"
             name="apellidos"
@@ -81,9 +83,10 @@
           <input
             type="text"
             class="form-control"
-            id="inputApellido"
+            id="inputEmail"
             placeholder="Ingrese el correo electrónico"
             autocomplete="off"
+            pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
             required
             [(ngModel)]="this.usuario.email_usuario"
             name="email"
